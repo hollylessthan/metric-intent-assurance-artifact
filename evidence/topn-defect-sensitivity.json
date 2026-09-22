@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "phase6-topn-template-defect-sensitivity",
+  "evidence_class": "posthoc_zero_cost_benchmark_defect_sensitivity",
+  "workflow_run_id": 35470004077,
+  "artifact_id": 10592257633,
+  "artifact_digest": "sha256:51d849a43312c693953b5280a1ee967b9b2b1a52ebf3c258744b3c6c0c0b1cb1",
+  "provider_calls": 0,
+  "frozen_gold_modified": false,
+  "defect": {
+    "cases": 12,
+    "utterances": 36,
+    "contrastive_groups": 12,
+    "family": "top_n",
+    "gold_ordering": "descending",
+    "gold_limit": 10,
+    "surface_expresses_ordering_or_limit": false
+  },
+  "h2_without_topn": {
+    "gpt": {
+      "groups": 80,
+      "execution_visible": 69,
+      "intent_visible": 80,
+      "gain": 0.1375,
+      "ci_low": 0.0625,
+      "ci_high": 0.2125,
+      "mcnemar_p": 0.0009765625,
+      "topn_among_original_discordant": 0,
+      "original_discordant": 11
+    },
+    "claude": {
+      "groups": 80,
+      "execution_visible": 34,
+      "intent_visible": 57,
+      "gain": 0.2875,
+      "ci_low": 0.1875,
+      "ci_high": 0.3875,
+      "mcnemar_p": 2.384185791015625e-7,
+      "topn_among_original_discordant": 0,
+      "original_discordant": 23
+    }
+  },
+  "final_v2_without_topn": {
+    "gpt": {
+      "final_mia": {
+        "cec": 0.9400749063670412,
+        "wrong_intent_on_answerable": {
+          "num": 1,
+          "den": 267
+        },
+        "strict_execution_precision": 0.984313725490196
+      },
+      "b2_matched": {
+        "cec": 0.9438202247191011,
+        "wrong_intent_on_answerable": {
+          "num": 1,
+          "den": 267
+        },
+        "strict_execution_precision": 0.7777777777777778
+      },
+      "b4_matched": {
+        "cec": 0.9438202247191011,
+        "wrong_intent_on_answerable": {
+          "num": 1,
+          "den": 267
+        },
+        "strict_execution_precision": 0.9032258064516129
+      }
+    },
+    "claude": {
+      "final_mia": {
+        "cec": 0.8876404494382022,
+        "wrong_intent_on_answerable": {
+          "num": 14,
+          "den": 267
+        },
+        "strict_execution_precision": 0.8745387453874539
+      },
+      "b2_matched": {
+        "cec": 0.9063670411985019,
+        "wrong_intent_on_answerable": {
+          "num": 16,
+          "den": 267
+        },
+        "strict_execution_precision": 0.7138643067846607
+      },
+      "b4_matched": {
+        "cec": 0.8876404494382022,
+        "wrong_intent_on_answerable": {
+          "num": 13,
+          "den": 267
+        },
+        "strict_execution_precision": 0.8843283582089553
+      }
+    }
+  }
+}
