@@ -8,6 +8,7 @@ from pathlib import Path
 
 from mia.benchmark import load_jsonl
 from mia.study_metrics import Prediction, scored_rows, summarize
+from repro_stats import fast_paired_delta
 
 
 def action_value(x):
@@ -36,32 +37,13 @@ def exact_binom_two_sided(a_only:int,b_only:int)->float:
 
 
 def cluster_delta(a_rows,b_rows,field,samples=10000,seed=20260919):
-    A={(r["case_id"],r["utterance_id"]):r for r in a_rows}
-    B={(r["case_id"],r["utterance_id"]):r for r in b_rows}
-    if set(A)!=set(B): raise RuntimeError("paired row identity mismatch")
-    by=defaultdict(list)
-    for k in A: by[k[0]].append(k)
-    case_ids=sorted(by)
     metric_name={
         "uer":"unsafe_execution_rate",
         "cec":"correct_execution_coverage",
     }[field]
-    def metric(M,keys):
-        return float(summarize([M[k] for k in keys])[metric_name])
-    allkeys=list(A)
-    est=metric(B,allkeys)-metric(A,allkeys) # clean - final
-    rng=random.Random(seed)
-    vals=[]
-    for _ in range(samples):
-        picks=[rng.choice(case_ids) for _ in case_ids]
-        keys=[k for cid in picks for k in by[cid]]
-        vals.append(metric(B,keys)-metric(A,keys))
-    vals.sort()
-    return {
-        "estimate":est,
-        "low":vals[max(0, math.floor(0.025*samples))],
-        "high":vals[min(samples-1, math.ceil(0.975*samples)-1)],
-    }
+    # Historical function returns clean - final, so reverse the generic
+    # left-minus-right helper arguments.
+    return fast_paired_delta(b_rows, a_rows, metric_name, samples=samples, seed=seed)
 
 def main():
     ap=argparse.ArgumentParser()
