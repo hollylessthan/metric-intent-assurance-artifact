@@ -4,7 +4,7 @@
   "asset_size_bytes": 16324600,
   "asset_sha256": "sha256:1687798651c324abc5824d14ce94569765a90117e0695bfcff87ccea8b08bd99",
   "internal_manifest_sha256": "sha256:50a45f1db9a3a1aa5b41d02a961b543f4abea61c785a84046e6590e265da1386",
-  "status": "built_locally_pending_release_asset_upload",
+  "status": "uploaded_and_github_digest_verified",
   "purpose": "Inputs required to recompute paper evidence that were omitted from the first sealed bundle.",
   "includes": [
     "exact final-MIA requests.jsonl for GPT and Claude",
@@ -56,5 +56,14 @@
       "name": "mia-v2-challenge-v2-claude-35431947015",
       "digest": "sha256:a720b8db0b62ee278e73fff68480ff82546af8feb34cc8290278d978e16123b0"
     }
-  ]
+  ],
+  "release": {
+    "tag": "artifact-v1.0",
+    "release_id": 393402930,
+    "asset_id": 580470179,
+    "browser_download_url": "https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-reproducibility-supplement-v1.zip",
+    "github_reported_size_bytes": 16324600,
+    "github_reported_digest": "sha256:1687798651c324abc5824d14ce94569765a90117e0695bfcff87ccea8b08bd99",
+    "verified_at": "2026-09-22"
+  }
 }
