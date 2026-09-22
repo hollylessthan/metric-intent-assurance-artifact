@@ -1,0 +1,73 @@
+{
+  "genuinely_unresolved_n": 4,
+  "note": "Challenge-set analysis is separate, post-Phase-5 external-validity evidence. Genuinely unresolved cases are not forced into the accuracy denominator.",
+  "providers": {
+    "claude": {
+      "b4": {
+        "confusion": {
+          "clarify": {"clarify": 1, "coverage_gap": 3, "execute": 0, "reject": 2},
+          "coverage_gap": {"clarify": 0, "coverage_gap": 0, "execute": 0, "reject": 1},
+          "execute": {"clarify": 1, "coverage_gap": 5, "execute": 4, "reject": 0},
+          "reject": {"clarify": 0, "coverage_gap": 0, "execute": 0, "reject": 3}
+        },
+        "resolved_action_exact": {
+          "correct": 8,
+          "n": 20,
+          "rate": 0.4,
+          "wilson95": [0.21880653237281708, 0.6134184992377468]
+        },
+        "unresolved_prediction_distribution": {"clarify": 2, "coverage_gap": 2}
+      },
+      "mia": {
+        "confusion": {
+          "clarify": {"clarify": 4, "coverage_gap": 2, "execute": 0, "reject": 0},
+          "coverage_gap": {"clarify": 0, "coverage_gap": 1, "execute": 0, "reject": 0},
+          "execute": {"clarify": 0, "coverage_gap": 6, "execute": 2, "reject": 2},
+          "reject": {"clarify": 0, "coverage_gap": 2, "execute": 0, "reject": 1}
+        },
+        "resolved_action_exact": {
+          "correct": 8,
+          "n": 20,
+          "rate": 0.4,
+          "wilson95": [0.21880653237281708, 0.6134184992377468]
+        },
+        "unresolved_prediction_distribution": {"clarify": 3, "coverage_gap": 1}
+      },
+      "mia_vs_b4_paired": {"b4_only_correct": 4, "mia_only_correct": 4, "ties": 12}
+    },
+    "gpt": {
+      "b4": {
+        "confusion": {
+          "clarify": {"clarify": 1, "coverage_gap": 0, "execute": 5, "reject": 0},
+          "coverage_gap": {"clarify": 0, "coverage_gap": 0, "execute": 1, "reject": 0},
+          "execute": {"clarify": 0, "coverage_gap": 0, "execute": 10, "reject": 0},
+          "reject": {"clarify": 1, "coverage_gap": 0, "execute": 2, "reject": 0}
+        },
+        "resolved_action_exact": {
+          "correct": 11,
+          "n": 20,
+          "rate": 0.55,
+          "wilson95": [0.3420853424503424, 0.7418021417443758]
+        },
+        "unresolved_prediction_distribution": {"clarify": 1, "execute": 3}
+      },
+      "mia": {
+        "confusion": {
+          "clarify": {"clarify": 0, "coverage_gap": 0, "execute": 0, "reject": 6},
+          "coverage_gap": {"clarify": 0, "coverage_gap": 0, "execute": 0, "reject": 1},
+          "execute": {"clarify": 0, "coverage_gap": 3, "execute": 1, "reject": 6},
+          "reject": {"clarify": 0, "coverage_gap": 0, "execute": 0, "reject": 3}
+        },
+        "resolved_action_exact": {
+          "correct": 4,
+          "n": 20,
+          "rate": 0.2,
+          "wilson95": [0.08065766257979806, 0.41601743225189364]
+        },
+        "unresolved_prediction_distribution": {"reject": 4}
+      },
+      "mia_vs_b4_paired": {"b4_only_correct": 10, "mia_only_correct": 3, "ties": 7}
+    }
+  },
+  "resolved_n": 20
+}
