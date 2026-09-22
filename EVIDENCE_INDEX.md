@@ -1,6 +1,6 @@
 # Evidence Index
 
-This index maps the paper's material evidence layers to the public artifact. It separates **frozen evidence physically present in this repository** from **sealed raw provider outputs that still need migration before public release**.
+This index maps the paper's material evidence layers to the public artifact. It separates **frozen evidence physically present in this repository** from **large sealed normalized payloads whose source ZIPs have been inspected and hash-bound but still need physical transfer before public release**.
 
 ## Evidence physically present
 
@@ -22,9 +22,9 @@ This index maps the paper's material evidence layers to the public artifact. It 
 | Frozen prompts | `prompts/` | historical callable-system prompts and final-v2 prompts |
 | Frozen evaluation settings | `evaluation/` | benchmark freeze, study protocol, held-out config, threshold lock |
 
-## Final-v2 evidence whose raw sealed payload is not yet migrated
+## Final-v2 sealed payload migration status
 
-These results are described in the paper and remain bound to immutable workflow runs in the private research repository. The compact reported values and run IDs are preserved in the public docs, but the **raw sealed predictions/traces are not yet physically present here**.
+All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs and duplicated request payloads are intentionally excluded. The **large normalized sealed files are not yet physically present here** because the current GitHub connector exposes workflow-artifact download but not release-asset upload or direct binary transfer between repositories.
 
 | Evidence | Source workflow run | Why needed |
 |---|---:|---|
@@ -50,7 +50,7 @@ The public artifact preserves the paper's bounded final-v2 conclusions:
 - Clean-prompt sensitivity raises UER from 0.72% to 1.44% GPT and from 4.80% to 6.00% Claude.
 - Defect-excluded final-MIA wrong-intent execution on answerable requests is 1/267 GPT and 14/267 Claude.
 
-These are **reported evidence summaries**, not substitutes for the raw sealed payloads listed above.
+These are **reported evidence summaries**, not substitutes for the normalized sealed payloads listed above. `SEALED_ARTIFACT_MANIFEST.json` records both ZIP-level and file-level SHA-256 bindings for those payloads.
 
 ## Preservation
 
@@ -58,4 +58,4 @@ These are **reported evidence summaries**, not substitutes for the raw sealed pa
 
 ## Release criterion
 
-The artifact is reviewer-readable now, but it should remain pre-publication/draft until the raw sealed final-v2 payloads above are migrated into immutable public assets and the reproduction commands run without access to the private research repository.
+The artifact is reviewer-readable now, but it should remain pre-publication/draft until the large normalized final-v2 payloads above are physically transferred into immutable public assets and the reproduction commands run without access to the private research repository.
