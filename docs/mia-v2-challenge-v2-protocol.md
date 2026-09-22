@@ -1,6 +1,6 @@
 # MIA-v2 fresh challenge-v2 protocol
 
-Status: **writers complete; pre-inference freeze pending**
+Status: **completed and frozen**. This document preserves the pre-inference protocol; final provider evaluation was completed under workflow run `35431947015` after the request/task freeze.
 
 ## Purpose
 
@@ -73,9 +73,9 @@ No post-output relabeling is allowed. Any wording-quality issue discovered after
 After challenge-v2 inference, the frozen MIA-v2 implementation is not modified based on challenge-v2 outcomes. Any later revision is a new system version and requires a new fresh evaluation set.
 
 
-## Writer collection status
+## Historical pre-inference writer collection status
 
-Writer collection is complete.
+The following records the state immediately before the challenge freeze and provider inference. Writer collection was complete.
 
 - Writer A: 12/12 requests returned.
 - Writer B: 12/12 requests returned.
@@ -83,6 +83,6 @@ Writer collection is complete.
 - All 24 request cells are non-empty.
 - A pre-inference side-by-side fidelity check found that all 24 preserve the supplied task semantics.
 - Writer text was not rewritten after return.
-- No challenge-v2 provider call has occurred.
+- At this historical checkpoint, no challenge-v2 provider call had occurred.
 
-The next step is a repository freeze that binds the exact request bytes, task/expectation precommit, writer intake provenance, and frozen MIA-v2 implementation before any model execution.
+The subsequent repository freeze bound the request bytes, task/expectation precommit, writer intake provenance, and frozen MIA-v2 implementation. Provider inference and evaluation then completed under workflow run `35431947015`; the public summary is `evidence/challenge-v2-summary.json`.
