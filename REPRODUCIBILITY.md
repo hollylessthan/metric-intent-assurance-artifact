@@ -54,19 +54,48 @@ python scripts/verify_sealed_artifacts.py --require-all
 
 Without `--require-all`, the verifier checks any sealed files already present and reports what is still missing.
 
-## 4. Publication release gate
+
+## 4. Download the public sealed bundle
+
+From a clean checkout, download the release asset:
+
+```bash
+curl -L \
+  -o mia-public-sealed-evidence-v1.zip \
+  https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip
+
+python - <<'PY'
+import hashlib
+from pathlib import Path
+
+p = Path("mia-public-sealed-evidence-v1.zip")
+print(hashlib.sha256(p.read_bytes()).hexdigest())
+PY
+```
+
+Expected SHA-256:
+
+`429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`
+
+Extract it under `evidence/sealed/`, then run:
+
+```bash
+python scripts/verify_sealed_artifacts.py --require-all
+```
+
+## 5. Publication release gate
 
 Before making this repository public and using it as the paper availability URL:
 
-1. migrate the normalized sealed outputs/predictions/traces needed for the final result tables into this repository or immutable public release assets;
-2. preserve the bindings already recorded in `SEALED_ARTIFACT_MANIFEST.json` and add destination URLs/paths once the large payload transfer is complete;
-3. update reproduction commands so they no longer depend on access to the private research repository;
-4. run the clean-checkout test/analysis procedure from this repository alone;
-5. scan for secrets, personal data, internal-review notes, and any `RESTRICTED` file;
-6. tag the frozen public artifact.
+1. public sealed bundle uploaded and SHA-256 verified — complete;
+2. source run/artifact IDs and file-level hashes recorded in `SEALED_ARTIFACT_MANIFEST.json` — complete;
+3. reproduction commands use the public artifact repository and release asset — complete;
+4. run the clean-checkout test/analysis procedure from this repository plus the public release asset;
+5. final secrets/personal-data/restricted-material scan;
+6. finalize the frozen public artifact tag after PR merge if desired.
 
-The source artifacts have now been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into `mia-public-sealed-evidence-v1.zip` (SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`). The remaining step is attaching that curated bundle as an immutable public release asset (or otherwise transferring it into the repository). Until that transfer is completed, this repository should be described as a **curated pre-publication artifact**, not a fully standalone reproduction package.
+The source artifacts have been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into the public release asset `mia-public-sealed-evidence-v1.zip` under tag `artifact-v1.0`. GitHub reports the expected size (1,317,896 bytes) and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`. The sealed publication bundle is now public. The remaining release-readiness task is a clean-checkout reproduction using only this repository plus the public release asset.
 
-## 5. Immutability rule
+## 6. Immutability rule
 
 Frozen benchmark labels, thresholds, provider outputs, and historical configurations must not be rewritten during packaging. Corrections or sensitivity analyses are added as separate records rather than mutating frozen evidence.
