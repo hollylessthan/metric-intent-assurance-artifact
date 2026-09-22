@@ -24,7 +24,7 @@ This index maps the paper's material evidence layers to the public artifact. It 
 
 ## Final-v2 sealed payload migration status
 
-All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs and duplicated request payloads are intentionally excluded. The publication-safe bundle is now attached to GitHub release `artifact-v1.0`: `mia-public-sealed-evidence-v1.zip` (1,317,896 bytes; SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`; 70 files). GitHub's reported digest matches the curated bundle manifest exactly.
+All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs and duplicated request payloads are intentionally excluded. The publication-safe bundle is attached to GitHub release `artifact-v1.0`: `mia-public-sealed-evidence-v1.zip` (1,317,896 bytes; SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`; 70 files). GitHub's reported digest matches the curated bundle manifest exactly. The repository is currently private, so external unauthenticated access is intentionally not yet available.
 
 | Evidence | Source workflow run | Why needed |
 |---|---:|---|
@@ -58,4 +58,4 @@ These are **reported evidence summaries**, not substitutes for the normalized se
 
 ## Release criterion
 
-The artifact now contains the public sealed evidence binding. The remaining readiness check is a clean reproduction from this repository plus the public release asset, followed by the final restricted/secrets scan.
+The artifact now contains the sealed evidence binding. Remaining readiness checks are authenticated clean reproduction while private, final restricted/secrets scan, and unauthenticated release-asset access after the repository is made public.
