@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "status": "frozen_before_model_execution",
+  "freeze_source_commit": "8b2ebebbeb22127212f1a169cf45d6b397048601",
+  "mia_v2_freeze_path": "reports/mia-v2/freeze.json",
+  "mia_v2_freeze_blob_sha": "1da8eb26c657be24041212153bb3183903c64f7b",
+  "challenge_files": {
+    "task_cards": {
+      "path": "reports/mia-v2/challenge-v2/task_cards.RESTRICTED.jsonl",
+      "git_blob_sha": "deb6eafa3af6d6d9997d9943ada89737609d54c9"
+    },
+    "author_expectations": {
+      "path": "reports/mia-v2/challenge-v2/author_expectations.PRECOMMIT.RESTRICTED.jsonl",
+      "git_blob_sha": "92239a89447d70b422611081c4644b7cff0096c4"
+    },
+    "final_requests": {
+      "path": "reports/mia-v2/challenge-v2/final_requests.RESTRICTED.jsonl",
+      "git_blob_sha": "a0f0f00759dd1f80c39d600f04256f1d264bba58"
+    },
+    "writer_intake": {
+      "path": "reports/mia-v2/challenge-v2/writer_intake.json",
+      "git_blob_sha": "885757d035b6659d365d4dd8859bed1e4923889b"
+    }
+  },
+  "study": {
+    "case_count": 24,
+    "writer_count": 2,
+    "cases_per_writer": {
+      "WRITER-A": 12,
+      "WRITER-B": 12
+    },
+    "domain_distribution": {
+      "commerce": 8,
+      "saas": 8,
+      "support": 8
+    },
+    "expected_action_distribution": {
+      "execute": 11,
+      "reject": 7,
+      "clarify": 3,
+      "coverage_gap": 3
+    },
+    "provider_visible_text_source": "independent non-author writer submissions",
+    "provider_calls_before_freeze": 0
+  },
+  "systems": {
+    "callable": [
+      "b1",
+      "b2",
+      "b4",
+      "mia-v2"
+    ],
+    "derived": [
+      "b3"
+    ],
+    "providers": [
+      "gpt",
+      "claude"
+    ]
+  },
+  "integrity_rules": [
+    "Use the exact frozen final_requests bytes for challenge-v2 provider input.",
+    "Do not expose author expectations or hidden task cards to providers.",
+    "Do not edit, drop, replace, or relabel challenge cases after provider inference.",
+    "Do not modify frozen MIA-v2 based on challenge-v2 outcomes.",
+    "B3 must be derived locally from B2 and must not generate a provider call."
+  ]
+}
