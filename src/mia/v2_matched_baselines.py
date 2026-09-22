@@ -5,14 +5,14 @@ from pathlib import Path
 from typing import Any
 
 from .models import Action
-from .phase5_systems import BENCHMARK_GOLD_KEYS, gold_key_paths
+from .systems import BENCHMARK_GOLD_KEYS, gold_key_paths
 from .registry import Registry
 from .v2_system import build_model_case_v2, parse_generation_v2
 
 
 B2_MATCHED_SYSTEM_ID = "b2-matched"
 B4_MATCHED_SYSTEM_ID = "b4-matched"
-B4_MATCHED_PROMPT_VERSION = "phase6c-b4-matched-v1"
+B4_MATCHED_PROMPT_VERSION = "b4-matched-v1"
 
 
 def _generation_packet(raw: dict[str, Any], input_record: dict[str, Any], registry: Registry) -> dict[str, Any]:
