@@ -24,6 +24,7 @@ from mia.study_metrics import Prediction, scored_rows, summarize
 from mia.registry import Registry
 from mia.validation import Validator
 from mia.v2_system import parse_generation_v2
+from repro_stats import fast_paired_delta
 
 
 DISPUTED_SOURCE_CASES = {
@@ -183,29 +184,7 @@ def paired_cluster_delta(
     samples: int = 10_000,
     seed: int = 20260919,
 ) -> dict[str, float]:
-    a = {(r["case_id"], r["utterance_id"]): r for r in a_rows}
-    b = {(r["case_id"], r["utterance_id"]): r for r in b_rows}
-    if set(a) != set(b):
-        raise RuntimeError("paired systems do not cover identical utterances")
-    by_case_a = defaultdict(list)
-    by_case_b = defaultdict(list)
-    for key in sorted(a):
-        by_case_a[key[0]].append(a[key])
-        by_case_b[key[0]].append(b[key])
-    case_ids = sorted(by_case_a)
-    estimate = metric_from_rows(a_rows, metric) - metric_from_rows(b_rows, metric)
-    rng = random.Random(seed)
-    values = []
-    for _ in range(samples):
-        sample_ids = [rng.choice(case_ids) for _ in case_ids]
-        sa = [row for cid in sample_ids for row in by_case_a[cid]]
-        sb = [row for cid in sample_ids for row in by_case_b[cid]]
-        values.append(metric_from_rows(sa, metric) - metric_from_rows(sb, metric))
-    values.sort()
-    lo = values[int(0.025 * (samples - 1))]
-    hi = values[int(0.975 * (samples - 1))]
-    return {"estimate": estimate, "low": lo, "high": hi}
-
+    return fast_paired_delta(a_rows, b_rows, metric, samples=samples, seed=seed)
 
 def exact_two_sided_binomial_p(k: int, n: int) -> float:
     if n == 0:
