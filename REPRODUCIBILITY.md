@@ -15,7 +15,6 @@ python -m unittest \
   tests.test_mia_v2_preflight \
   tests.test_mia_v2_readiness_audit \
   tests.test_mia_v2_regression \
-  tests.test_phase5_systems \
   tests.test_v2_matched_baselines
 ```
 
@@ -29,7 +28,7 @@ The curated artifact is pinned to research source commit:
 
 The authoritative benchmark is:
 
-`benchmarks/phase4/final/canonical_cases.v1.1.jsonl`
+`benchmark/canonical_cases.v1.1.jsonl`
 
 The held-out test contains 240 cases / 720 utterances.
 
