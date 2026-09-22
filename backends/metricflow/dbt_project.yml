@@ -1,0 +1,15 @@
+name: mia_metricflow_fixture
+version: 1.0.0
+config-version: 2
+profile: mia_metricflow_fixture
+model-paths: ["models"]
+seed-paths: ["seeds"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  mia_metricflow_fixture:
+    +materialized: table
+
+seeds:
+  mia_metricflow_fixture:
+    +quote_columns: false
