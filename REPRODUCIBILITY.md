@@ -82,6 +82,40 @@ A successful run ends with:
 
 `Paper evidence reproduction: PASS`
 
+## Optional provider re-execution
+
+Paper-number reproduction above is credential-free. Reviewers who want to make fresh provider calls can use the same exact request payloads with their own keys.
+
+Final MIA-v2:
+
+```bash
+export OPENAI_API_KEY=...
+python scripts/rerun_provider_requests.py \
+  --provider gpt --system mia-v2 \
+  --requests .reproduce/supplement/mia-public-reproducibility-supplement-v1/requests/final-mia/gpt/requests.jsonl \
+  --output-dir .reproduce/provider-rerun/gpt
+```
+
+For Claude, set `ANTHROPIC_API_KEY` and use `--provider claude`.
+
+B4-Matched requests can first be rebuilt deterministically from the exact final-MIA requests and sealed semantic generations:
+
+```bash
+python scripts/prepare_b4_requests.py \
+  --provider gpt \
+  --final-requests .reproduce/supplement/mia-public-reproducibility-supplement-v1/requests/final-mia/gpt/requests.jsonl \
+  --final-raw .reproduce/sealed/mia-public-sealed-evidence/final-mia/gpt/raw_outputs.jsonl \
+  --output .reproduce/provider-rerun/b4-gpt-requests.jsonl
+```
+
+Then pass that request file to `rerun_provider_requests.py --system b4-matched` together with `--sealed-mia-raw`.
+
+The frozen model IDs and decoding settings are carried in each request file. The supplied pricing manifests are `evaluation/openai-pricing.json` and `evaluation/anthropic-pricing.json`. Historical observed study costs are evidence records, not promises of future API cost.
+
+## Benchmark construction provenance
+
+`benchmark/construction/` preserves the synthetic seed builder and post-adjudication finalizer from the pinned source commit. The authoritative evaluated benchmark remains `benchmark/canonical_cases.v1.1.jsonl`; restricted annotation workbooks are not required for paper-number reproduction.
+
 ## Direct asset download
 
 While the repository is private, GitHub authentication is required:
