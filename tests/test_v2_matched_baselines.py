@@ -16,8 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def _record(registry):
     return {
-        "request_id": "phase6c-test#u0",
-        "case_id": "phase6c-test",
+        "request_id": "matched-test#u0",
+        "case_id": "matched-test",
         "utterance_id": "u0",
         "domain": "saas",
         "request": "Show monthly recurring revenue by region for Q1 2026.",
@@ -59,7 +59,7 @@ def _decoded():
 
 
 def test_b2_matched_executes_leading_canonicalized_candidate_without_assurer():
-    registry = Registry.load(ROOT / "registries/saas/v1.json")
+    registry = Registry.load(ROOT / "registries/saas.json")
     pred, trace = normalize_b2_matched(
         _decoded(), _record(registry), registry,
         run_id="test", model_id="test-model",
@@ -71,7 +71,7 @@ def test_b2_matched_executes_leading_canonicalized_candidate_without_assurer():
 
 
 def test_b4_matched_request_reuses_same_canonicalized_representation_without_validator_trace():
-    registry = Registry.load(ROOT / "registries/saas/v1.json")
+    registry = Registry.load(ROOT / "registries/saas.json")
     adapter = build_b4_matched_adapter_input(
         _decoded(), _record(registry), registry,
         provider="gpt",
@@ -88,7 +88,7 @@ def test_b4_matched_request_reuses_same_canonicalized_representation_without_val
 
 
 def test_b4_matched_execute_selects_only_supplied_candidate():
-    registry = Registry.load(ROOT / "registries/saas/v1.json")
+    registry = Registry.load(ROOT / "registries/saas.json")
     raw_router = {
         "action": "execute",
         "selected_candidate_index": 0,
