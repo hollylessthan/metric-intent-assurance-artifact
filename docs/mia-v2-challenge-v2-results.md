@@ -4,16 +4,16 @@ Status: **prospective frozen final-method language-generalization evidence**
 
 ## Provenance
 
-- workflow run: \`35431947015\`
-- workflow conclusion: \`success\`
-- source commit: \`4a618a98caf4a6d823edc936c04c6d3af422dc76\`
-- workflow: \`.github/workflows/mia-v2-challenge-v2.yml\`
-- evaluation artifact: \`mia-v2-challenge-v2-evaluation-35431947015\`
-- evaluation artifact ID: \`10580644552\`
-- evaluation artifact digest: \`sha256:6f75683cbc47320801f1d0db44a02afd4731ecb3048a1710544ffc0b82d3a4ae\`
-- GPT artifact digest: \`sha256:13685afbd291c7150010fb1d588f3e44078090d94b7f8d0d39dfbbe8dafd4827\`
-- Claude artifact digest: \`sha256:a720b8db0b62ee278e73fff68480ff82546af8feb34cc8290278d978e16123b0\`
-- preflight artifact digest: \`sha256:3392ce30b52bb297621eb8845ca13205850371496b1f70e7b1a382f6ac2e9206\`
+- workflow run: `35431947015`
+- workflow conclusion: `success`
+- source commit: `4a618a98caf4a6d823edc936c04c6d3af422dc76`
+- workflow: `.github/workflows/mia-v2-challenge-v2.yml`
+- evaluation artifact: `mia-v2-challenge-v2-evaluation-35431947015`
+- evaluation artifact ID: `10580644552`
+- evaluation artifact digest: `sha256:6f75683cbc47320801f1d0db44a02afd4731ecb3048a1710544ffc0b82d3a4ae`
+- GPT artifact digest: `sha256:13685afbd291c7150010fb1d588f3e44078090d94b7f8d0d39dfbbe8dafd4827`
+- Claude artifact digest: `sha256:a720b8db0b62ee278e73fff68480ff82546af8feb34cc8290278d978e16123b0`
+- preflight artifact digest: `sha256:3392ce30b52bb297621eb8845ca13205850371496b1f70e7b1a382f6ac2e9206`
 
 All workflow jobs completed successfully: contract tests, preflight, explicit authorization, GPT execution, Claude execution, and sealed evaluation.
 
