@@ -1,0 +1,2025 @@
+{
+  "complete_two_target_execution_gate": true,
+  "details": [
+    {
+      "case_id": "saas-execute-001",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-002",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-003",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-004",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-005",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-006",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-007",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-008",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-009",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-010",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-011",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-012",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-013",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-014",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-015",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-016",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-017",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-018",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-019",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-020",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-021",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-022",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-023",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-024",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-025",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-026",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-027",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-028",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-029",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-030",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-031",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-032",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-033",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-034",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-035",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-036",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-037",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-038",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-039",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-execute-040",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-clarify-010",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "saas-clarify-012",
+      "domain": "saas",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-001",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-002",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-003",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-004",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-005",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-006",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-007",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-008",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-009",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-010",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-011",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-012",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-013",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-014",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-015",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-016",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-017",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-018",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-019",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-020",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-021",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-022",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-023",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-024",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-025",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-026",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-027",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-028",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-029",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-030",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-031",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-032",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-033",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-034",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-035",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-036",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-037",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-038",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-039",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-execute-040",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-clarify-010",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "commerce-coveragegap-020",
+      "domain": "commerce",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-001",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-002",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-003",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-004",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-005",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-006",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-007",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-008",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-009",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-010",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-011",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-012",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-013",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-014",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-015",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-016",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-017",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-018",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-019",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-020",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-021",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-022",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-023",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-024",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-025",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-026",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-027",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-028",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-029",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-030",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-031",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-032",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-033",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-034",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-035",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-036",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-037",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-038",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-039",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-execute-040",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    },
+    {
+      "case_id": "support-clarify-010",
+      "domain": "support",
+      "targets": {
+        "duckdb": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        },
+        "metricflow": {
+          "blocker": null,
+          "compiled": true,
+          "executed": true
+        }
+      }
+    }
+  ],
+  "execute_cases": 125,
+  "execution_requested": {
+    "duckdb": true,
+    "metricflow": true
+  },
+  "registry_contract_blockers": {},
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "summary": {
+    "duckdb": {
+      "blockers": {},
+      "compiled": 125,
+      "executed": 125
+    },
+    "metricflow": {
+      "blockers": {},
+      "compiled": 125,
+      "executed": 125
+    }
+  }
+}
