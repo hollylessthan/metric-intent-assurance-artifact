@@ -21,3 +21,34 @@ jobs:
             tests.test_mia_v2_preflight \
             tests.test_mia_v2_readiness_audit \
             tests.test_v2_matched_baselines
+
+  public-release-reproduction:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download public sealed evidence release asset
+        run: |
+          curl -L --fail --retry 3 \
+            -o mia-public-sealed-evidence-v1.zip \
+            https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip
+      - name: Verify public release asset SHA-256
+        run: |
+          echo "429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b  mia-public-sealed-evidence-v1.zip" | sha256sum -c -
+      - name: Extract sealed evidence
+        run: |
+          mkdir -p evidence/sealed
+          unzip -q mia-public-sealed-evidence-v1.zip -d evidence/sealed
+      - name: Verify every sealed artifact file
+        run: python scripts/verify_sealed_artifacts.py --require-all
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[dev,duckdb]"
+      - run: python -m compileall -q src scripts
+      - run: |
+          python -m unittest \
+            tests.test_evaluation \
+            tests.test_mia_v2_preflight \
+            tests.test_mia_v2_readiness_audit \
+            tests.test_v2_matched_baselines
