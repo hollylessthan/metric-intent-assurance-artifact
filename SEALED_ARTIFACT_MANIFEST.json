@@ -213,6 +213,9 @@
       "asset_id": 580305768,
       "asset_url": "https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip",
       "github_reported_digest": "sha256:429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b"
-    }
+    },
+    "bundle_manifest_sha256": "sha256:2fe607bd46bf43ab22d722a9f38902a83d139eb84bc4ef4123f41a8de231c966",
+    "bundle_readme_sha256": "sha256:ff97c4a9dbfe40191d06178d11b6434ff70ce3fcb5e01dcba107626e33cc22fa",
+    "payload_file_count": 68
   }
 }
