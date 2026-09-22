@@ -15,7 +15,7 @@ from mia.assurance import Assurer
 from mia.benchmark import load_jsonl
 from mia.generation import GenerationResult
 from mia.models import Action, Context, Intent
-from mia.phase5 import INTENT_SLOT_WEIGHTS, Prediction, benchmark_index, confusion_matrix, intent_scores, scored_rows, summarize
+from mia.study_metrics import INTENT_SLOT_WEIGHTS, Prediction, benchmark_index, confusion_matrix, intent_scores, scored_rows, summarize
 from mia.registry import Registry
 from mia.validation import Validator
 from mia.v2_system import parse_generation_v2
@@ -34,7 +34,7 @@ def read_first_json(path: Path) -> Any:
 
 
 def threshold_config(root: Path, provider: str):
-    lock=json.loads((root/"config/phase5-threshold-lock.json").read_text(encoding="utf-8"))
+    lock=json.loads((root/"evaluation/threshold_lock.json").read_text(encoding="utf-8"))
     cfg=lock["models"][provider]
     return float(cfg["mia_execute_threshold"]), float(cfg["mia_ambiguity_margin"])
 
@@ -189,7 +189,7 @@ def decision_row(*,provider,variant,adapter,generation,registry,te,ta,keep_famil
         generation,registry,context,request_id=case["request_id"])
     return {
         "prediction":{
-            "run_id":f"phase6-final-component-{provider}",
+            "run_id":f"final-component-{provider}",
             "system_id":f"mia-v2-{variant}",
             "model_id":adapter["model_id"],
             "case_id":case["case_id"],
@@ -257,7 +257,7 @@ def main():
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
     root=args.repo_root.resolve()
-    benchmark=load_jsonl(root/"benchmarks/phase4/final/canonical_cases.v1.1.jsonl")
+    benchmark=load_jsonl(root/"benchmark/canonical_cases.v1.1.jsonl")
     req=index_requests(args.mia_artifact/"requests.jsonl")
     raw=index_raw(args.mia_artifact/"raw_outputs.jsonl")
     te,ta=threshold_config(root,args.provider)
@@ -267,7 +267,7 @@ def main():
     residual=[]
     for rid,adapter in req.items():
         case=adapter["case"]
-        registry=Registry.load(root/f"registries/phase4/{case['domain']}/v1.json")
+        registry=Registry.load(root/f"registries/{case['domain']}.json")
         full_gen=parse_generation_v2(raw[rid],input_record=case,registry=registry)
         full=decision_row(provider=args.provider,variant="full",adapter=adapter,generation=full_gen,registry=registry,te=te,ta=ta)
         variants["full"].append(full["prediction"])
@@ -301,10 +301,10 @@ def main():
     b2_predictions=[]
     for rid,adapter in req.items():
         case=adapter["case"]
-        registry=Registry.load(root/f"registries/phase4/{case['domain']}/v1.json")
+        registry=Registry.load(root/f"registries/{case['domain']}.json")
         pred,_=normalize_b2_matched(
             raw[rid],case,registry,
-            run_id=f"phase6c-b2-matched-{args.provider}",
+            run_id=f"b2-matched-{args.provider}",
             model_id=adapter["model_id"],
         )
         pred_for_scoring=dict(pred)
@@ -324,7 +324,7 @@ def main():
             continue
         rid=r["utterance_id"]
         adapter=req[rid]
-        registry=Registry.load(root/f"registries/phase4/{adapter['case']['domain']}/v1.json")
+        registry=Registry.load(root/f"registries/{adapter['case']['domain']}.json")
         g=parse_generation_v2(raw[rid],input_record=adapter["case"],registry=registry)
         supports=sorted([x.support for x in g.candidates],reverse=True)
         residual.append({
@@ -346,7 +346,7 @@ def main():
 
     report={
         "schema_version":"1.0.0",
-        "study_id":"phase6-final-component-analysis",
+        "study_id":"final-component-analysis",
         "evidence_class":"secondary_posthoc_sealed_trace_component_analysis",
         "provider":args.provider,
         "provider_calls":0,
