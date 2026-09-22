@@ -152,7 +152,12 @@ def main():
             sv.append(f'<text x="{x+9}" y="{y-7}" font-size="12">{svg_escape(name)} ({100*uer:.2f}%, {100*cec:.2f}%)</text>')
             if uer>.30:
                 sv.append(f'<text x="{x+9}" y="{y+10}" font-size="11">UER off-scale: {100*uer:.2f}%</text>')
-        sv += [f'<text x="{x0+pw/2}" y="455" text-anchor="middle" font-size="14">CEC</text>']
+        paired=mech[p]["paired"]["mia_minus_b4_matched"]["unsafe_execution_rate"]
+        sv += [
+            f'<text x="{x0+pw/2}" y="92" text-anchor="middle" font-size="12">MIA - B4-M UER: {100*paired["estimate"]:+.2f} pp</text>',
+            f'<text x="{x0+pw/2}" y="108" text-anchor="middle" font-size="11">95% paired CI: {100*paired["low"]:+.2f} to {100*paired["high"]:+.2f} pp</text>',
+            f'<text x="{x0+pw/2}" y="455" text-anchor="middle" font-size="14">CEC</text>'
+        ]
     sv.append('<text x="20" y="240" transform="rotate(-90 20 240)" text-anchor="middle" font-size="14">UER (axis capped at 30%)</text>')
     sv.append('</svg>')
     (out/"controlled-safety-coverage-final-mia.svg").write_text("\n".join(sv)+"\n",encoding="utf-8")
@@ -182,6 +187,7 @@ def main():
     (out/"hidden-intent-errors.svg").write_text("\n".join(sv)+"\n",encoding="utf-8")
 
     values={"table2":table2,"table3":table3,"replay":replay,
+            "matched_assurer_effect":{p:mech[p]["paired"]["mia_minus_b4_matched"] for p in ("gpt","claude")},
             "h2_without_topn":{p:{
               "groups":h2[p]["groups_remaining"],
               "execution_visible":h2[p]["execution_visible_groups"],
