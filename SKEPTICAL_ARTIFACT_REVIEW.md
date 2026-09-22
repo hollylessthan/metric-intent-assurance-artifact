@@ -40,15 +40,15 @@ This is important because the public artifact should preserve evidence that narr
 
 The final regression summary, final challenge summary/freeze, top-N sensitivity, final architecture code, prompts, and bounded reviewer-facing values are present. `EVIDENCE_INDEX.md` maps each major evidence layer.
 
-### 7. Raw final-v2 sealed payload — BLOCKER for standalone reproducibility
+### 7. Final-v2 sealed payload transfer — BLOCKER for standalone reproducibility
 
-The raw final-v2 provider outputs and several derived matched-control/mechanism/clean-prompt artifacts remain GitHub Actions artifacts in the private research repository. Their immutable run IDs are known and documented, but the payloads are not yet physically present in this repository.
+The relevant final-v2 workflow artifacts have now been enumerated, downloaded, safety-inspected, and hash-bound in `SEALED_ARTIFACT_MANIFEST.json`. The review explicitly excludes provider transport evidence logs and duplicated request payloads from publication while retaining normalized outputs, predictions, traces, and compact result reports as the scientific reproduction layer. The large normalized payloads are not yet physically present in this repository.
 
 This does **not** invalidate the compact evidence summaries. It does mean the repository is not yet a standalone reproduction package.
 
 Required before public release:
-1. migrate the sealed final-v2 provider/evaluation/matched-control/mechanism/clean-prompt artifacts;
-2. record artifact filenames, source run IDs/artifact IDs, and SHA-256 digests;
+1. physically transfer the normalized sealed final-v2 provider/matched-control/clean-prompt payloads into this repository or immutable public release assets;
+2. preserve the already-recorded source run IDs/artifact IDs, ZIP digests, and file-level SHA-256 hashes;
 3. update reproduction commands to consume only public assets;
 4. run the full clean-checkout reproduction from the new repository;
 5. preserve the source-bound summaries and raw payloads without rewriting frozen results.
@@ -59,6 +59,6 @@ Files explicitly marked `RESTRICTED`, private participant workbooks, internal sk
 
 ## Skeptical conclusion
 
-The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. It is **not yet publication-complete at the raw reproducibility level** because sealed final-v2 payloads still need migration.
+The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. It is **not yet publication-complete at the raw reproducibility level** because the large normalized sealed final-v2 payloads still need physical transfer.
 
 Keep the PR in draft until that final migration and clean standalone reproduction pass are complete.
