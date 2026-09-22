@@ -23,7 +23,8 @@ See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusio
 - the frozen Phase 4 v1.1 benchmark, 900 utterances, split metadata, adjudication summary, and human-validation record;
 - B0, B1, B2, B4, and MIA prompts plus the final-v2 matched/sensitivity prompts;
 - B3 logic in the local evaluation code (B3 is derived locally and therefore has no provider prompt);
-- frozen reader-facing result summaries and challenge summaries;\n- a provenance map from public artifact paths to the original internal research paths;
+- frozen reader-facing result summaries and challenge summaries;
+- a provenance map from public artifact paths to the original internal research paths;
 - deterministic paper-evidence reproduction scripts, a one-command entry point, and tests.
 
 ## Quick start
@@ -40,7 +41,6 @@ python -m unittest \
   tests.test_evaluation \
   tests.test_mia_v2_preflight \
   tests.test_mia_v2_readiness_audit \
-  tests.test_mia_v2_regression \
   tests.test_v2_matched_baselines
 ```
 
@@ -75,11 +75,9 @@ Because B3 is derived locally, `src/mia/study_metrics.py` contains its evaluatio
 
 ## Reproducibility status
 
-The deterministic code, benchmark, registries, prompts, and reader-facing summary evidence are packaged here.
+The deterministic code, benchmark, registries, prompts, sealed final-v2 evidence, and the paper-reproducibility supplement are packaged through this repository and release `artifact-v1.0`.
 
-**Pre-publication release gate:** the sealed raw provider-output archives used for the final MIA-v2 evaluation are still retained as immutable GitHub Actions artifacts in the private research repository. They must be migrated into public immutable artifact/release assets (with hashes) before this repository is labeled fully standalone reproducible or made the paper's final availability URL.
-
-See `REPRODUCIBILITY.md` for the exact retained run IDs and the remaining release gate.
+Run `bash scripts/reproduce_paper.sh` to recompute the paper's quantitative evidence, regenerate the reviewer-facing tables/Figures 2–3, and verify the regenerated values against the frozen evidence records. See `REPRODUCIBILITY.md` for details.
 
 ## Artifact hygiene
 
