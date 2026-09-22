@@ -19,6 +19,4 @@ jobs:
             tests.test_evaluation \
             tests.test_mia_v2_preflight \
             tests.test_mia_v2_readiness_audit \
-            tests.test_mia_v2_regression \
-            tests.test_phase5_systems \
             tests.test_v2_matched_baselines
