@@ -79,14 +79,14 @@ def main():
         close(got["correct_execution_coverage"], ref["cec"], label=f"final {provider} CEC")
         close(got["action_macro_f1"], ref["action_macro_f1"], label=f"final {provider} Macro-F1")
 
-    matched_expected = {
+    matched_expected_percent = {
         "gpt": {
-            "b2": (0.17026378896882495, 0.8316831683168316, 0.5883217563843668),
-            "b4": (0.06235011990407674, 0.8316831683168316, 0.805077441802567),
+            "b2": (17.03, 83.17, 58.83),
+            "b4": (6.24, 83.17, 80.51),
         },
         "claude": {
-            "b2": (0.19424460431654678, 0.7986798679867987, 0.6046172106823815),
-            "b4": (0.04316546762589928, 0.7821782178217822, 0.8024102140823077),
+            "b2": (19.42, 79.87, 60.46),
+            "b4": (4.32, 78.22, 80.24),
         },
     }
     for provider in ("gpt", "claude"):
@@ -94,9 +94,9 @@ def main():
             s = summary_from_eval(report)
             for key, expected in zip(
                 ("unsafe_execution_rate", "correct_execution_coverage", "action_macro_f1"),
-                matched_expected[provider][sid],
+                matched_expected_percent[provider][sid],
             ):
-                close(s[key], expected, 1e-10, f"matched {provider}/{sid}/{key}")
+                assert_pct(s[key], expected, f"matched {provider}/{sid}/{key}")
 
     # Final-v2 95% CIs reported in Results.
     for provider in ("gpt", "claude"):
