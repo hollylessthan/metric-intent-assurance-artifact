@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "status": "frozen_before_challenge_v2",
+  "freeze_base_commit": "e41469944641c3060c8eceea526944587323ce40",
+  "prompt_version": "mia-v2-minimal-v3-semantic-coverage",
+  "old_benchmark_final": {
+    "provider_run_id": "35426074276",
+    "evaluation_run_id": "35429477378",
+    "evaluation_artifact_id": 10580057349,
+    "evaluation_artifact_digest": "sha256:1a1f933ba651eadd93987a125ec4c21d8928eb5698aa8e3d443ddfac0c67df93",
+    "closed_for_result_driven_tuning": true
+  },
+  "models": {
+    "gpt": {
+      "model_id": "gpt-5.4-mini-2026-03-17",
+      "decoding": {
+        "max_output_tokens": 1200,
+        "reasoning_effort": "none",
+        "temperature": 0
+      },
+      "execute_threshold": 0.96,
+      "ambiguity_margin": 1
+    },
+    "claude": {
+      "model_id": "claude-sonnet-5",
+      "decoding": {
+        "max_output_tokens": 1200,
+        "reasoning_effort": "low",
+        "temperature": null
+      },
+      "execute_threshold": 0.6,
+      "ambiguity_margin": 0
+    }
+  },
+  "compiler_boundary": {
+    "mixed_entity_behavior": "fail_closed_GAP_COMPOSITION",
+    "note": "No new mixed-entity Execute capability is claimed for challenge-v2 unless a separately frozen end-to-end semantic-compiler adapter is demonstrated before inference."
+  },
+  "frozen_paths": {
+    "src/mia/v2_system.py": "93d5a2c420ff6cc1be3e034c2ddd3c6ab9c405a7",
+    "src/mia/v2_canonicalization.py": "6ade46d1ec9c76a93ab459f3be83be6d3ed52a6b",
+    "prompts/v2/mia.txt": "41ccfcbe56a0f7431e6703635aff625a9b934675",
+    "schemas/model-intent-v2.schema.json": "236f149b4a60258b950b5892fe2b38f788c526f3",
+    "scripts/mia_v2_openai_adapter.py": "7e88f3f90230fcfa27c0f2062391bc945a6f09bd",
+    "scripts/mia_v2_anthropic_adapter.py": "876db10d462b4242adc7d7c91d6e4066de987dec",
+    "scripts/mia_v2_regression.py": "cc3323642482336bf1e245257803eb11406681b0",
+    "scripts/mia_v2_regression_evaluate.py": "4e74f6c0c4a2d389f533f5822d8c1dd60416820a",
+    "docs/mia-v2-compiler-capability-boundary.md": "6fe4cd92b8e71850f9428508c721c1fbb3ba670e",
+    "config/phase5-threshold-lock.json": "a0e588228b2a507d766af143642196c317599d00"
+  },
+  "integrity_rules": [
+    "MIA-v1 remains immutable.",
+    "No further result-driven changes may be made using the old 720-utterance benchmark.",
+    "Challenge-v2 requests and expectations must be frozen before provider inference.",
+    "Any post-freeze implementation change requires a new freeze record and makes prior challenge-v2 inference non-comparable."
+  ]
+}
