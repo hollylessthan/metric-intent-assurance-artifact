@@ -11,7 +11,7 @@ This index maps the paper's material evidence layers to the repository and its t
 | Registry snapshots | `registries/*.json` | governed semantic context bound by registry hashes |
 | Benchmark validation | `benchmark/validation_report.json`, `benchmark/adjudication_report.json` | benchmark integrity and adjudication |
 | Sampled author quality control | `benchmark/validation/human_validation_v1.json` | 100-case sampled quality-control record; not independent practitioner validation |
-| Historical controlled study | `evidence/historical-controlled-results.json` | frozen B0–B4 and earlier-MIA study results and ablation record |
+| Historical controlled study | `evidence/historical-controlled-results.json` | frozen B0–B4 and earlier-MIA study results and ablation record; original H2 is sourced from the frozen confirmatory `h2-contrastive-visibility.json` record in the reproducibility supplement |
 | Historical policy/scaling analysis | `evidence/historical-policy-and-scaling-analysis.json` | sealed-trace policy/class/scaling analysis |
 | Negative development challenge | `evidence/development-challenge-negative-result.md`, machine-readable challenge evaluation and binding | preserves unfavorable/mixed pre-v2 evidence |
 | Independent action-contract study | `evidence/action-contract-study.md`, `action-contract-study.json`, `action-contract-harmonization.json` | 72-case blind action-contract agreement and five retained substantive disputes |
@@ -24,7 +24,7 @@ This index maps the paper's material evidence layers to the repository and its t
 
 ## Final-v2 sealed payload migration status
 
-All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs remain excluded. Exact request payloads required by deterministic replay are restored in the reproducibility supplement. The publication-safe bundle is attached to GitHub release `artifact-v1.0`: `mia-public-sealed-evidence-v1.zip` (1,317,896 bytes; SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`; 70 files). GitHub's reported digest matches the curated bundle manifest exactly. The repository is currently private, so external unauthenticated access is intentionally not yet available.
+All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs remain excluded. Exact request payloads required by deterministic replay are restored in the reproducibility supplement. The publication-safe bundle is attached to GitHub release `artifact-v1.0`: `mia-public-sealed-evidence-v1.zip` (1,317,896 bytes; SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`; 70 files). GitHub's reported digest matches the curated bundle manifest exactly. The repository is currently private, so external unauthenticated access is intentionally not yet available. This sentence and the corresponding private-access instructions must be removed/updated when repository visibility changes.
 
 | Evidence | Source workflow run | Why needed |
 |---|---:|---|
@@ -49,6 +49,8 @@ The public artifact preserves the paper's bounded final-v2 conclusions:
 - Turning all validator families off raises UER to 5.76% GPT and 11.51% Claude; grain/additivity alone restores full-MIA UER in both families on the sealed candidate distribution.
 - Clean-prompt sensitivity raises UER from 0.72% to 1.44% GPT and from 4.80% to 6.00% Claude.
 - Defect-excluded final-MIA wrong-intent execution on answerable requests is 1/267 GPT and 14/267 Claude.
+
+Original H2 is intentionally treated as a **frozen confirmatory record**, not reconstructed from historical B1 predictions in this artifact. The top-N-excluded 80-group H2 sensitivity is recomputed from the per-row details in that frozen record by `scripts/topn_defect_sensitivity.py`.
 
 These are **reported evidence summaries**, not substitutes for the normalized sealed payloads listed above. `SEALED_ARTIFACT_MANIFEST.json` records both ZIP-level and file-level SHA-256 bindings for those payloads.
 
