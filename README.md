@@ -2,7 +2,7 @@
 
 This repository is the curated reproducibility artifact for the Metric Intent Assurance research project.
 
-MIA evaluates whether a natural-language enterprise metric request should **Execute**, **Clarify**, **Reject**, or be labeled a **Coverage Gap** before governed execution. The reader-facing system in the paper is **MIA-v2**. Historical MIA-v1 material is retained in the private research repository for protocol provenance but is not the artifact's primary implementation.
+MIA evaluates whether a natural-language enterprise metric request should **Execute**, **Clarify**, **Reject**, or be labeled a **Coverage Gap** before governed execution. The reader-facing system in the paper is **MIA-v2**. Historical MIA-v1 implementation code remains in the private research repository for protocol provenance; its held-out predictions and result records needed for paper reproduction are included in the public reproducibility supplement and are recomputed by the artifact workflow.
 
 ## Source snapshot
 

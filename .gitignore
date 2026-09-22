@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local paper-reproduction outputs
+.reproduce/
+.reproduce-downloads/

@@ -54,6 +54,15 @@ Original H2 is intentionally treated as a **frozen confirmatory record**, not re
 
 These are **reported evidence summaries**, not substitutes for the normalized sealed payloads listed above. `SEALED_ARTIFACT_MANIFEST.json` records both ZIP-level and file-level SHA-256 bindings for those payloads.
 
+## Recomputed versus summary-only evidence
+
+The one-command verifier intentionally distinguishes evidence that can be recomputed from publication-safe row-level artifacts from evidence whose underlying source material is restricted or whose paper statement is preserved only in a sealed summary/report.
+
+- **Action-contract study:** the public artifact preserves the reported 72/72 action agreement, Cohen's κ = 1.00, original 59/72 gold agreement, and instruction-harmonized 67/72 sensitivity in `evidence/action-contract-study.json` and `evidence/action-contract-harmonization.json`. These values are summary-only in the public artifact because the participant workbooks are restricted; the verifier does not reconstruct them from participant-level source files.
+- **§6.7 residual-failure characterization:** the sealed component-analysis report preserves the reported residual counts (GPT: 3 unsafe utterances from one Coverage Gap case; Claude: 20 unsafe utterances, 18 with a single valid candidate). The component analysis is rerun, but those narrative residual-count statements are not separately asserted by `verify_reproduced_evidence.py`.
+- **Challenge-v2 exact upper bound:** the verifier checks the frozen 0/13 unsafe-execution count for each provider. The paper's exact 95% upper bound of 24.7% for 0 of 13 is an analytical reporting value and is not separately asserted by the verifier.
+- **Original H2:** as noted above, the original H2 result is checked against the frozen confirmatory record rather than reconstructed from historical B1 predictions; the top-N-excluded H2 sensitivity is recomputed.
+
 ## Preservation
 
 `PRESERVATION_AUDIT.json` records a Git-blob equality audit across 29 critical frozen files. All 29 are byte-identical to the pinned research source commit after path renaming.
