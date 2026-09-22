@@ -1,0 +1,6 @@
+subscription_id,account_id,event_date,plan,mrr_amount,mrr_amount_v2,recognized_revenue
+s1,a1,2026-01-01,enterprise,1000,1100,900
+s2,a2,2026-01-01,pro,500,525,450
+s1,a1,2026-01-31,enterprise,1000,1100,950
+s2,a2,2026-01-31,pro,550,575,475
+s3,a3,2026-01-31,pro,250,300,200
