@@ -203,8 +203,16 @@
     "size_in_bytes": 1317896,
     "sha256": "sha256:429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b",
     "file_count": 70,
-    "status": "built_and_verified_locally_pending_release_asset_upload",
+    "status": "published_release_asset",
     "contents": "publication-safe normalized outputs, predictions, traces, matched-control evaluations, mechanism predictions/reports, clean-prompt outputs/audits, component reports, and top-N sensitivity",
-    "excluded": "provider transport evidence logs, duplicated requests.jsonl payloads, preflight-only payloads, and RESTRICTED files"
+    "excluded": "provider transport evidence logs, duplicated requests.jsonl payloads, preflight-only payloads, and RESTRICTED files",
+    "release": {
+      "tag": "artifact-v1.0",
+      "release_id": 393402930,
+      "release_url": "https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/tag/artifact-v1.0",
+      "asset_id": 580305768,
+      "asset_url": "https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip",
+      "github_reported_digest": "sha256:429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b"
+    }
   }
 }
