@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mia/phase5-prediction.schema.json",
+  "title": "MIA Phase 5 normalized prediction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "system_id", "model_id", "case_id", "utterance_id", "predicted_action", "confidence"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "system_id": {"type": "string", "pattern": "^(b[0-4]|mia(?:-[a-z0-9-]+)?)$"},
+    "model_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "utterance_id": {"type": "string", "minLength": 1},
+    "predicted_action": {"enum": ["execute", "clarify", "reject", "coverage_gap"]},
+    "predicted_reason_code": {"type": ["string", "null"]},
+    "predicted_intent": {
+      "oneOf": [
+        {"$ref": "intent.schema.json"},
+        {"type": "null"}
+      ]
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "execution_correct": {"type": ["boolean", "null"]},
+    "provenance_complete": {"type": ["boolean", "null"]},
+    "latency_ms": {"type": ["number", "null"], "minimum": 0},
+    "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "output_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "cost_usd": {"type": ["number", "null"], "minimum": 0},
+    "generated_query": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "system_id": {"const": "b0"},
+          "predicted_action": {"const": "execute"}
+        },
+        "required": ["system_id", "predicted_action"]
+      },
+      "then": {
+        "required": ["generated_query"],
+        "properties": {"generated_query": {"type": "string", "minLength": 1}}
+      }
+    }
+  ]
+}
