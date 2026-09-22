@@ -1,0 +1,85 @@
+{
+  "study_id": "mia-phase5-confirmatory-v1",
+  "status": "protocol_frozen_before_development_runs",
+  "benchmark": {
+    "path": "benchmarks/phase4/final/canonical_cases.v1.1.jsonl",
+    "git_blob_sha": "1de18fdf8b735cbade51a366407f18baa6043daf",
+    "canonical_cases": 300,
+    "utterances": 900,
+    "development_cases": 60,
+    "test_cases": 240,
+    "final_action_distribution": {
+      "execute": 125,
+      "clarify": 56,
+      "reject": 60,
+      "coverage_gap": 59
+    }
+  },
+  "systems": ["b0", "b1", "b2", "b3", "b4", "mia"],
+  "confirmatory_model_families_minimum": 2,
+  "paired_model_and_decoding_settings": true,
+  "threshold_selection": {
+    "split": "development",
+    "test_labels_forbidden": true,
+    "uer_upper_bound": "min(0.10, 0.5 * B1 development UER)",
+    "cec_lower_bound": "B1 development CEC - 0.10",
+    "tie_break_order": ["minimum_primary_cost", "higher_cec", "higher_action_macro_f1", "higher_tau_e"]
+  },
+  "primary_metrics": ["unsafe_execution_rate", "correct_execution_coverage"],
+  "secondary_metrics": [
+    "action_macro_f1",
+    "canonical_intent_exact_match",
+    "intent_slot_accuracy",
+    "governance_weighted_intent_score",
+    "reason_code_accuracy",
+    "paraphrase_consistency",
+    "brier_action_correct",
+    "ece_action_correct_10_bin",
+    "execution_accuracy",
+    "provenance_completeness",
+    "latency_ms",
+    "cost_usd"
+  ],
+  "governance_slot_weights": {
+    "metrics": 0.20,
+    "dimensions": 0.10,
+    "filters": 0.10,
+    "time": 0.15,
+    "output_grain": 0.10,
+    "comparison": 0.05,
+    "ordering": 0.025,
+    "limit": 0.025,
+    "version_policy": 0.10,
+    "metric_versions": 0.075,
+    "subject_scope": 0.075
+  },
+  "statistical_protocol": {
+    "bootstrap_unit": "canonical_case_with_all_three_utterances",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260801,
+    "confidence_level": 0.95,
+    "paired_test": "two_sided_exact_mcnemar",
+    "primary_family_correction": "holm",
+    "familywise_alpha": 0.05
+  },
+  "ablations": [
+    "mia-no-descriptions-aliases",
+    "mia-no-dimension-entity-constraints",
+    "mia-no-time-version-constraints",
+    "mia-no-grain-additivity-constraints",
+    "mia-no-policy-constraints",
+    "mia-merge-reject-gap",
+    "mia-generic-clarification",
+    "mia-no-calibration"
+  ],
+  "confirmatory_run_order": [
+    "prepare_blinded_provider_inputs",
+    "run_all_systems_on_development_split",
+    "select_and_freeze_thresholds",
+    "freeze_prompts_models_decoding_and_costs",
+    "run_all_systems_on_held_out_test_once",
+    "evaluate_without_prompt_or_threshold_changes",
+    "run_prespecified_ablations_and_transfer_analysis"
+  ]
+}
+
