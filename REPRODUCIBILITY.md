@@ -1,15 +1,109 @@
 # Reproducibility
 
-## 1. Credential-free checks available in this repository
+## Scope
 
-Install the package and run the included deterministic test subset:
+The artifact supports two levels of review:
+
+1. **Credential-free paper evidence reproduction** from frozen benchmark/configuration plus sealed normalized outputs.
+2. **Provider re-execution** when reviewers choose to supply their own API credentials; provider-run code is documented separately and is not required to reproduce the published quantitative tables.
+
+The paper-number path makes no paid provider calls.
+
+## Install
+
+Python 3.11 is recommended.
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev,duckdb]"
+```
 
+## Frozen source binding
+
+- research source commit: `58d753aa16dbd8e2372475f9002950f4aff7a498`
+- benchmark: `benchmark/canonical_cases.v1.1.jsonl`
+- canonical cases: 300
+- held-out test: 240 cases / 720 utterances
+
+`PRESERVATION_AUDIT.json` records byte equality for 29 critical frozen files after public-path renaming.
+
+## Release assets
+
+### 1. Final-v2 sealed evidence
+
+`mia-public-sealed-evidence-v1.zip`
+
+- SHA-256: `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`
+- contains final MIA-v2 normalized outputs/predictions/traces, B4-Matched outputs, clean-prompt outputs, mechanism/component reports, and top-N sensitivity records
+- source workflow bindings are in `SEALED_ARTIFACT_MANIFEST.json`
+
+Relevant source runs include final MIA-v2 `35426074276`, evaluation `35429477378`, B2-Matched `35457800186`, B4-Matched `35458314825`, mechanism replay `35461708139`, clean-prompt `35462465351`, paired clean-prompt audit `35466369794`, component analysis `35467947692`, and top-N sensitivity `35470004077`.
+
+### 2. Paper reproducibility supplement
+
+`mia-public-reproducibility-supplement-v1.zip`
+
+- SHA-256: `1687798651c324abc5824d14ce94569765a90117e0695bfcff87ccea8b08bd99`
+- contains exact final/clean request payloads required by replay scripts
+- contains historical normalized B0–B4 + earlier-MIA held-out predictions for both providers
+- contains the complete credential-free confirmatory result package, including `h2-contrastive-visibility.json`
+- contains challenge-v2 scored evaluation JSON and normalized B1/B2/B3/B4/MIA-v2 predictions
+- source bindings are in `REPRODUCIBILITY_SUPPLEMENT_MANIFEST.json`
+
+Restricted writer source text, participant workbooks, provider transport logs, and credentials remain excluded.
+
+## One-command paper evidence reproduction
+
+After both assets are attached to release `artifact-v1.0`:
+
+```bash
+bash scripts/reproduce_paper.sh
+```
+
+The script:
+
+- downloads and SHA-verifies both release assets;
+- extracts them into an isolated work directory;
+- restores exact request payloads beside the sealed normalized generations;
+- recomputes historical B0–B4/MIA held-out metrics;
+- recomputes the final MIA-v2 row and confidence intervals;
+- deterministically regenerates B2-Matched from the same sealed final-MIA generations;
+- evaluates B2-Matched and B4-Matched;
+- reruns fixed-generation mechanism replay;
+- reruns clean-prompt paired analysis;
+- reruns final component analysis;
+- reruns H2/top-N sensitivity;
+- regenerates challenge-v2 reader-facing metrics from its frozen scored evaluation;
+- verifies the regenerated values against frozen reader-facing evidence.
+
+A successful run ends with:
+
+`Paper evidence reproduction: PASS`
+
+## Direct asset download
+
+While the repository is private, GitHub authentication is required:
+
+```bash
+gh release download artifact-v1.0 \
+  --repo hollylessthan/metric-intent-assurance-artifact \
+  --pattern 'mia-public-*.zip'
+```
+
+Once the repository is public, reviewers can use ordinary HTTPS without `gh` authentication:
+
+```bash
+curl -L -O https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip
+curl -L -O https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-reproducibility-supplement-v1.zip
+```
+
+Always verify SHA-256 values above before use.
+
+## Deterministic unit checks
+
+```bash
 python -m unittest \
   tests.test_evaluation \
   tests.test_mia_v2_preflight \
@@ -17,85 +111,6 @@ python -m unittest \
   tests.test_v2_matched_baselines
 ```
 
-The artifact also includes the frozen benchmark, registries, prompts, final MIA-v2 implementation, and selected deterministic analysis scripts. These checks do not require provider credentials.
+## Immutability rule
 
-## 2. Frozen source binding
-
-The curated artifact is pinned to research source commit:
-
-`58d753aa16dbd8e2372475f9002950f4aff7a498`
-
-The authoritative benchmark is:
-
-`benchmark/canonical_cases.v1.1.jsonl`
-
-The held-out test contains 240 cases / 720 utterances.
-
-## 3. Sealed final-v2 provider artifacts
-
-The final reader-facing evaluation was produced from immutable workflow artifacts retained by the research repository. `SEALED_ARTIFACT_MANIFEST.json` now records the exact source run IDs, artifact IDs, ZIP SHA-256 digests, and file-level SHA-256 hashes for the reviewer-safe contents. The relevant run IDs are:
-
-- final MIA-v2: `35426074276`
-- B2-Matched credential-free evaluation: `35457800186`
-- B4-Matched provider evaluation: `35458314825`
-- fixed-generation mechanism replay: `35461708139`
-- clean-prompt sensitivity: `35462465351`
-- paired clean-prompt audit: `35466369794`
-- final component analysis: `35467947692`
-- top-N benchmark-defect sensitivity: `35470004077`
-
-The original source-repository procedure downloads those artifacts with `gh run download` and then runs the deterministic analysis scripts included here. During artifact curation, all 16 relevant workflow artifacts were downloaded and inspected. Provider transport evidence logs and duplicated request payloads are intentionally excluded from the publication package; normalized sealed outputs, predictions, traces, and result reports are the publication-safe reproduction layer.
-
-When migrated payloads are present under `evidence/sealed/<artifact-name>/`, verify them with:
-
-```bash
-python scripts/verify_sealed_artifacts.py --require-all
-```
-
-Without `--require-all`, the verifier checks any sealed files already present and reports what is still missing.
-
-
-## 4. Download the sealed bundle
-
-While the repository remains private, authenticated reviewers/maintainers can download the release asset with:
-
-```bash
-gh release download artifact-v1.0 \
-  --repo hollylessthan/metric-intent-assurance-artifact \
-  --pattern mia-public-sealed-evidence-v1.zip
-
-python - <<'PY'
-import hashlib
-from pathlib import Path
-
-p = Path("mia-public-sealed-evidence-v1.zip")
-print(hashlib.sha256(p.read_bytes()).hexdigest())
-PY
-```
-
-Expected SHA-256:
-
-`429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`
-
-Extract it under `evidence/sealed/`, then run:
-
-```bash
-python scripts/verify_sealed_artifacts.py --require-all
-```
-
-## 5. Publication release gate
-
-Before making this repository public and using it as the paper availability URL:
-
-1. sealed bundle uploaded and SHA-256 verified — complete;
-2. source run/artifact IDs and file-level hashes recorded in `SEALED_ARTIFACT_MANIFEST.json` — complete;
-3. reproduction commands use the public artifact repository and release asset — complete;
-4. run the clean-checkout test/analysis procedure from this repository plus the public release asset;
-5. final secrets/personal-data/restricted-material scan;
-6. finalize the frozen public artifact tag after PR merge if desired.
-
-The source artifacts have been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into release asset `mia-public-sealed-evidence-v1.zip` under tag `artifact-v1.0`. GitHub reports the expected size (1,317,896 bytes) and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`. The repository is currently private, so this asset is authenticated-access only until repository visibility is changed. The sealed publication bundle is attached and hash-bound. The remaining release-readiness tasks are: (1) clean-checkout reproduction from this repository plus the authenticated release asset while the repo is private, and (2) unauthenticated download verification after the repository is made public.
-
-## 6. Immutability rule
-
-Frozen benchmark labels, thresholds, provider outputs, and historical configurations must not be rewritten during packaging. Corrections or sensitivity analyses are added as separate records rather than mutating frozen evidence.
+Frozen benchmark labels, thresholds, provider outputs, historical predictions, and confirmatory records are never rewritten during packaging. Corrections and sensitivity analyses are additional records, not mutations of frozen evidence.
