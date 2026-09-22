@@ -4,10 +4,10 @@
 
 - `src/mia/`: final implementation, assurance logic, canonicalization, grounding, normalization, matched baselines, evaluation, and compilers.
 - `schemas/`: core action, intent, MIA-v2 model-intent, prediction, and registry contracts.
-- `registries/phase4/`: frozen domain registry snapshots.
-- `benchmarks/phase4/`: frozen v1.1 benchmark, utterances, split metadata, adjudication/human-validation summaries, and execution-readiness evidence.
-- `prompts/phase5/` and `prompts/v2/`: frozen callable-system and final-v2 prompts.
-- `config/`: frozen benchmark/evaluation/threshold configuration needed to interpret the packaged study.
+- `registries/`: frozen domain registry snapshots.
+- `benchmark/`: frozen v1.1 benchmark, utterances, split metadata, adjudication/human-validation summaries, and execution-readiness evidence.
+- `prompts/`: frozen callable-system and final-v2 prompts.
+- `evaluation/`: frozen benchmark/evaluation/threshold configuration needed to interpret the packaged study.
 - `backends/metricflow/`: synthetic MetricFlow fixture.
 - `scripts/`: selected deterministic final-v2 reproduction and sensitivity scripts.
 - `tests/`: selected artifact-facing deterministic tests.
