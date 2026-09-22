@@ -1,0 +1,159 @@
+{
+  "action_counts": {
+    "clarify": 56,
+    "coverage_gap": 59,
+    "execute": 125,
+    "reject": 60
+  },
+  "adjudication_manifest_sha256": "sha256:19e71b8155c6c0df393270164c6ea5dc7be523d64fd72b1b3120f8680e76a12d",
+  "case_count": 300,
+  "corrections": [
+    {
+      "case_id": "saas-clarify-012",
+      "from": {
+        "action": "clarify",
+        "reason_code": "CLR_DIMENSION"
+      },
+      "request_id": "P4-191",
+      "to": {
+        "action": "execute",
+        "reason_code": "EXE_UNIQUE_SUPPORTED"
+      }
+    },
+    {
+      "case_id": "commerce-clarify-010",
+      "from": {
+        "action": "clarify",
+        "reason_code": "CLR_DIMENSION"
+      },
+      "request_id": "P4-046",
+      "to": {
+        "action": "execute",
+        "reason_code": "EXE_UNIQUE_SUPPORTED"
+      }
+    },
+    {
+      "case_id": "support-clarify-010",
+      "from": {
+        "action": "clarify",
+        "reason_code": "CLR_DIMENSION"
+      },
+      "request_id": "P4-258",
+      "to": {
+        "action": "execute",
+        "reason_code": "EXE_UNIQUE_SUPPORTED"
+      }
+    },
+    {
+      "case_id": "commerce-coveragegap-015",
+      "from": {
+        "action": "coverage_gap",
+        "reason_code": "GAP_COMPOSITION"
+      },
+      "request_id": "P4-033",
+      "to": {
+        "action": "coverage_gap",
+        "reason_code": "GAP_METRIC"
+      }
+    },
+    {
+      "case_id": "commerce-coveragegap-020",
+      "from": {
+        "action": "coverage_gap",
+        "reason_code": "GAP_VERSION"
+      },
+      "request_id": "P4-044",
+      "to": {
+        "action": "execute",
+        "reason_code": "EXE_UNIQUE_SUPPORTED"
+      }
+    },
+    {
+      "case_id": "saas-clarify-010",
+      "from": {
+        "action": "clarify",
+        "reason_code": "CLR_DIMENSION"
+      },
+      "request_id": "P4-260",
+      "to": {
+        "action": "execute",
+        "reason_code": "EXE_UNIQUE_SUPPORTED"
+      }
+    },
+    {
+      "case_id": "commerce-coveragegap-016",
+      "from": {
+        "action": "coverage_gap",
+        "reason_code": "GAP_COMPOSITION"
+      },
+      "request_id": "P4-250",
+      "to": {
+        "action": "coverage_gap",
+        "reason_code": "GAP_METRIC"
+      }
+    }
+  ],
+  "final_benchmark_sha256": "sha256:18db9a54d6108fa56ffe239b4d93832ad28f09bc0900bd89c19d82723b0f6963",
+  "human_audit": {
+    "correct": 93,
+    "incorrect": 7,
+    "population_cases": 300,
+    "sample_cases": 100,
+    "unsure": 0
+  },
+  "retired_contrastive_groups": {
+    "commerce-contrast-metric-010": {
+      "reason": "human adjudication removed the action contrast",
+      "source_case_id": "commerce-execute-010",
+      "target_case_id": "commerce-clarify-010"
+    },
+    "saas-contrast-metric-010": {
+      "reason": "human adjudication removed the action contrast",
+      "source_case_id": "saas-execute-010",
+      "target_case_id": "saas-clarify-010"
+    },
+    "saas-contrast-metric-012": {
+      "reason": "human adjudication removed the action contrast",
+      "source_case_id": "saas-execute-012",
+      "target_case_id": "saas-clarify-012"
+    },
+    "support-contrast-metric-010": {
+      "reason": "human adjudication removed the action contrast",
+      "source_case_id": "support-execute-010",
+      "target_case_id": "support-clarify-010"
+    }
+  },
+  "schema_version": "1.0.0",
+  "source_benchmark_sha256": "sha256:b6660d7b33680ce8f4af22f17aa09ab9a1bc757c96f473ae370f794bc0af0638",
+  "stability_review": [
+    {
+      "decision": "agree",
+      "request_id": "P4-061"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-121"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-195"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-247"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-108"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-230"
+    },
+    {
+      "decision": "agree",
+      "request_id": "P4-131"
+    }
+  ],
+  "status": "pass"
+}
