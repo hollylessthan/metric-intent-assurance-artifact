@@ -20,7 +20,7 @@ from typing import Any
 from mia.assurance import Assurer
 from mia.benchmark import load_jsonl
 from mia.models import Action, Context
-from mia.phase5 import Prediction, scored_rows, summarize
+from mia.study_metrics import Prediction, scored_rows, summarize
 from mia.registry import Registry
 from mia.validation import Validator
 from mia.v2_system import parse_generation_v2
@@ -85,7 +85,7 @@ class ReplayAssurer(Assurer):
 
 
 def threshold_config(root: Path, provider: str) -> tuple[float, float]:
-    lock = json.loads((root / "config/phase5-threshold-lock.json").read_text(encoding="utf-8"))
+    lock = json.loads((root / "evaluation/threshold_lock.json").read_text(encoding="utf-8"))
     model = lock["models"][provider]
     return float(model["mia_execute_threshold"]), float(model["mia_ambiguity_margin"])
 
@@ -133,7 +133,7 @@ def replay_variant(
     rows = []
     for request_id, adapter in requests.items():
         case = adapter["case"]
-        registry = Registry.load(root / f"registries/phase4/{case['domain']}/v1.json")
+        registry = Registry.load(root / f"registries/{case['domain']}.json")
         generation = parse_generation_v2(raw[request_id], input_record=case, registry=registry)
         context = Context.from_dict(case["context"])
         decision = ReplayAssurer(
@@ -142,7 +142,7 @@ def replay_variant(
             dropped_family=dropped_family,
         ).decide_generation(generation, registry, context, request_id=request_id)
         rows.append({
-            "run_id": f"phase6c-v2-replay-{provider}",
+            "run_id": f"v2-replay-{provider}",
             "system_id": f"mia-v2-{variant}",
             "model_id": adapter["model_id"],
             "case_id": case["case_id"],
@@ -248,7 +248,7 @@ def main() -> int:
     args = p.parse_args()
 
     root = args.repo_root.resolve()
-    benchmark = load_jsonl(root / "benchmarks/phase4/final/canonical_cases.v1.1.jsonl")
+    benchmark = load_jsonl(root / "benchmark/canonical_cases.v1.1.jsonl")
     requests = index_requests(args.mia_artifact / "requests.jsonl")
     raw = index_raw(args.mia_artifact / "raw_outputs.jsonl")
     if set(requests) != set(raw):
@@ -325,7 +325,7 @@ def main() -> int:
 
     report = {
         "schema_version": "1.0.0",
-        "study_id": "phase6c-v2-fixed-generation-mechanism-replay",
+        "study_id": "v2-fixed-generation-mechanism-replay",
         "evidence_class": "secondary_posthoc_fixed_generation_mechanism_analysis",
         "provider": args.provider,
         "thresholds": {"execute": tau_e, "ambiguity_margin": tau_a},
