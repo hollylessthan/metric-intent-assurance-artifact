@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metric-intent-assurance.org/schemas/action.schema.json",
+  "title": "Metric Intent Assurance Decision",
+  "type": "object",
+  "required": ["action", "reason_code", "intent", "question", "missing_concept", "violations", "confidence", "trace"],
+  "properties": {
+    "action": {"enum": ["execute", "clarify", "reject", "coverage_gap"]},
+    "reason_code": {
+      "enum": [
+        "EXE_UNIQUE_SUPPORTED", "EXE_CONTEXT_RESOLVED", "EXE_VERSION_EFFECTIVE",
+        "CLR_METRIC_IDENTITY", "CLR_CALENDAR", "CLR_TIME_RANGE", "CLR_ENTITY_SCOPE", "CLR_DIMENSION",
+        "CLR_FILTER_VALUE", "CLR_GRAIN", "CLR_COMPARISON", "CLR_VERSION_POLICY", "CLR_ORG_SCOPE",
+        "REJ_AUTHORIZATION", "REJ_PRIVACY", "REJ_DIMENSION_INCOMPATIBLE", "REJ_ENTITY_PATH",
+        "REJ_GRAIN_ADDITIVITY", "REJ_TIME_INVALID", "REJ_VERSION_INVALID", "REJ_OPERATION_INVALID", "REJ_OUTSIDE_CONTRACT",
+        "GAP_METRIC", "GAP_FILTER_CONCEPT", "GAP_DIMENSION", "GAP_ENTITY_RELATION", "GAP_CALENDAR_RULE",
+        "GAP_VERSION_HISTORY", "GAP_COMPOSITION", "GAP_POLICY_METADATA"
+      ]
+    },
+    "intent": {"anyOf": [{"$ref": "intent.schema.json"}, {"type": "null"}]},
+    "question": {"type": ["string", "null"]},
+    "missing_concept": {"type": ["string", "null"]},
+    "violations": {"type": "array"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "trace": {"type": "object"}
+  },
+  "allOf": [
+    {"if": {"properties": {"action": {"const": "execute"}}}, "then": {"properties": {
+      "intent": {"$ref": "intent.schema.json"}, "question": {"type": "null"}, "missing_concept": {"type": "null"}
+    }}},
+    {"if": {"properties": {"action": {"const": "clarify"}}}, "then": {"properties": {
+      "intent": {"type": "null"}, "question": {"type": "string", "minLength": 1}, "missing_concept": {"type": "null"}
+    }}},
+    {"if": {"properties": {"action": {"const": "reject"}}}, "then": {"properties": {
+      "intent": {"type": "null"}, "question": {"type": "null"}, "missing_concept": {"type": "null"}
+    }}},
+    {"if": {"properties": {"action": {"const": "coverage_gap"}}}, "then": {"properties": {
+      "intent": {"type": "null"}, "question": {"type": "null"}, "missing_concept": {"type": "string", "minLength": 1}
+    }}}
+  ],
+  "additionalProperties": false
+}
