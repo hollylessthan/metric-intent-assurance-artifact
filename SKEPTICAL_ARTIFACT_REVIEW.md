@@ -40,9 +40,9 @@ This is important because the public artifact should preserve evidence that narr
 
 The final regression summary, final challenge summary/freeze, top-N sensitivity, final architecture code, prompts, and bounded reviewer-facing values are present. `EVIDENCE_INDEX.md` maps each major evidence layer.
 
-### 7. Final-v2 sealed payload transfer — PASS
+### 7. Final-v2 sealed payload transfer — PASS; public accessibility pending
 
-The relevant final-v2 workflow artifacts have been enumerated, downloaded, safety-inspected, and hash-bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe normalized outputs, predictions, traces, and compact result reports were repackaged into `mia-public-sealed-evidence-v1.zip` and published under release tag `artifact-v1.0`. GitHub reports the expected 1,317,896-byte size and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`.
+The relevant final-v2 workflow artifacts have been enumerated, downloaded, safety-inspected, and hash-bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe normalized outputs, predictions, traces, and compact result reports were repackaged into `mia-public-sealed-evidence-v1.zip` and attached under release tag `artifact-v1.0`. GitHub reports the expected 1,317,896-byte size and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`. Because the repository is still private, unauthenticated reviewer access is not yet expected.
 
 This does **not** invalidate the compact evidence summaries. It does mean the repository is not yet a standalone reproduction package.
 
@@ -54,6 +54,6 @@ Files explicitly marked `RESTRICTED`, private participant workbooks, internal sk
 
 ## Skeptical conclusion
 
-The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. The sealed evidence transfer is complete. Publication readiness now depends only on the final clean-checkout reproduction and closeout scan.
+The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. The sealed evidence transfer is complete. Publication readiness still depends on the final clean-checkout reproduction and closeout scan; external-access readiness additionally requires an unauthenticated asset check after repository visibility is made public.
 
 Keep the PR in draft until that final migration and clean standalone reproduction pass are complete.
