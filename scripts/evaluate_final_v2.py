@@ -8,12 +8,12 @@ from pathlib import Path
 from typing import Any
 
 from mia.study_metrics import (
-    cluster_bootstrap_interval,
     confusion_matrix,
     load_predictions,
     scored_rows,
     summarize,
 )
+from repro_stats import fast_cluster_interval
 
 
 def read_json(path: Path) -> Any:
@@ -86,8 +86,8 @@ def summarize_provider(provider: str, v2_dir: Path, v1_dir: Path, cases: list[di
         "provider": provider,
         "v2_summary": v2_summary,
         "v2_bootstrap": {
-            metric: cluster_bootstrap_interval(v2_rows, metric)
-            for metric in ("unsafe_execution_rate", "correct_execution_coverage", "action_macro_f1")
+            metric: fast_cluster_interval(v2_rows, metric, samples=10_000, seed=20260801)
+            for metric in ("unsafe_execution_rate", "correct_execution_coverage")
         },
         "v2_confusion_matrix": confusion_matrix(v2_rows),
         "v1_recomputed_summary": v1_summary,
