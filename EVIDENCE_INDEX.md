@@ -24,7 +24,7 @@ This index maps the paper's material evidence layers to the public artifact. It 
 
 ## Final-v2 sealed payload migration status
 
-All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs and duplicated request payloads are intentionally excluded. The **large normalized sealed files are not yet physically present here** because the current GitHub connector exposes workflow-artifact download but not release-asset upload or direct binary transfer between repositories.
+All relevant workflow artifacts have been enumerated, downloaded, inspected, and bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe layer is the normalized `raw_outputs.jsonl`, `predictions.jsonl`, `traces.jsonl`, and compact result reports. Provider transport evidence logs and duplicated request payloads are intentionally excluded. A publication-safe bundle has now been built from the inspected artifacts: `mia-public-sealed-evidence-v1.zip` (1,317,896 bytes; SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`; 70 files). The **bundle is not yet physically attached to GitHub** because the current GitHub connector exposes workflow-artifact download but not release-asset upload or direct binary transfer between repositories.
 
 | Evidence | Source workflow run | Why needed |
 |---|---:|---|
