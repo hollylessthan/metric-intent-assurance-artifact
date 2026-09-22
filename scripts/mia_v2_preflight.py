@@ -1,22 +1,16 @@
 #!/usr/bin/env python3
-"""Credential-free preflight for the full MIA-v2 Phase 5 regression."""
+"""Credential-free preflight for the packaged MIA-v2 held-out evaluation."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
-import sys
-import tempfile
 from collections import Counter
 from pathlib import Path
 
 from mia.registry import Registry
 from mia.v2_system import build_adapter_input_v2
-
-
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-import phase5_prepare
 
 
 PROVIDERS = {
@@ -40,15 +34,37 @@ PROVIDERS = {
 
 
 def read_jsonl(path: Path) -> list[dict]:
-    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def sha256(path: Path) -> str:
+    return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def heldout_records(cases: list[dict]) -> list[dict]:
+    records = []
+    for case in cases:
+        if case["split"] != "test":
+            continue
+        registry_hash = case["provenance"]["registry_hash"]
+        for position, request in enumerate(case["utterances"]):
+            utterance_id = f"{case['case_id']}#u{position}"
+            records.append({
+                "request_id": utterance_id,
+                "case_id": case["case_id"],
+                "utterance_id": utterance_id,
+                "domain": case["domain"],
+                "request": request,
+                "context": case["context"],
+                "registry_hash": registry_hash,
+            })
+    return records
 
 
 def preflight(repo_root: Path) -> dict:
-    benchmark = repo_root / "benchmarks/phase4/final/canonical_cases.v1.1.jsonl"
-    with tempfile.TemporaryDirectory(prefix="mia-v2-preflight-") as directory:
-        output = Path(directory)
-        manifest = phase5_prepare.prepare(repo_root, benchmark, output)
-        records = read_jsonl(output / "test.jsonl")
+    benchmark = repo_root / "benchmark/canonical_cases.v1.1.jsonl"
+    cases = read_jsonl(benchmark)
+    records = heldout_records(cases)
 
     if len(records) != 720:
         raise AssertionError(f"expected 720 held-out utterances, observed {len(records)}")
@@ -56,7 +72,7 @@ def preflight(repo_root: Path) -> dict:
         raise AssertionError("held-out preflight must contain 240 canonical cases")
 
     registries = {
-        domain: Registry.load(repo_root / f"registries/phase4/{domain}/v1.json")
+        domain: Registry.load(repo_root / f"registries/{domain}.json")
         for domain in sorted({row["domain"] for row in records})
     }
 
@@ -73,7 +89,6 @@ def preflight(repo_root: Path) -> dict:
                 decoding=settings["decoding"],
                 prompts_root=repo_root / "prompts/v2",
             )
-            # This is a deterministic payload-size diagnostic, not a token/cost estimate.
             input_chars.append(len(json.dumps(adapter, sort_keys=True, separators=(",", ":"))))
         provider_stats[provider] = {
             "model_id": settings["model_id"],
@@ -90,7 +105,7 @@ def preflight(repo_root: Path) -> dict:
         "schema_version": "1.0.0",
         "status": "pass",
         "provider_calls_permitted": False,
-        "benchmark_sha256": manifest["benchmark_sha256"],
+        "benchmark_sha256": sha256(benchmark),
         "cases": 240,
         "utterances": 720,
         "domain_utterances": dict(sorted(Counter(row["domain"] for row in records).items())),
@@ -98,7 +113,7 @@ def preflight(repo_root: Path) -> dict:
         "total_future_provider_calls": sum(item["calls"] for item in provider_stats.values()),
         "notes": [
             "No provider API is called by this preflight.",
-            "Frozen B0-B4 outputs will be reused; only MIA-v2 requires new provider calls.",
+            "Historical baseline outputs are frozen; this check validates the packaged MIA-v2 held-out request surface.",
             "Character counts are payload diagnostics only and must not be reported as token or dollar estimates.",
         ],
     }
