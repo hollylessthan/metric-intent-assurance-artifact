@@ -11,7 +11,7 @@ Status: **post-hoc regression evidence; not a replacement for the frozen Phase 5
 - Final evaluation artifact ID: `10580057349`
 - Final evaluation artifact digest: `sha256:1a1f933ba651eadd93987a125ec4c21d8928eb5698aa8e3d443ddfac0c67df93`
 - Frozen Phase 5 confirmatory run: `34735098888`
-- Frozen benchmark: `benchmarks/phase4/final/canonical_cases.v1.1.jsonl`
+- Frozen benchmark: `benchmark/canonical_cases.v1.1.jsonl`
 - The evaluation made zero provider calls and loaded frozen labels only after the MIA-v2 outputs were sealed.
 
 ## Headline comparison
