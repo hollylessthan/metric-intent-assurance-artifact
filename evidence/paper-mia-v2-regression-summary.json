@@ -1,0 +1,37 @@
+{
+  "evidence_class": "secondary_posthoc_regression",
+  "source_run_id": 35426074276,
+  "evaluation_run_id": 35429477378,
+  "evaluation_artifact": "mia-v2-regression-evaluation-35429477378",
+  "evaluation_artifact_digest": "sha256:1a1f933ba651eadd93987a125ec4c21d8928eb5698aa8e3d443ddfac0c67df93",
+  "providers": {
+    "gpt": {
+      "uer": 0.0072,
+      "uer_ci": [
+        0,
+        0.0234
+      ],
+      "cec": 0.8284,
+      "cec_ci": [
+        0.7527,
+        0.8977
+      ],
+      "macro_f1": 0.7512,
+      "paraphrase_consistency": 0.8583
+    },
+    "claude": {
+      "uer": 0.048,
+      "uer_ci": [
+        0.0157,
+        0.0858
+      ],
+      "cec": 0.7822,
+      "cec_ci": [
+        0.708,
+        0.8491
+      ],
+      "macro_f1": 0.7548,
+      "paraphrase_consistency": 0.85
+    }
+  }
+}
