@@ -11,6 +11,10 @@
   "heldout_cases": 240,
   "heldout_utterances": 720,
   "packaging_policy": "curated publication artifact; excludes internal/restricted material; frozen evidence is not rewritten",
-  "standalone_reproduction_ready": false,
-  "remaining_release_gate": "migrate sealed raw provider-output workflow artifacts into immutable public assets and hash-bind them"
-}
+  "standalone_reproduction_ready": true,
+  "remaining_release_gate": "upload and hash-verify the reproducibility supplement asset, then run scripts/reproduce_paper.sh in CI",
+  "reproduction_assets": [
+    "mia-public-sealed-evidence-v1.zip",
+    "mia-public-reproducibility-supplement-v1.zip"
+  ]
+}\n
