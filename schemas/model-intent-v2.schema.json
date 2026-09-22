@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metric-intent-assurance.org/schemas/model-intent-v2.schema.json",
+  "title": "MIA v2 model-facing semantic intent",
+  "description": "Minimal semantic fields interpreted from user language. Structural governance fields are derived after generation.",
+  "type": "object",
+  "required": [
+    "metrics",
+    "dimensions",
+    "filters",
+    "time",
+    "explicit_metric_versions",
+    "unresolved_explicit_version_metrics",
+    "unresolved_dimension_mentions",
+    "unresolved_filter_value_attributes",
+    "ordering",
+    "limit"
+  ],
+  "properties": {
+    "metrics": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "dimensions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "attribute",
+          "operator",
+          "value_json",
+          "value_type",
+          "scope"
+        ],
+        "properties": {
+          "attribute": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operator": {
+            "enum": [
+              "eq",
+              "neq",
+              "gt",
+              "gte",
+              "lt",
+              "lte",
+              "in",
+              "not_in"
+            ]
+          },
+          "value_type": {
+            "enum": [
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "date"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value_json": {
+            "type": "string",
+            "description": "Canonical JSON encoding of the requested filter value."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "time": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "temporal_grain",
+        "calendar_id"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "temporal_grain": {
+          "enum": [
+            "day",
+            "week",
+            "month",
+            "quarter",
+            "year"
+          ]
+        },
+        "calendar_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Null unless the request explicitly specifies a non-default/named calendar."
+        }
+      },
+      "additionalProperties": false
+    },
+    "explicit_metric_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "metric_id",
+          "version_id"
+        ],
+        "properties": {
+          "metric_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_explicit_version_metrics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Metrics for which the user explicitly requests a registered/named definition but does not identify which version."
+    },
+    "ordering": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "direction"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limit": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "unresolved_dimension_mentions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Requested grouping/dimension mentions that cannot be resolved to one governed canonical dimension. A candidate carrying this field must fail closed to clarification."
+    },
+    "unresolved_filter_value_attributes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Canonical filter attributes explicitly requested by the user whose filter value cannot be resolved. A candidate carrying this field must fail closed to clarification."
+    }
+  },
+  "additionalProperties": false
+}
