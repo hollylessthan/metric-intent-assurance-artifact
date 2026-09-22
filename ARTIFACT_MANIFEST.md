@@ -41,3 +41,4 @@ Both assets are SHA-256 bound in their manifests.
 - `SEALED_ARTIFACT_MANIFEST.json`: final-v2 sealed evidence binding.
 - `REPRODUCIBILITY_SUPPLEMENT_MANIFEST.json`: supplement binding.
 - `REPRODUCIBILITY.md`: one-command reproduction and optional provider-rerun instructions.
+- `paper_numbers.json`: machine-readable contract for the quantitative values asserted by the artifact verifier.
