@@ -123,15 +123,7 @@ The frozen model IDs and decoding settings are carried in each request file. The
 
 ## Direct asset download
 
-While the repository is private, GitHub authentication is required:
-
-```bash
-gh release download artifact-v1.0 \
-  --repo hollylessthan/metric-intent-assurance-artifact \
-  --pattern 'mia-public-*.zip'
-```
-
-Once the repository is public, reviewers can use ordinary HTTPS without `gh` authentication:
+The repository and release are public, so reviewers can download the release assets over ordinary HTTPS without `gh` authentication:
 
 ```bash
 curl -L -O https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip
@@ -149,7 +141,8 @@ python -m unittest \
   tests.test_evaluation \
   tests.test_mia_v2_preflight \
   tests.test_mia_v2_readiness_audit \
-  tests.test_v2_matched_baselines
+  tests.test_v2_matched_baselines \
+  tests.test_repro_stats
 ```
 
 ## Immutability rule
