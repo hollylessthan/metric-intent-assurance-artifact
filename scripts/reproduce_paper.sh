@@ -58,7 +58,7 @@ python scripts/topn_defect_sensitivity.py \
   --gpt-b4 "${SEALED}/b4-matched/gpt" --claude-b4 "${SEALED}/b4-matched/claude" \
   --output "${GEN}/topn.json"
 
-python scripts/summarize_challenge_v2.py --evaluation "${SUPP}/challenge-v2/challenge_v2_evaluation.json" --output "${GEN}/challenge-v2.json"
+python scripts/summarize_challenge_v2.py --evaluation "${SUPP}/challenge-v2/challenge_v2_evaluation.json" --output "${GEN}/challenge-v2.json"\ncp "${SUPP}/historical/confirmatory/h2-contrastive-visibility.json" "${GEN}/h2.json"
 
 python scripts/verify_reproduced_evidence.py --generated "${GEN}" --repo-root "${ROOT}"
 echo "Paper evidence reproduction: PASS"
