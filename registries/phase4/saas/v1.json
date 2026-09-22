@@ -1,0 +1,2100 @@
+{
+  "calendars": [
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "gregorian",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "day": "metric_time__day",
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "week": "metric_time__week",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "calendar",
+      "name": "Gregorian calendar",
+      "supported_grains": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ]
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "fiscal",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "fiscal",
+      "name": "Corporate fiscal calendar",
+      "supported_grains": [
+        "month",
+        "quarter",
+        "year"
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "allowed_values": [
+        "North America",
+        "EMEA",
+        "Asia Pacific"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "region",
+          "table": "account_dim"
+        },
+        "metricflow": {
+          "filter_name": "account__region",
+          "group_by": "account__region"
+        }
+      },
+      "entity": "account",
+      "id": "region",
+      "name": "Region",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "United States",
+        "Germany",
+        "Japan"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "country",
+          "table": "workspace_dim"
+        },
+        "metricflow": {
+          "filter_name": "workspace__country",
+          "group_by": "workspace__country"
+        }
+      },
+      "entity": "workspace",
+      "id": "country",
+      "name": "Country",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "financial services",
+        "healthcare",
+        "software"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "industry",
+          "table": "invoice_dim"
+        },
+        "metricflow": {
+          "filter_name": "invoice__industry",
+          "group_by": "invoice__industry"
+        }
+      },
+      "entity": "invoice",
+      "id": "industry",
+      "name": "Industry",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "small business",
+        "mid-market",
+        "enterprise"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "company_size",
+          "table": "account_dim"
+        },
+        "metricflow": {
+          "filter_name": "account__company_size",
+          "group_by": "account__company_size"
+        }
+      },
+      "entity": "account",
+      "id": "company_size",
+      "name": "Company Size",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "Starter",
+        "Growth",
+        "Enterprise"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "plan",
+          "table": "workspace_dim"
+        },
+        "metricflow": {
+          "filter_name": "workspace__plan",
+          "group_by": "workspace__plan"
+        }
+      },
+      "entity": "workspace",
+      "id": "plan",
+      "name": "Plan",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "monthly",
+        "annual"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "billing_cycle",
+          "table": "invoice_dim"
+        },
+        "metricflow": {
+          "filter_name": "invoice__billing_cycle",
+          "group_by": "invoice__billing_cycle"
+        }
+      },
+      "entity": "invoice",
+      "id": "billing_cycle",
+      "name": "Billing Cycle",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "USD",
+        "EUR",
+        "JPY"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "currency",
+          "table": "account_dim"
+        },
+        "metricflow": {
+          "filter_name": "account__currency",
+          "group_by": "account__currency"
+        }
+      },
+      "entity": "account",
+      "id": "currency",
+      "name": "Currency",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "commercial",
+        "mid-market",
+        "strategic"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "sales_segment",
+          "table": "workspace_dim"
+        },
+        "metricflow": {
+          "filter_name": "workspace__sales_segment",
+          "group_by": "workspace__sales_segment"
+        }
+      },
+      "entity": "workspace",
+      "id": "sales_segment",
+      "name": "Sales Segment",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "organic",
+        "paid search",
+        "partner"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "acquisition_channel",
+          "table": "invoice_dim"
+        },
+        "metricflow": {
+          "filter_name": "invoice__acquisition_channel",
+          "group_by": "invoice__acquisition_channel"
+        }
+      },
+      "entity": "invoice",
+      "id": "acquisition_channel",
+      "name": "Acquisition Channel",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "standard",
+        "premium",
+        "strategic"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "account_tier",
+          "table": "account_dim"
+        },
+        "metricflow": {
+          "filter_name": "account__account_tier",
+          "group_by": "account__account_tier"
+        }
+      },
+      "entity": "account",
+      "id": "account_tier",
+      "name": "Account Tier",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "workspace_type",
+          "table": "workspace_dim"
+        },
+        "metricflow": {
+          "filter_name": "workspace__workspace_type",
+          "group_by": "workspace__workspace_type"
+        }
+      },
+      "entity": "workspace",
+      "id": "workspace_type",
+      "name": "Workspace Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "product_edition",
+          "table": "invoice_dim"
+        },
+        "metricflow": {
+          "filter_name": "invoice__product_edition",
+          "group_by": "invoice__product_edition"
+        }
+      },
+      "entity": "invoice",
+      "id": "product_edition",
+      "name": "Product Edition",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "contract_term",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__contract_term",
+          "group_by": "subscription__contract_term"
+        }
+      },
+      "entity": "subscription",
+      "id": "contract_term",
+      "name": "Contract Term",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "renewal_cohort",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__renewal_cohort",
+          "group_by": "subscription__renewal_cohort"
+        }
+      },
+      "entity": "subscription",
+      "id": "renewal_cohort",
+      "name": "Renewal Cohort",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "signup_cohort",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__signup_cohort",
+          "group_by": "subscription__signup_cohort"
+        }
+      },
+      "entity": "subscription",
+      "id": "signup_cohort",
+      "name": "Signup Cohort",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "customer_status",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__customer_status",
+          "group_by": "subscription__customer_status"
+        }
+      },
+      "entity": "subscription",
+      "id": "customer_status",
+      "name": "Customer Status",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "payment_method",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__payment_method",
+          "group_by": "subscription__payment_method"
+        }
+      },
+      "entity": "subscription",
+      "id": "payment_method",
+      "name": "Payment Method",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "invoice_status",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__invoice_status",
+          "group_by": "subscription__invoice_status"
+        }
+      },
+      "entity": "subscription",
+      "id": "invoice_status",
+      "name": "Invoice Status",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "cancellation_reason",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__cancellation_reason",
+          "group_by": "subscription__cancellation_reason"
+        }
+      },
+      "entity": "subscription",
+      "id": "cancellation_reason",
+      "name": "Cancellation Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "churn_reason",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__churn_reason",
+          "group_by": "subscription__churn_reason"
+        }
+      },
+      "entity": "subscription",
+      "id": "churn_reason",
+      "name": "Churn Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "feature_bundle",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__feature_bundle",
+          "group_by": "subscription__feature_bundle"
+        }
+      },
+      "entity": "subscription",
+      "id": "feature_bundle",
+      "name": "Feature Bundle",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "seat_band",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__seat_band",
+          "group_by": "subscription__seat_band"
+        }
+      },
+      "entity": "subscription",
+      "id": "seat_band",
+      "name": "Seat Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "usage_band",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__usage_band",
+          "group_by": "subscription__usage_band"
+        }
+      },
+      "entity": "subscription",
+      "id": "usage_band",
+      "name": "Usage Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "success_plan",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__success_plan",
+          "group_by": "subscription__success_plan"
+        }
+      },
+      "entity": "subscription",
+      "id": "success_plan",
+      "name": "Success Plan",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "partner_type",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__partner_type",
+          "group_by": "subscription__partner_type"
+        }
+      },
+      "entity": "subscription",
+      "id": "partner_type",
+      "name": "Partner Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "sales_owner",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__sales_owner",
+          "group_by": "subscription__sales_owner"
+        }
+      },
+      "entity": "subscription",
+      "id": "sales_owner",
+      "name": "Sales Owner",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "customer_age_band",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__customer_age_band",
+          "group_by": "subscription__customer_age_band"
+        }
+      },
+      "entity": "subscription",
+      "id": "customer_age_band",
+      "name": "Customer Age Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "risk_band",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__risk_band",
+          "group_by": "subscription__risk_band"
+        }
+      },
+      "entity": "subscription",
+      "id": "risk_band",
+      "name": "Risk Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "data_residency",
+          "table": "subscription_dim"
+        },
+        "metricflow": {
+          "filter_name": "subscription__data_residency",
+          "group_by": "subscription__data_residency"
+        }
+      },
+      "entity": "subscription",
+      "id": "data_residency",
+      "name": "Data Residency",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "legal_entity",
+          "table": "unlinked_entity_dim"
+        },
+        "metricflow": {
+          "filter_name": "unlinked_entity__legal_entity",
+          "group_by": "unlinked_entity__legal_entity"
+        }
+      },
+      "entity": "unlinked_entity",
+      "id": "legal_entity",
+      "name": "Legal Entity",
+      "type": "string"
+    }
+  ],
+  "entity_paths": [
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "account_id",
+          "from_table": "saas_facts",
+          "to_key": "account_id",
+          "to_table": "account_dim"
+        }
+      },
+      "from": "subscription",
+      "id": "subscription_to_account",
+      "to": "account"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "workspace_id",
+          "from_table": "saas_facts",
+          "to_key": "workspace_id",
+          "to_table": "workspace_dim"
+        }
+      },
+      "from": "subscription",
+      "id": "subscription_to_workspace",
+      "to": "workspace"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "invoice_id",
+          "from_table": "saas_facts",
+          "to_key": "invoice_id",
+          "to_table": "invoice_dim"
+        }
+      },
+      "from": "subscription",
+      "id": "subscription_to_invoice",
+      "to": "invoice"
+    }
+  ],
+  "metrics": [
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "monthly recurring revenue",
+        "revenue"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "monthly_recurring_revenue",
+      "name": "Monthly Recurring Revenue",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "monthly_recurring_revenue",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "monthly_recurring_revenue"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "monthly_recurring_revenue.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "monthly_recurring_revenue_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "monthly_recurring_revenue_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "monthly_recurring_revenue.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "annual recurring revenue",
+        "revenue"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "annual_recurring_revenue",
+      "name": "Annual Recurring Revenue",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "annual_recurring_revenue",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "annual_recurring_revenue"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "annual_recurring_revenue.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "new mrr"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "new_mrr",
+      "name": "New Mrr",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "new_mrr",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "new_mrr"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "new_mrr.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "expansion mrr"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "expansion_mrr",
+      "name": "Expansion Mrr",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "expansion_mrr",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "expansion_mrr"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "expansion_mrr.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "contraction mrr"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "contraction_mrr",
+      "name": "Contraction Mrr",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "contraction_mrr",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "contraction_mrr"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "contraction_mrr.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "contraction_mrr_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "contraction_mrr_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "contraction_mrr.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "churned mrr"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "churned_mrr",
+      "name": "Churned Mrr",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "churned_mrr",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "churned_mrr"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "churned_mrr.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "semi_additive_time",
+      "aliases": [
+        "active subscriptions"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "active_subscriptions",
+      "name": "Active Subscriptions",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "active_subscriptions",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "active_subscriptions"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "active_subscriptions.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "new subscriptions"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "new_subscriptions",
+      "name": "New Subscriptions",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "new_subscriptions",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "new_subscriptions"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "new_subscriptions.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "canceled subscriptions"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "canceled_subscriptions",
+      "name": "Canceled Subscriptions",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "canceled_subscriptions",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "canceled_subscriptions"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "canceled_subscriptions.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "canceled_subscriptions_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "canceled_subscriptions_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "canceled_subscriptions.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "trial conversion rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "trial_conversion_rate",
+      "name": "Trial Conversion Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "trial_conversion_rate",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "trial_conversion_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "trial_conversion_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "gross revenue retention"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "gross_revenue_retention",
+      "name": "Gross Revenue Retention",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "gross_revenue_retention",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "gross_revenue_retention"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "gross_revenue_retention.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "net revenue retention"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "net_revenue_retention",
+      "name": "Net Revenue Retention",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "net_revenue_retention",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "net_revenue_retention"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "net_revenue_retention.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "average revenue per account"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "average_revenue_per_account",
+      "name": "Average Revenue Per Account",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "average_revenue_per_account",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "average_revenue_per_account"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "average_revenue_per_account.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "average_revenue_per_account_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "average_revenue_per_account_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "average_revenue_per_account.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "customer acquisition cost"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "customer_acquisition_cost",
+      "name": "Customer Acquisition Cost",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "customer_acquisition_cost",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "customer_acquisition_cost"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "customer_acquisition_cost.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "lifetime value"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "lifetime_value",
+      "name": "Lifetime Value",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "lifetime_value",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "lifetime_value"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "lifetime_value.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "logo churn rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "logo_churn_rate",
+      "name": "Logo Churn Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "logo_churn_rate",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "logo_churn_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "logo_churn_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "seat utilization"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "seat_utilization",
+      "name": "Seat Utilization",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "seat_utilization",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "seat_utilization"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "seat_utilization.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "seat_utilization_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "seat_utilization_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "seat_utilization.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "support cost per account"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "support_cost_per_account",
+      "name": "Support Cost Per Account",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "support_cost_per_account",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "support_cost_per_account"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "support_cost_per_account.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "days to activate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "days_to_activate",
+      "name": "Days To Activate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "days_to_activate",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "days_to_activate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "days_to_activate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "semi_additive_time",
+      "aliases": [
+        "product active users"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "product_active_users",
+      "name": "Product Active Users",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "product_active_users",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "product_active_users"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "product_active_users.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "feature adoption rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "feature_adoption_rate",
+      "name": "Feature Adoption Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "feature_adoption_rate",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "feature_adoption_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "feature_adoption_rate.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "feature_adoption_rate_v2",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "feature_adoption_rate_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "feature_adoption_rate.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "invoice collection rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "invoice_collection_rate",
+      "name": "Invoice Collection Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "invoice_collection_rate",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "invoice_collection_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "invoice_collection_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "semi_additive_time",
+      "aliases": [
+        "overdue balance"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "overdue_balance",
+      "name": "Overdue Balance",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "overdue_balance",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "overdue_balance"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "overdue_balance.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "recognized revenue"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "industry",
+        "company_size",
+        "plan",
+        "billing_cycle",
+        "currency",
+        "sales_segment",
+        "acquisition_channel",
+        "account_tier",
+        "workspace_type",
+        "product_edition",
+        "legal_entity"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "subscription",
+      "id": "recognized_revenue",
+      "name": "Recognized Revenue",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "recognized_revenue",
+              "table": "saas_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "recognized_revenue"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "recognized_revenue.v1",
+          "restated": false
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "effect": "allow",
+      "id": "monthly_recurring_revenue_finance_only",
+      "object_id": "monthly_recurring_revenue",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "contraction_mrr_finance_only",
+      "object_id": "contraction_mrr",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "canceled_subscriptions_finance_only",
+      "object_id": "canceled_subscriptions",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "average_revenue_per_account_finance_only",
+      "object_id": "average_revenue_per_account",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "seat_utilization_finance_only",
+      "object_id": "seat_utilization",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "feature_adoption_rate_finance_only",
+      "object_id": "feature_adoption_rate",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "signup_cohort_sensitive",
+      "object_id": "signup_cohort",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "sales_owner_sensitive",
+      "object_id": "sales_owner",
+      "roles": [
+        "finance"
+      ]
+    }
+  ],
+  "registry_id": "saas-phase4-pilot",
+  "snapshot_hash": "sha256:a25f1db5251357942bbdd03a0a1411e3f78fc63550a73f093e6ec80201405f6d",
+  "snapshot_version": "1.1.0"
+}
