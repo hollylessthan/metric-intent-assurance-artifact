@@ -1,0 +1,115 @@
+{
+  "b3_selection": "fixed_pre-development_smoke_value_not_tuned",
+  "benchmark_git_blob_sha": "1de18fdf8b735cbade51a366407f18baa6043daf",
+  "completion_policy": "fail_closed_invalid_output_v1",
+  "cost_profile_sha256": "sha256:d0596b8cac2d710f141c503d979bf37141ef3e26fd6229e139100cbae87d16a2",
+  "development_gold_sha256": "sha256:662bc4fb600b5f7476a0d7cb38839bb2195c80218eb9d39a8d0193fa91b6043f",
+  "mia_selection": "phase2_frozen_development_rule",
+  "models": {
+    "claude": {
+      "b0_source_predictions_sha256": "sha256:7f5e7ffefe92a5a2b9980a54002c1d70b7aa6831b61a91a4a2fdb72c0d634298",
+      "b0_source_recovery_manifest_sha256": "sha256:ee13730187c859d90e50a00a83961fc75aae00931ca095e67dbb0d603df4a4e0",
+      "b1_development_cec": 0.986111111,
+      "b1_development_uer": 0.203703704,
+      "b3_execute_threshold": 0.8,
+      "composite_predictions_sha256": "sha256:09e99926b26e8f1bbb4c5249e0dbb58a0b48e1a5aca11b5f90413f7721f6bb20",
+      "eligibility_feasible": true,
+      "mia_ambiguity_margin": 0.0,
+      "mia_development_metrics": {
+        "action_macro_f1": 0.975915493,
+        "correct_execution_coverage": 0.972222222,
+        "n_cases": 180.0,
+        "unsafe_execution_rate": 0.0
+      },
+      "mia_development_primary_cost": 14.0,
+      "mia_development_report_sha256": "sha256:5c7929768e81b7b7b5c84026011f75ec1f4737e712efc5044c2fda39f1b413ac",
+      "mia_execute_threshold": 0.6,
+      "mia_execution_manifest_sha256": "sha256:8e257b365ed65c468d46d1e63e8aba65b9747bb4513419a8a0da7941005439b6",
+      "mia_provider_evidence_sha256": "sha256:f377143f0ee1740ea1e210c7f49712094e51c926fc1e4b3d8ad3ed70e7ac7a45",
+      "mia_traces_sha256": "sha256:cc99c3f653bb8a24d34ba12c9b42965180202028e0723589d352040e4eae9d15",
+      "model_id": "claude-sonnet-5",
+      "parity_development_report_sha256": "sha256:d5815ae5a2f4c13cefcc4946aaafa1eeeb07642742796ab99044e7c626129109",
+      "parity_execution_manifest_sha256": "sha256:2137ad5445f64fcb660e793a734c106c1320f435f2b79319e6afcfe6016a2f8e",
+      "parity_predictions_sha256": "sha256:20d429aa04ab801594753a5cc77f5eea89854745f7814442ee14d25983225b21",
+      "parity_provider_evidence_sha256": "sha256:1428081fa8b45ace792df69eed7a44a804bd5d4bdf0db4804b8020928c0dad86",
+      "policy_execute_violations": 0,
+      "threshold_responsive_mia_utterances": 107
+    },
+    "gpt": {
+      "b0_source_predictions_sha256": "sha256:8b0c945b685b84e3160cad6f9682b592a1bd9df48f84f227347bcdafbd3f99f5",
+      "b0_source_recovery_manifest_sha256": "sha256:2d63e6b28c96268d7c5a2a35730b98ad4a0351f219e0fbf489f871d7b47080bb",
+      "b1_development_cec": 0.638888889,
+      "b1_development_uer": 0.731481481,
+      "b3_execute_threshold": 0.8,
+      "composite_predictions_sha256": "sha256:0a2af6ce66754a10f6b4a62d842009374d407a54b34582eef34734dfb264dcd3",
+      "eligibility_feasible": true,
+      "mia_ambiguity_margin": 1.0,
+      "mia_development_metrics": {
+        "action_macro_f1": 0.870514954,
+        "correct_execution_coverage": 0.722222222,
+        "n_cases": 180.0,
+        "unsafe_execution_rate": 0.0
+      },
+      "mia_development_primary_cost": 168.0,
+      "mia_development_report_sha256": "sha256:4949ac279fe6c1908a8248737663800c733c2df6868b6b86bccec5bd671852e0",
+      "mia_execute_threshold": 0.96,
+      "mia_execution_manifest_sha256": "sha256:77ce9b85b93b3eec7774aa4424d927dcb0817114a85595344e8cc39f67b4ccb4",
+      "mia_provider_evidence_sha256": "sha256:b925643e42c65c4281dcfd397b18e3982361167b57ebbcc08a12ddffe14f67f2",
+      "mia_traces_sha256": "sha256:53365b89fecbe0f8ada6c9ff0b55b8972a1773141aae18fdbea7f7337f74f25f",
+      "model_id": "gpt-5.4-mini-2026-03-17",
+      "parity_development_report_sha256": "sha256:840175cf6e75f78ecec55fc0b7c430657373da18ab76f26fca8eb9feaba93828",
+      "parity_execution_manifest_sha256": "sha256:8b9b6b7d9c945f55f78f7b184352bbbcdf9637f2e64fdfb604d38d656a775a4e",
+      "parity_predictions_sha256": "sha256:db80a58beadfb48311d2f80c2c62e6925631e14b5df6fa2a486e433830b5f4f7",
+      "parity_provider_evidence_sha256": "sha256:6772a06650180e3c6981690c4666aa19991d17b71a297cac0c9ef2bfb716ebe3",
+      "policy_execute_violations": 0,
+      "threshold_responsive_mia_utterances": 95
+    }
+  },
+  "schema_version": "1.0.0",
+  "source_composite_artifacts": {
+    "claude": {
+      "b0_finalized": {
+        "artifact_digest": "sha256:3c3648eaba48e9173df33547def8fa28459a967f086f4da5f90288baf8a660cc",
+        "artifact_id": 10280401353,
+        "artifact_name": "phase5-claude-development-finalized-34641720390",
+        "workflow_run_id": 34641720390
+      },
+      "baseline_v4": {
+        "artifact_digest": "sha256:0bd699123a21c88f20aaab9dc67a1625beedc56ad1c04620db3e229f9d6f67a7",
+        "artifact_id": 10290422384,
+        "artifact_name": "phase5-claude-baseline-v4-development-34667164985",
+        "workflow_run_id": 34667164985
+      },
+      "mia_v5": {
+        "artifact_digest": "sha256:87903929d239ed03e1b48e947cbfc2d514af74cfd6b9fa3b0fb9d8a8889310a5",
+        "artifact_id": 10287295463,
+        "artifact_name": "phase5-claude-mia-v5-development-34657652251",
+        "workflow_run_id": 34657652251
+      }
+    },
+    "gpt": {
+      "b0_finalized": {
+        "artifact_digest": "sha256:cfdf9e50d9e953b3702e8db43599c827ae8ae8d001efade9229a3fba186e3f7e",
+        "artifact_id": 10280636227,
+        "artifact_name": "phase5-gpt-development-finalized-34641720390",
+        "workflow_run_id": 34641720390
+      },
+      "baseline_v4": {
+        "artifact_digest": "sha256:8f28271adf221ae17a67304fc1366c3510c171e6c5fb98fc22d42675ab133b01",
+        "artifact_id": 10289950655,
+        "artifact_name": "phase5-gpt-baseline-v4-development-34667679315",
+        "workflow_run_id": 34667679315
+      },
+      "mia_v5": {
+        "artifact_digest": "sha256:3ac8d2b55af27ae8acf6024ffd9cc36a3a2e00a8ed7136763ae670db97cafcaf",
+        "artifact_id": 10285503358,
+        "artifact_name": "phase5-gpt-mia-v5-development-34657652251",
+        "workflow_run_id": 34657652251
+      }
+    }
+  },
+  "source_development_workflow_run_id": 34627824511,
+  "source_finalization_workflow_run_id": 34641720390,
+  "status": "locked",
+  "study_id": "mia-phase5-confirmatory-v1"
+}
