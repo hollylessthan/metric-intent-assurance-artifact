@@ -40,18 +40,13 @@ This is important because the public artifact should preserve evidence that narr
 
 The final regression summary, final challenge summary/freeze, top-N sensitivity, final architecture code, prompts, and bounded reviewer-facing values are present. `EVIDENCE_INDEX.md` maps each major evidence layer.
 
-### 7. Final-v2 sealed payload transfer — BLOCKER for standalone reproducibility
+### 7. Final-v2 sealed payload transfer — PASS
 
-The relevant final-v2 workflow artifacts have now been enumerated, downloaded, safety-inspected, and hash-bound in `SEALED_ARTIFACT_MANIFEST.json`. The review explicitly excludes provider transport evidence logs and duplicated request payloads from publication while retaining normalized outputs, predictions, traces, and compact result reports as the scientific reproduction layer. The large normalized payloads are not yet physically present in this repository.
+The relevant final-v2 workflow artifacts have been enumerated, downloaded, safety-inspected, and hash-bound in `SEALED_ARTIFACT_MANIFEST.json`. The publication-safe normalized outputs, predictions, traces, and compact result reports were repackaged into `mia-public-sealed-evidence-v1.zip` and published under release tag `artifact-v1.0`. GitHub reports the expected 1,317,896-byte size and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`.
 
 This does **not** invalidate the compact evidence summaries. It does mean the repository is not yet a standalone reproduction package.
 
-Required before public release:
-1. physically transfer the normalized sealed final-v2 provider/matched-control/clean-prompt payloads into this repository or immutable public release assets;
-2. preserve the already-recorded source run IDs/artifact IDs, ZIP digests, and file-level SHA-256 hashes;
-3. update reproduction commands to consume only public assets;
-4. run the full clean-checkout reproduction from the new repository;
-5. preserve the source-bound summaries and raw payloads without rewriting frozen results.
+The transfer, source-run binding, file-level hash binding, and public reproduction URL are complete. The final outstanding gate is the full clean-checkout reproduction plus a final secrets/restricted-material scan.
 
 ### 8. Restricted/internal material — PASS
 
@@ -59,6 +54,6 @@ Files explicitly marked `RESTRICTED`, private participant workbooks, internal sk
 
 ## Skeptical conclusion
 
-The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. It is **not yet publication-complete at the raw reproducibility level** because the large normalized sealed final-v2 payloads still need physical transfer.
+The curated repository is now **reviewer-complete at the compact evidence level** and preserves the frozen source record across the critical files checked. The sealed evidence transfer is complete. Publication readiness now depends only on the final clean-checkout reproduction and closeout scan.
 
 Keep the PR in draft until that final migration and clean standalone reproduction pass are complete.
