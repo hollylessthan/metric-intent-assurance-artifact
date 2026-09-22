@@ -69,13 +69,13 @@ def _semantic_projection(intent: dict[str, Any]) -> dict[str, Any]:
 
 
 def audit(repo_root: Path) -> dict[str, Any]:
-    benchmark_path = repo_root / "benchmarks/phase4/final/canonical_cases.v1.1.jsonl"
+    benchmark_path = repo_root / "benchmark/canonical_cases.v1.1.jsonl"
     cases = [row for row in read_jsonl(benchmark_path) if row["split"] == "test"]
     if len(cases) != 240:
         raise AssertionError(f"expected 240 held-out cases, observed {len(cases)}")
 
     registries = {
-        domain: Registry.load(repo_root / f"registries/phase4/{domain}/v1.json")
+        domain: Registry.load(repo_root / f"registries/{domain}.json")
         for domain in sorted({row["domain"] for row in cases})
     }
 
