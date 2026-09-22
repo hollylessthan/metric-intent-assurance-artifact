@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "asset_name": "mia-public-reproducibility-supplement-v1.zip",
+  "asset_size_bytes": 16324600,
+  "asset_sha256": "sha256:1687798651c324abc5824d14ce94569765a90117e0695bfcff87ccea8b08bd99",
+  "internal_manifest_sha256": "sha256:50a45f1db9a3a1aa5b41d02a961b543f4abea61c785a84046e6590e265da1386",
+  "status": "built_locally_pending_release_asset_upload",
+  "purpose": "Inputs required to recompute paper evidence that were omitted from the first sealed bundle.",
+  "includes": [
+    "exact final-MIA requests.jsonl for GPT and Claude",
+    "exact clean-prompt requests.jsonl for GPT and Claude",
+    "historical held-out normalized predictions for B0-B4 and earlier MIA for GPT and Claude",
+    "full credential-free confirmatory result package including h2-contrastive-visibility.json",
+    "challenge-v2 evaluation JSON and GPT/Claude B1/B2/B3/B4/MIA-v2 predictions"
+  ],
+  "excludes": [
+    "provider transport evidence logs",
+    "API credentials",
+    "participant workbooks",
+    "challenge writer source text and restricted precommit expectation files"
+  ],
+  "sources": [
+    {
+      "run_id": 34680493060,
+      "artifact_id": 10298100055,
+      "name": "phase5-gpt-heldout-34680493060",
+      "digest": "sha256:7610208ae2c9ac0c08f15aa6234bdf21877347f99fc81641c55c4a0c75773016"
+    },
+    {
+      "run_id": 34724275630,
+      "artifact_id": 10308336404,
+      "name": "phase5-claude-billing-recovery-34724275630",
+      "digest": "sha256:0f09f59685dd32c15ba5aaa6ad8bbecb8fbb7f1e1c4463cc2d5c66b41ec06962"
+    },
+    {
+      "run_id": 34735098888,
+      "artifact_id": 10310009888,
+      "name": "phase5-confirmatory-results-34735098888",
+      "digest": "sha256:d3460ef9a853e799d6285295b0e0f1961b3660222c2518b493f8a7275839a348"
+    },
+    {
+      "run_id": 35431947015,
+      "artifact_id": 10580644552,
+      "name": "mia-v2-challenge-v2-evaluation-35431947015",
+      "digest": "sha256:6f75683cbc47320801f1d0db44a02afd4731ecb3048a1710544ffc0b82d3a4ae"
+    },
+    {
+      "run_id": 35431947015,
+      "artifact_id": 10580624250,
+      "name": "mia-v2-challenge-v2-gpt-35431947015",
+      "digest": "sha256:13685afbd291c7150010fb1d588f3e44078090d94b7f8d0d39dfbbe8dafd4827"
+    },
+    {
+      "run_id": 35431947015,
+      "artifact_id": 10580834358,
+      "name": "mia-v2-challenge-v2-claude-35431947015",
+      "digest": "sha256:a720b8db0b62ee278e73fff68480ff82546af8feb34cc8290278d978e16123b0"
+    }
+  ]
+}
