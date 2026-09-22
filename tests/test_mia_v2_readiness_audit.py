@@ -23,7 +23,7 @@ def test_v2_readiness_audit_has_no_structural_blockers():
     assert report["blocker_count"] == 0
 
 
-def test_frozen_phase5_gold_has_no_mixed_entity_intent_dependency():
+def test_frozen_gold_has_no_mixed_entity_intent_dependency():
     report = mia_v2_readiness_audit.audit(ROOT)
     assert report["status_counts"].get("mixed_entity_deferred", 0) == 0
     assert report["mixed_entity_deferred_by_gold_action"] == {}
