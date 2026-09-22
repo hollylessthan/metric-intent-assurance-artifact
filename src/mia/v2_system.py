@@ -10,7 +10,7 @@ from .assurance import Assurer
 from .contracts import ContractError
 from .generation import GAP_CODES, GenerationResult
 from .models import Candidate, Context, MissingCapability
-from .phase5_systems import BENCHMARK_GOLD_KEYS, canonical_json, gold_key_paths
+from .systems import BENCHMARK_GOLD_KEYS, canonical_json, gold_key_paths
 from .registry import Registry
 from .v2_canonicalization import MixedEntityGrouping, canonicalize_model_intent_v2
 
