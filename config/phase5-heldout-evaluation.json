@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "mia-phase5-confirmatory-v1",
+  "status": "frozen_before_heldout_labels_loaded_for_scoring",
+  "provider": "credential_free_post_sealing_evaluation",
+  "provider_calls_permitted": false,
+  "statistical_protocol": {
+    "bootstrap_unit": "canonical_case_with_all_three_utterances",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260801,
+    "paired_test": "two_sided_exact_mcnemar_on_case_level_outcomes",
+    "primary_family_correction": "holm_within_model_family_over_h1_and_h2",
+    "familywise_alpha": 0.05
+  },
+  "h2_operationalization": {
+    "source": "Phase 1 H2 and Phase 2 execution-intent-disagreement plan, frozen before held-out scoring",
+    "system": "b1",
+    "population": "B1 Execute outputs on the 92 held-out contrastive groups",
+    "execution_correct": "predicted canonical intent compiles and matches the paired supported anchor result on deterministic DuckDB fixtures",
+    "intent_correct": "the predicted action and canonical intent match the member's governed gold contract",
+    "disagreement": "execution_correct and not intent_correct",
+    "visibility_effect": "case-clustered intent-error visibility minus execution-error visibility",
+    "practical_target": "at least 10% of apparently execution-correct outputs contain a governed intent error"
+  },
+  "benchmark": {
+    "path": "benchmarks/phase4/final/canonical_cases.v1.1.jsonl",
+    "sha256": "sha256:18db9a54d6108fa56ffe239b4d93832ad28f09bc0900bd89c19d82723b0f6963",
+    "split": "test",
+    "cases": 240,
+    "utterances": 720,
+    "contrastive_groups": 92
+  },
+  "artifacts": {
+    "gpt": {
+      "workflow_run_id": 34680493060,
+      "artifact_id": 10298100055,
+      "artifact_name": "phase5-gpt-heldout-34680493060",
+      "artifact_digest": "sha256:7610208ae2c9ac0c08f15aa6234bdf21877347f99fc81641c55c4a0c75773016",
+      "commit_sha": "8193a1480b95e53c03e302bc2a30832a67de9547",
+      "model_id": "gpt-5.4-mini-2026-03-17",
+      "predictions_sha256": "sha256:84d5677394d8fa9595ebb8ad948e3a02547f0f75528ca940c1d26cd0a31008b0",
+      "mia_traces_sha256": "sha256:fb8ce86933a51eab1ac9a3d02e673f1a2f390e69b474f1fdb856f92220719129",
+      "report_sha256": "sha256:b6477a7512622b9da63cfdcc95c1c72b3aadca36acb95183f953b7a7133fc15f",
+      "retained_failures": 141,
+      "observed_cost_usd": 7.065667
+    },
+    "claude": {
+      "workflow_run_id": 34724275630,
+      "artifact_id": 10308336404,
+      "artifact_name": "phase5-claude-billing-recovery-34724275630",
+      "artifact_digest": "sha256:0f09f59685dd32c15ba5aaa6ad8bbecb8fbb7f1e1c4463cc2d5c66b41ec06962",
+      "commit_sha": "a78b1ae68bcded464634ad734e8306f723b5f3cb",
+      "model_id": "claude-sonnet-5",
+      "amendment_id": "phase5-claude-zero-output-billing-recovery-v1",
+      "predictions_sha256": "sha256:b180a37c559a2e8727b1ba79166a9dac10353e63d345a57cf4f064c13712cdc6",
+      "mia_traces_sha256": "sha256:a505a73b6cb6e8155f95709560a808f9c95da6a54b46b8e754daeb199a19d5cd",
+      "report_sha256": "sha256:b9cc51053117dfbd1b9c1ad5d51ce9ea59822bda6e52146fb841ec2e25b9ff4e",
+      "active_failures_sha256": "sha256:a20e729cb9ef56ca4eaf08f564521553e90f3cd8589e4005caf55616d27523b8",
+      "retained_failures": 70,
+      "observed_cost_usd": 28.140999,
+      "amendment_id": "phase5-claude-zero-output-billing-recovery-v1",
+      "unresolved_billing_rejections": 0
+    }
+  },
+  "statistical_protocol": {
+    "bootstrap_unit": "canonical_case_with_all_three_utterances",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260801,
+    "confidence_level": 0.95,
+    "paired_test": "two_sided_exact_mcnemar_on_case_level_binary_outcomes",
+    "primary_family_correction": "holm_within_model_family_over_h1_and_h2",
+    "familywise_alpha": 0.05
+  },
+  "h1": {
+    "comparison": "mia_minus_b1",
+    "population": "heldout_gold_non_execute",
+    "effect": "unsafe_execution_rate_difference",
+    "case_outcome": "any_of_three_utterances_predicted_execute",
+    "success_direction": "negative",
+    "practical_target": "at_least_50_percent_relative_UER_reduction_and_CEC_no_more_than_0.10_below_B1"
+  },
+  "h2": {
+    "source_commitment": "Phase_1_H2_execution_accuracy_hides_governed_semantic_errors",
+    "population": "heldout_members_of_the_92_adjudicated_contrastive_groups",
+    "primary_system": "b1",
+    "apparently_execution_correct": "B1_predicts_execute_and_its_canonical_intent_executes_to_the_same_DuckDB_fixture_result_as_the_paired_supported_anchor",
+    "intent_error_visible": "the_same_B1_execute_is_wrong_under_the_target_members_adjudicated_non_execute_action",
+    "primary_effect": "intent_visibility_minus_execution_visibility",
+    "case_outcome": "any_of_three_target_utterances_contains_the_disagreement",
+    "practical_target": "at_least_10_percent_of_apparently_execution_correct_contrastive_B1_executions_are_intent_wrong",
+    "reason_stratification": "target_primary_reason_code",
+    "expert_adjudication_source": "Phase_4_final_contrastive_adjudication",
+    "note": "This operationalization is frozen before confirmatory outcome scoring; development groups are excluded."
+  },
+  "provider_calls_permitted": false
+}
