@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "currency": "USD",
+  "verified_at": "2026-08-28",
+  "models": {
+    "claude-sonnet-5": {
+      "input_usd_per_million": 2.0,
+      "cached_input_usd_per_million": 0.2,
+      "cache_write_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0
+    },
+    "gemini-3.7-flash": {
+      "input_usd_per_million": 0.75,
+      "cached_input_usd_per_million": 0.075,
+      "output_usd_per_million": 3.75
+    }
+  },
+  "sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "gemini": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  "notes": [
+    "Claude uses standard synchronous pricing; Phase 4 does not request prompt caching, while Phase 5 marks the stable prompt-and-registry prefix for five-minute ephemeral caching.",
+    "Gemini prices are the standard paid-tier promotional rates effective through 2026-12-31.",
+    "No batch, flex, priority, grounding, or tool-use pricing is used."
+  ]
+}

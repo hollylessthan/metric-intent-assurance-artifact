@@ -1,0 +1,41 @@
+{
+  "evidence_class": "prospective_fresh_challenge",
+  "workflow_run_id": 35431947015,
+  "source_commit": "4a618a98caf4a6d823edc936c04c6d3af422dc76",
+  "evaluation_artifact": "mia-v2-challenge-v2-evaluation-35431947015",
+  "evaluation_artifact_digest": "sha256:6f75683cbc47320801f1d0db44a02afd4731ecb3048a1710544ffc0b82d3a4ae",
+  "total_cases": 24,
+  "execute_cases": 11,
+  "non_execute_cases": 13,
+  "writers": 2,
+  "providers": {
+    "gpt": {
+      "action_exact": {
+        "num": 20,
+        "den": 24
+      },
+      "uer": {
+        "num": 0,
+        "den": 13
+      },
+      "cec": {
+        "num": 10,
+        "den": 11
+      }
+    },
+    "claude": {
+      "action_exact": {
+        "num": 20,
+        "den": 24
+      },
+      "uer": {
+        "num": 0,
+        "den": 13
+      },
+      "cec": {
+        "num": 11,
+        "den": 11
+      }
+    }
+  }
+}

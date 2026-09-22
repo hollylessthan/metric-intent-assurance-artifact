@@ -1,0 +1,7 @@
+mia_metricflow_fixture:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('MIA_DUCKDB_PATH', 'target/mia_metricflow.duckdb') }}"
+      threads: 1

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "source_repository": "hollylessthan/metric-intent-assurance",
+  "source_commit": "58d753aa16dbd8e2372475f9002950f4aff7a498",
+  "checked_at": "2026-09-21",
+  "method": "Git blob SHA equality after public-path renaming",
+  "checked_files": 29,
+  "identical_files": 29,
+  "mismatches": 0,
+  "categories": {
+    "benchmark_and_registries": 10,
+    "frozen_configs_and_prompts": 9,
+    "machine_readable_evidence": 10
+  },
+  "conclusion": "All checked frozen files are byte-identical to the pinned source commit. Narrative public summaries may be rewritten for readability, but frozen machine-readable evidence is preserved unchanged."
+}

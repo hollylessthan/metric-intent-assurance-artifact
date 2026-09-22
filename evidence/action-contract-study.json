@@ -1,0 +1,225 @@
+{
+  "n": 72,
+  "primary": {
+    "raw_action_agreement": {
+      "matches": 72,
+      "n": 72,
+      "rate": 1,
+      "wilson95": [
+        0.9493488274035422,
+        1
+      ]
+    },
+    "cohen_kappa_unweighted": 1,
+    "bootstrap": {
+      "method": "nonparametric cluster bootstrap",
+      "unit": "contrastive_group",
+      "cluster_count": 65,
+      "reps": 10000,
+      "seed": 20260915,
+      "defined_reps": 10000,
+      "undefined_or_degenerate_reps": 0,
+      "ci95": [
+        1,
+        1
+      ]
+    },
+    "interpretation": "meaningful support"
+  },
+  "gold_comparison": {
+    "annotator_a": {
+      "matches": 59,
+      "n": 72,
+      "rate": 0.8194444444444444,
+      "wilson95": [
+        0.7151965826080176,
+        0.891331834899801
+      ]
+    },
+    "annotator_b": {
+      "matches": 59,
+      "n": 72,
+      "rate": 0.8194444444444444,
+      "wilson95": [
+        0.7151965826080176,
+        0.891331834899801
+      ]
+    },
+    "confusion_annotator_a": {
+      "execute": {
+        "execute": 28,
+        "clarify": 2,
+        "reject": 0,
+        "coverage_gap": 0
+      },
+      "clarify": {
+        "execute": 3,
+        "clarify": 10,
+        "reject": 0,
+        "coverage_gap": 0
+      },
+      "reject": {
+        "execute": 0,
+        "clarify": 0,
+        "reject": 7,
+        "coverage_gap": 8
+      },
+      "coverage_gap": {
+        "execute": 0,
+        "clarify": 0,
+        "reject": 0,
+        "coverage_gap": 14
+      }
+    },
+    "confusion_annotator_b": {
+      "execute": {
+        "execute": 28,
+        "clarify": 2,
+        "reject": 0,
+        "coverage_gap": 0
+      },
+      "clarify": {
+        "execute": 3,
+        "clarify": 10,
+        "reject": 0,
+        "coverage_gap": 0
+      },
+      "reject": {
+        "execute": 0,
+        "clarify": 0,
+        "reject": 7,
+        "coverage_gap": 8
+      },
+      "coverage_gap": {
+        "execute": 0,
+        "clarify": 0,
+        "reject": 0,
+        "coverage_gap": 14
+      }
+    }
+  },
+  "per_gold_action": {
+    "execute": {
+      "gold_n": 30,
+      "annotator_exact_agreement": {
+        "matches": 30,
+        "n": 30,
+        "rate": 1,
+        "wilson95": [
+          0.8864866068260312,
+          0.9999999999999999
+        ]
+      }
+    },
+    "clarify": {
+      "gold_n": 13,
+      "annotator_exact_agreement": {
+        "matches": 13,
+        "n": 13,
+        "rate": 1,
+        "wilson95": [
+          0.7719046276458016,
+          0.9999999999999999
+        ]
+      }
+    },
+    "reject": {
+      "gold_n": 15,
+      "annotator_exact_agreement": {
+        "matches": 15,
+        "n": 15,
+        "rate": 1,
+        "wilson95": [
+          0.7961166989641515,
+          1
+        ]
+      }
+    },
+    "coverage_gap": {
+      "gold_n": 14,
+      "annotator_exact_agreement": {
+        "matches": 14,
+        "n": 14,
+        "rate": 1,
+        "wilson95": [
+          0.7846891972623643,
+          1
+        ]
+      }
+    }
+  },
+  "execute_interpretation_agreement": {
+    "both_execute_n": 31,
+    "normalized_exact": {
+      "matches": 0,
+      "n": 31,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.11025539546043596
+      ]
+    },
+    "by_field": {
+      "metrics": {
+        "matches": 0,
+        "n": 31,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.11025539546043596
+        ]
+      },
+      "breakdown": {
+        "matches": 31,
+        "n": 31,
+        "rate": 1,
+        "wilson95": [
+          0.889744604539564,
+          1
+        ]
+      },
+      "filters": {
+        "matches": 7,
+        "n": 31,
+        "rate": 0.22580645161290322,
+        "wilson95": [
+          0.11395135561262493,
+          0.3981241838334205
+        ]
+      },
+      "time_period": {
+        "matches": 0,
+        "n": 31,
+        "rate": 0,
+        "wilson95": [
+          0,
+          0.11025539546043596
+        ]
+      },
+      "other_detail": {
+        "matches": 11,
+        "n": 31,
+        "rate": 0.3548387096774194,
+        "wilson95": [
+          0.21116659093865403,
+          0.5305204593563113
+        ]
+      }
+    },
+    "note": "Secondary descriptive comparison of participant-entered plain-language interpretation fields; no researcher conversion to canonical_intent is performed."
+  },
+  "same_action_non_execute_detail_agreement": {
+    "n": 41,
+    "normalized_primary_detail": {
+      "matches": 0,
+      "n": 41,
+      "rate": 0,
+      "wilson95": [
+        0,
+        0.08566757018443186
+      ]
+    }
+  },
+  "disagreements": [],
+  "note": "Action agreement is primary. Human interpretation fields are secondary and remain in participant-entered form. This analysis does not alter Phase 5 labels or confirmatory results."
+}

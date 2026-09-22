@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "study_id": "mia-v2-posthoc-phase5-regression-evaluation",
+  "status": "post_hoc_not_confirmatory_final_old_benchmark",
+  "source_run_id": "35426074276",
+  "source_head_sha": "c3f8167473f9a4fa01beae39c1562d57e745932b",
+  "evaluation_run_id": "35429477378",
+  "evaluation_artifact": {
+    "id": 10580057349,
+    "name": "mia-v2-regression-evaluation-35429477378",
+    "digest": "sha256:1a1f933ba651eadd93987a125ec4c21d8928eb5698aa8e3d443ddfac0c67df93"
+  },
+  "confirmatory_run_id": "34735098888",
+  "providers": {
+    "gpt": {
+      "v1": {
+        "uer": 0.05755395683453238,
+        "cec": 0.40264026402640263,
+        "action_macro_f1": 0.42395801529613397,
+        "reason_code_accuracy": 0.3277777777777778,
+        "paraphrase_consistency": 0.5291666666666667
+      },
+      "v2": {
+        "uer": 0.007194244604316547,
+        "cec": 0.8283828382838284,
+        "action_macro_f1": 0.7511899380917704,
+        "reason_code_accuracy": 0.5680555555555555,
+        "paraphrase_consistency": 0.8583333333333333
+      },
+      "v2_bootstrap95": {
+        "uer": [
+          0,
+          0.0234375
+        ],
+        "cec": [
+          0.7526881720430108,
+          0.8977272727272727
+        ],
+        "action_macro_f1": [
+          0.6961576362040744,
+          0.8015233686775148
+        ]
+      },
+      "action_changes": 410,
+      "new_gold_nonexecute_to_execute": 0,
+      "retained_failures": 0
+    },
+    "claude": {
+      "v1": {
+        "uer": 0.050359712230215826,
+        "cec": 0.6105610561056105,
+        "action_macro_f1": 0.5411724774347328,
+        "reason_code_accuracy": 0.40694444444444444,
+        "paraphrase_consistency": 0.7708333333333334
+      },
+      "v2": {
+        "uer": 0.047961630695443645,
+        "cec": 0.7821782178217822,
+        "action_macro_f1": 0.754765357960788,
+        "reason_code_accuracy": 0.5625,
+        "paraphrase_consistency": 0.85
+      },
+      "v2_bootstrap95": {
+        "uer": [
+          0.015748031496062992,
+          0.0857843137254902
+        ],
+        "cec": [
+          0.7079646017699115,
+          0.8491228070175438
+        ],
+        "action_macro_f1": [
+          0.6994615793234276,
+          0.8044172768340281
+        ]
+      },
+      "action_changes": 223,
+      "new_gold_nonexecute_to_execute": 5,
+      "retained_failures": 0
+    }
+  },
+  "root_cause_signal": "Earlier silent semantic omission pattern was hardened; final remaining frozen-label disagreements are dimension/version interpretation disagreements rather than the same omission failure.",
+  "next_gate": "freeze MIA-v2 old-benchmark development and proceed to fresh challenge-v2 generalization evaluation",
+  "old_benchmark_closed_for_result_driven_tuning": true
+}

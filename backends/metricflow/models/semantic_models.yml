@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: time_spine_daily
+    description: Daily time spine for the public MetricFlow fixture.
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        granularity: day
+
+semantic_models:
+  - name: subscription_facts
+    description: Public synthetic SaaS fixture for Metric Intent Assurance.
+    model: ref('subscription_facts')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: subscription
+        type: primary
+        expr: subscription_id
+      - name: account
+        type: foreign
+        expr: account_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: plan
+        type: categorical
+    measures:
+      - name: mrr_amount
+        agg: sum
+      - name: recognized_revenue_amount
+        expr: recognized_revenue
+        agg: sum
+      - name: mrr_amount_v2
+        agg: sum
+
+  - name: accounts
+    description: Governed account dimensions joined through the account entity.
+    model: ref('accounts')
+    entities:
+      - name: account
+        type: primary
+        expr: account_id
+    dimensions:
+      - name: region
+        type: categorical
+      - name: customer_email
+        type: categorical
+
+metrics:
+  - name: mrr
+    label: Monthly Recurring Revenue
+    type: simple
+    type_params:
+      measure: mrr_amount
+  - name: recognized_revenue
+    label: Recognized Revenue
+    type: simple
+    type_params:
+      measure: recognized_revenue_amount
+  - name: mrr_v2
+    label: Monthly Recurring Revenue v2
+    type: simple
+    type_params:
+      measure: mrr_amount_v2

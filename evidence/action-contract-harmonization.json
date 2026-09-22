@@ -1,0 +1,42 @@
+{
+  "study": "phase6b_instruction_harmonization_followup",
+  "cases": 8,
+  "reviewers": 3,
+  "boundary_restored": "original Phase 4 Reject-vs-Coverage-Gap rule",
+  "reviewer_action_counts": {
+    "A": {
+      "reject": 8
+    },
+    "B": {
+      "reject": 8
+    },
+    "C": {
+      "reject": 8
+    }
+  },
+  "unanimous_cases": 8,
+  "unanimous_reject_cases": 8,
+  "frozen_gold_matches": 8,
+  "original_main_gold_agreement": {
+    "matches": 59,
+    "n": 72,
+    "rate": 0.8194444444444444
+  },
+  "harmonized_main_gold_agreement": {
+    "matches": 67,
+    "n": 72,
+    "rate": 0.9305555555555556,
+    "wilson95": [
+      0.8475202051632649,
+      0.9699746184342299
+    ]
+  },
+  "substantive_remaining_cases": [
+    "M027",
+    "M059",
+    "M063",
+    "M069",
+    "M071"
+  ],
+  "note": "Post-hoc instruction-harmonized sensitivity. Original Phase 6B responses remain immutable and the original 59/72 gold agreement is preserved."
+}

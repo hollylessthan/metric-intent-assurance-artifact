@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Machine-readable contract for quantitative values explicitly reported in the PVLDB manuscript/results and checked by scripts/verify_reproduced_evidence.py.",
+  "percent_units": "Percent and percentage-point fields are expressed on a 0-100 scale exactly as reported in the paper; counts retain integer numerators/denominators.",
+  "final_mia_ci": {
+    "gpt": {
+      "uer_95": [
+        0,
+        2.34
+      ],
+      "cec_95": [
+        75.27,
+        89.77
+      ]
+    },
+    "claude": {
+      "uer_95": [
+        1.57,
+        8.58
+      ],
+      "cec_95": [
+        70.8,
+        84.91
+      ]
+    }
+  },
+  "table4_replay_uer_percent": {
+    "gpt": {
+      "full": 0.72,
+      "no-margin": 0.72,
+      "no-tau-e": 1.68,
+      "drop-grain": 5.76,
+      "all-validators-off": 5.76,
+      "grain-only": 0.72,
+      "ignore-unresolved-slots": 6.24
+    },
+    "claude": {
+      "full": 4.8,
+      "no-margin": 4.8,
+      "no-tau-e": 6.24,
+      "drop-grain": 11.51,
+      "all-validators-off": 11.51,
+      "grain-only": 4.8,
+      "ignore-unresolved-slots": 24.46
+    }
+  },
+  "matched_assurer_effect": {
+    "gpt": {
+      "uer_delta_pp": -5.52,
+      "uer_ci_95_pp": [
+        -9.19,
+        -2.47
+      ],
+      "mia_only_unsafe_cases": 0,
+      "b4_only_unsafe_cases": 11,
+      "mcnemar_p": 0.0009765625,
+      "reject_to_execute_utterances_b4": 18,
+      "total_unsafe_utterances_b4": 26
+    },
+    "claude": {
+      "uer_delta_pp": 0.48,
+      "uer_ci_95_pp": [
+        0,
+        1.53
+      ],
+      "mia_only_unsafe_cases": 0,
+      "b4_only_unsafe_cases": 0,
+      "mcnemar_p": 1
+    }
+  },
+  "clean_prompt": {
+    "gpt": {
+      "uer_percent": 1.44,
+      "cec_percent": 81.19
+    },
+    "claude": {
+      "uer_percent": 6,
+      "cec_percent": 76.57
+    }
+  },
+  "topn_defect_excluded_final_mia": {
+    "gpt": {
+      "cec_percent": 94.01,
+      "strict_execution_precision_percent": 98.43,
+      "wrong_intent_execute": {
+        "num": 1,
+        "den": 267
+      }
+    },
+    "claude": {
+      "cec_percent": 88.76,
+      "strict_execution_precision_percent": 87.45,
+      "wrong_intent_execute": {
+        "num": 14,
+        "den": 267
+      }
+    }
+  },
+  "challenge_v2": {
+    "gpt": {
+      "reject_correct": {
+        "num": 4,
+        "den": 7
+      }
+    },
+    "claude": {
+      "reject_correct": {
+        "num": 3,
+        "den": 7
+      }
+    }
+  },
+  "challenge_v1": {
+    "resolved_cases": 20,
+    "gpt": {
+      "earlier_mia_correct": 4,
+      "b4_correct": 11
+    },
+    "claude": {
+      "earlier_mia_correct": 8,
+      "b4_correct": 8
+    }
+  },
+  "h2": {
+    "source": "Frozen confirmatory h2-contrastive-visibility.json; original H2 is not reconstructed from historical predictions in this artifact.",
+    "original": {
+      "gpt": {
+        "gain_pp": 11.96,
+        "groups": 92
+      },
+      "claude": {
+        "gain_pp": 25,
+        "groups": 92
+      }
+    },
+    "topn_excluded": {
+      "gpt": {
+        "groups": 80,
+        "execution_visible": 69,
+        "intent_visible": 80,
+        "gain_pp": 13.75,
+        "ci_95_pp": [
+          6.25,
+          21.25
+        ],
+        "mcnemar_p": 0.0009765625
+      },
+      "claude": {
+        "groups": 80,
+        "execution_visible": 34,
+        "intent_visible": 57,
+        "gain_pp": 28.75,
+        "ci_95_pp": [
+          18.75,
+          38.75
+        ],
+        "mcnemar_p": 2.384185791015625e-7
+      }
+    }
+  }
+}

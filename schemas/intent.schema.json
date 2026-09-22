@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metric-intent-assurance.org/schemas/intent.schema.json",
+  "title": "Canonical Metric Intent",
+  "type": "object",
+  "required": [
+    "metrics", "dimensions", "filters", "time", "output_grain", "comparison",
+    "ordering", "limit", "version_policy", "metric_versions", "subject_scope", "provenance"
+  ],
+  "properties": {
+    "metrics": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "dimensions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "filters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["attribute", "operator", "value", "value_type", "scope"],
+        "properties": {
+          "attribute": {"type": "string"},
+          "operator": {"enum": ["eq", "neq", "gt", "gte", "lt", "lte", "in", "not_in"]},
+          "value": {},
+          "value_type": {"enum": ["string", "number", "integer", "boolean", "date"]},
+          "scope": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "time": {
+      "type": "object",
+      "required": ["start", "end", "calendar_id", "temporal_grain", "completeness", "timezone"],
+      "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"},
+        "calendar_id": {"type": "string"},
+        "temporal_grain": {"enum": ["day", "week", "month", "quarter", "year"]},
+        "completeness": {"type": "string"},
+        "timezone": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "output_grain": {
+      "type": "object",
+      "required": ["entity", "temporal"],
+      "properties": {"entity": {"type": "string", "minLength": 1}, "temporal": {"enum": ["day", "week", "month", "quarter", "year"]}},
+      "additionalProperties": false
+    },
+    "comparison": {"type": ["object", "null"]},
+    "ordering": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["key", "direction"],
+        "properties": {"key": {"type": "string"}, "direction": {"enum": ["asc", "desc"]}},
+        "additionalProperties": false
+      }
+    },
+    "limit": {"type": ["integer", "null"], "minimum": 1},
+    "version_policy": {"enum": ["effective_time", "restated", "explicit"]},
+    "metric_versions": {"type": "object", "additionalProperties": {"type": "string"}},
+    "subject_scope": {"type": "object"},
+    "provenance": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"version_policy": {"not": {"const": "explicit"}}}},
+      "then": {"properties": {"metric_versions": {"maxProperties": 0}}}
+    }
+  ],
+  "additionalProperties": false
+}

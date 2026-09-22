@@ -1,0 +1,24 @@
+{
+  "currency": "USD",
+  "pricing_source": "https://developers.openai.com/api/docs/models/gpt-5.4",
+  "verified_at": "2026-08-28",
+  "models": {
+    "gpt-4.1-mini-2025-04-14": {
+      "input_usd_per_million": 0.40,
+      "cached_input_usd_per_million": 0.10,
+      "output_usd_per_million": 1.60
+    },
+    "gpt-5.4-mini-2026-03-17": {
+      "input_usd_per_million": 0.75,
+      "cached_input_usd_per_million": 0.075,
+      "output_usd_per_million": 4.50,
+      "reasoning_effort": "none"
+    },
+    "gpt-5.4-2026-03-05": {
+      "input_usd_per_million": 2.50,
+      "cached_input_usd_per_million": 0.25,
+      "output_usd_per_million": 15.00,
+      "reasoning_effort": "low"
+    }
+  }
+}

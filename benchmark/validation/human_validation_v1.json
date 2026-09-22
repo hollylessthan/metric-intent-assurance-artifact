@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "protocol": "three-provider full review plus one qualified human audit",
+  "source_benchmark_sha256": "sha256:b6660d7b33680ce8f4af22f17aa09ab9a1bc757c96f473ae370f794bc0af0638",
+  "human_audit": {
+    "population_cases": 300,
+    "sample_cases": 100,
+    "correct": 93,
+    "incorrect": 7,
+    "unsure": 0
+  },
+  "corrections": [
+    {
+      "request_id": "P4-191",
+      "case_id": "saas-clarify-012",
+      "new_action": "execute",
+      "new_reason_code": "EXE_UNIQUE_SUPPORTED",
+      "dimension": "sales_segment",
+      "note": "Execute using sales_segment."
+    },
+    {
+      "request_id": "P4-046",
+      "case_id": "commerce-clarify-010",
+      "new_action": "execute",
+      "new_reason_code": "EXE_UNIQUE_SUPPORTED",
+      "dimension": "customer_segment",
+      "note": "Execute using customer_segment."
+    },
+    {
+      "request_id": "P4-258",
+      "case_id": "support-clarify-010",
+      "new_action": "execute",
+      "new_reason_code": "EXE_UNIQUE_SUPPORTED",
+      "dimension": "customer_segment",
+      "note": "Execute using customer_segment."
+    },
+    {
+      "request_id": "P4-033",
+      "case_id": "commerce-coveragegap-015",
+      "new_action": "coverage_gap",
+      "new_reason_code": "GAP_METRIC",
+      "note": "The named blended fulfillment score is a missing metric, not a missing composition."
+    },
+    {
+      "request_id": "P4-044",
+      "case_id": "commerce-coveragegap-020",
+      "new_action": "execute",
+      "new_reason_code": "EXE_UNIQUE_SUPPORTED",
+      "metric": "refund_rate",
+      "metric_version": "refund_rate.v1",
+      "dimension": "loyalty_tier",
+      "note": "Original refund rate version resolves to refund_rate.v1."
+    },
+    {
+      "request_id": "P4-260",
+      "case_id": "saas-clarify-010",
+      "new_action": "execute",
+      "new_reason_code": "EXE_UNIQUE_SUPPORTED",
+      "dimension": "sales_segment",
+      "note": "Execute using sales_segment."
+    },
+    {
+      "request_id": "P4-250",
+      "case_id": "commerce-coveragegap-016",
+      "new_action": "coverage_gap",
+      "new_reason_code": "GAP_METRIC",
+      "note": "The named risk adjusted margin is a missing metric, not a missing composition."
+    }
+  ],
+  "stability_review": [
+    {"request_id": "P4-061", "decision": "agree"},
+    {"request_id": "P4-121", "decision": "agree"},
+    {"request_id": "P4-195", "decision": "agree"},
+    {"request_id": "P4-247", "decision": "agree"},
+    {"request_id": "P4-108", "decision": "agree"},
+    {"request_id": "P4-230", "decision": "agree"},
+    {"request_id": "P4-131", "decision": "agree"}
+  ]
+}

@@ -1,0 +1,4 @@
+account_id,region,customer_email
+a1,west,private1@example.test
+a2,east,private2@example.test
+a3,,private3@example.test
