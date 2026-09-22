@@ -184,7 +184,7 @@ def paired_cluster_delta(
     samples: int = 10_000,
     seed: int = 20260919,
 ) -> dict[str, float]:
-    return fast_paired_delta(a_rows, b_rows, metric, samples=samples, seed=seed)
+    return fast_paired_delta(a_rows, b_rows, metric, samples=samples, seed=seed, legacy_paired_indices=True)
 
 def exact_two_sided_binomial_p(k: int, n: int) -> float:
     if n == 0:
