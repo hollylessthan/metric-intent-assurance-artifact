@@ -11,7 +11,7 @@
 - `backends/metricflow/`: synthetic MetricFlow fixture.
 - `scripts/`: selected deterministic final-v2 reproduction and sensitivity scripts.
 - `tests/`: selected artifact-facing deterministic tests.
-- `evidence/`: reader-facing frozen summaries and challenge-evaluation outputs.
+- `evidence/`: final-v2 summaries, historical controlled-study records, negative challenge evidence, independent action-contract evidence, policy/scaling analysis, challenge freezes/bindings, and top-N sensitivity.
 
 ## Intentionally excluded
 
@@ -26,3 +26,9 @@
 ## Release blocker
 
 Raw sealed provider outputs for the final-v2 evaluation are not yet physically present in this repository. Their immutable source run IDs are documented in `REPRODUCIBILITY.md`. Public release should wait until those archives are migrated and hash-bound here.
+
+## Reviewer audit files
+
+- `EVIDENCE_INDEX.md`: maps material paper evidence layers to public artifact files and remaining raw-payload blockers.
+- `PRESERVATION_AUDIT.json`: byte-preservation audit across 29 critical frozen files.
+- `SKEPTICAL_ARTIFACT_REVIEW.md`: skeptical completeness and reproducibility review.
