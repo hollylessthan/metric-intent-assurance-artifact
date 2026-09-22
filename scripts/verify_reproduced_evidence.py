@@ -97,6 +97,24 @@ def main():
             raise AssertionError(f"{provider}: challenge UER mismatch")
         if got["cec"]["correct"]!=ref["cec"]["num"] or got["cec"]["n"]!=ref["cec"]["den"]:
             raise AssertionError(f"{provider}: challenge CEC mismatch")
-    print(json.dumps({"status":"pass","scope":"paper quantitative evidence","provider_calls":0},sort_keys=True))
+
+    # Reviewer-facing regenerated tables and Figures 2-3.
+    assets=load(g/"paper-assets/paper-assets-values.json")
+    expected_main={
+      "gpt":{"b0":(0.7961630695443646,None,0.18916362886030674),"b1":(0.8345323741007195,0.429042904290429,0.16190049820924787),"b2":(0.8705035971223022,0.4884488448844885,0.15880890052356023),"b3":(0.8561151079136691,0.4884488448844885,0.15954709607455983),"b4":(0.14628297362110312,0.28052805280528054,0.7357330814136848),"mia":(0.007194244604316547,0.8283828382838284,0.7511899380917704)},
+      "claude":{"b0":(0.3261390887290168,None,0.24916151090849886),"b1":(0.27577937649880097,0.6039603960396039,0.24781951463249569),"b2":(0.27577937649880097,0.6270627062706271,0.25201048951048954),"b3":(0.1774580335731415,0.5973597359735974,0.2871212121212121),"b4":(0.11750599520383694,0.570957095709571,0.6805144093757189),"mia":(0.047961630695443645,0.7821782178217822,0.754765357960788)}
+    }
+    for provider,systems in expected_main.items():
+        for sid,want in systems.items():
+            got=assets["table2"][provider][sid]
+            close(got["uer"],want[0],1e-10)
+            close(got["cec"],want[1],1e-10)
+            close(got["macro_f1"],want[2],1e-10)
+    for name in ("tables.md","controlled-safety-coverage-final-mia.svg","hidden-intent-errors.svg"):
+        p=g/"paper-assets"/name
+        if not p.exists() or p.stat().st_size==0:
+            raise AssertionError(f"missing regenerated paper asset: {name}")
+
+    print(json.dumps({"status":"pass","scope":"paper quantitative evidence + tables/figures","provider_calls":0},sort_keys=True))
 
 if __name__=="__main__": main()
