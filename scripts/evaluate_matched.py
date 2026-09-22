@@ -11,12 +11,12 @@ from mia.benchmark import load_jsonl
 from mia.models import Action, Intent
 from mia.study_metrics import (
     Prediction,
-    cluster_bootstrap_interval,
     confusion_matrix,
     scored_rows,
     summarize,
     validate_prediction_coverage,
 )
+from repro_stats import fast_cluster_interval
 
 
 def load_phase6c_predictions(path: Path) -> list[Prediction]:
@@ -102,8 +102,8 @@ def main() -> int:
             "summary": summarize(group),
             "confusion_matrix": confusion_matrix(group),
             "confidence_intervals": {
-                metric: cluster_bootstrap_interval(group, metric, samples=args.bootstrap_samples, seed=args.seed)
-                for metric in ("unsafe_execution_rate", "correct_execution_coverage", "action_macro_f1")
+                metric: fast_cluster_interval(group, metric, samples=args.bootstrap_samples, seed=args.seed)
+                for metric in ("unsafe_execution_rate", "correct_execution_coverage")
             },
         }
 
