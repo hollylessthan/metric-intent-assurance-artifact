@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "source_repository": "hollylessthan/metric-intent-assurance",
+  "inspected_on": "2026-09-21",
+  "publication_policy": {
+    "include": "normalized sealed outputs, predictions, traces, run/evaluation/component reports",
+    "exclude": [
+      "provider transport evidence logs (gpt_evidence.jsonl / claude_evidence.jsonl)",
+      "duplicated requests.jsonl payloads reconstructable from the frozen benchmark and registries",
+      "preflight-only workflow artifacts",
+      "RESTRICTED participant/challenge source files"
+    ],
+    "rationale": "Keep the scientific reproduction layer while excluding redundant transport/provider metadata and restricted material."
+  },
+  "artifacts": [
+    {
+      "run_id": 35426074276,
+      "artifact_id": 10579287573,
+      "name": "mia-v2-regression-gpt-35426074276",
+      "size_in_bytes": 11438687,
+      "digest": "sha256:f9b7a435e864f68d51a3c05ceffbb69fe3eb95259da7f3c33a1d07bd3fe0fdcf",
+      "safe_files": {
+        "predictions.jsonl": "sha256:1c01051ea08475d1118f876cb00fdc349d7b75546c4195378eeb95093cc3c71b",
+        "raw_outputs.jsonl": "sha256:2ee2d36b902107fcff038a7c2068dacd7d8a2f036b886eaf883accf3d0e128ed",
+        "traces.jsonl": "sha256:116a77fb32cdf5c974bb7a7c93426d23e10f6d1a4824ebc6b386d05c43d22129",
+        "run_report.json": "sha256:dd77493fd4dd6edf19e636ffa039d9f28fdae65ffb5941bb7facf1f2a2b87974"
+      }
+    },
+    {
+      "run_id": 35426074276,
+      "artifact_id": 10579249174,
+      "name": "mia-v2-regression-claude-35426074276",
+      "size_in_bytes": 9494661,
+      "digest": "sha256:14fdc470ac1e1bf7bb006df82171c0cc47d9289972b003db08f64c8391dd64ec",
+      "safe_files": {
+        "predictions.jsonl": "sha256:007dcf0b70aeab083846a99dd0c855af1e4b6e8a91bf82d7eb0ae22879914b19",
+        "raw_outputs.jsonl": "sha256:8426245cd9a4cb9db3a4154a6526898485aa9fc1a46e8d3ed4e5c9964fd155fe",
+        "traces.jsonl": "sha256:da0eaac497f03ea53a5b08533ab430e90e4f07ca37d8320725eb9ea37d342f53",
+        "run_report.json": "sha256:9dc723d4d397df865a902cb778bdf2328fbb3e5a7b00add0144abab7f1cad734"
+      }
+    },
+    {
+      "run_id": 35429477378,
+      "artifact_id": 10580057349,
+      "name": "mia-v2-regression-evaluation-35429477378",
+      "size_in_bytes": 13189,
+      "digest": "sha256:1a1f933ba651eadd93987a125ec4c21d8928eb5698aa8e3d443ddfac0c67df93",
+      "safe_files": {
+        "mia-v2-regression-evaluation.json": "sha256:ff7204e89b68836893697200e72eecda6f94d77657763dcc20aac256aa548458",
+        "mia-v2-regression-evaluation.md": "sha256:3745af816830a5f824a93200728233a86d2af6d7ab08fd09093c5387b7825772"
+      }
+    },
+    {
+      "run_id": 35457800186,
+      "artifact_id": 10589395043,
+      "name": "phase6c-b2-matched-evaluation-gpt-35457800186",
+      "size_in_bytes": 1043,
+      "digest": "sha256:4045923f15b030c2b28771f83073d081f883e26ecaacd89d5b97229c91741f56",
+      "safe_files": {
+        "b2_matched_evaluation.json": "sha256:4cd405e46fd6368efcbff25b34f6e3b149e67aa4358445a0095105b4b5a43b3b"
+      }
+    },
+    {
+      "run_id": 35457800186,
+      "artifact_id": 10588459820,
+      "name": "phase6c-b2-matched-evaluation-claude-35457800186",
+      "size_in_bytes": 1046,
+      "digest": "sha256:f5f13843bb45ff15df67efb82dcbb9b7d6f5e819fbd721443607bf0b005e6fe5",
+      "safe_files": {
+        "b2_matched_evaluation.json": "sha256:82b32f662d204263c3586f44b8a63cefefda8ce303c532ec12a88f033685a923"
+      }
+    },
+    {
+      "run_id": 35458314825,
+      "artifact_id": 10589572534,
+      "name": "phase6c-b4-matched-gpt-35458314825",
+      "size_in_bytes": 5679521,
+      "digest": "sha256:62984bd7a73edcd7a356d62b38a2568936e285e39a420ab8223dff9f24dcf9a2",
+      "safe_files": {
+        "evaluation.json": "sha256:98f46851c2ea9617b795f6e5da866938223858d5f95a52202eb6de68d1a48d24",
+        "predictions.jsonl": "sha256:0421fb52b01a35e4d84c9cc17644b9c21cf92ed1707c0eb103b7c98c212f46df",
+        "raw_outputs.jsonl": "sha256:06f820ba18797337ce56fadfa8ff9fcaee7f05bdbc316d317f993c7f028c626f",
+        "traces.jsonl": "sha256:6caa6b812ac07695853a9796f8b0d80fc20d76b2d6310c567b71858cc79bcd6f",
+        "run_report.json": "sha256:a951daeca5f28823525ab07ec9c2a8f70fd12338f4143b7ada7aacb10ceab67d"
+      }
+    },
+    {
+      "run_id": 35458314825,
+      "artifact_id": 10589488754,
+      "name": "phase6c-b4-matched-claude-35458314825",
+      "size_in_bytes": 4072400,
+      "digest": "sha256:0865ff2fb6b672263d6e64433e746a4334b33b57131181b9fa832fe89fa6497a",
+      "safe_files": {
+        "evaluation.json": "sha256:407a40f35b4bc74906b6ee617cd2f63d69fbe21910f4bbbf8d68fbd467728d59",
+        "predictions.jsonl": "sha256:d56521f0c7d8d8b26a2385b55947b6b280897425f4c94b325441536f4bbaadb8",
+        "raw_outputs.jsonl": "sha256:bf0c0266fbabe731382f062764068997ac549bb686b04705ae9cdb50bfc067e7",
+        "traces.jsonl": "sha256:328e78d792cb97fab9af0b5d105d874b6112a7deee98bf171e4bcbc9c0b98fad",
+        "run_report.json": "sha256:db483a73c8139b02ebb25a1cf4a070dc3fc1bf4af6c42a8ac5752cb8fd2c5c2e"
+      }
+    },
+    {
+      "run_id": 35461708139,
+      "artifact_id": 10590510206,
+      "name": "phase6c-v2-mechanism-replay-gpt-35461708139",
+      "size_in_bytes": 178674,
+      "digest": "sha256:f41304729ac6d4b3825e9f669ec46ec605d83607d80c403a567ee816bd78cd26",
+      "safe_files": {
+        "report.json": "sha256:1df0a86992c66874fbc602aed834bb2079b553f19587825cfc6bfe96b0e5a933"
+      }
+    },
+    {
+      "run_id": 35461708139,
+      "artifact_id": 10590145565,
+      "name": "phase6c-v2-mechanism-replay-claude-35461708139",
+      "size_in_bytes": 183628,
+      "digest": "sha256:ad90c482292bd1d5f1f4ff6036b82cfe22778d9f51bb0248250cd3581de596c5",
+      "safe_files": {
+        "report.json": "sha256:b84797870dd52a43057e2bd84dfa55f0315be74d242979ba84b7d12d787a1341"
+      }
+    },
+    {
+      "run_id": 35462465351,
+      "artifact_id": 10590472369,
+      "name": "phase6c-clean-prompt-gpt-35462465351",
+      "size_in_bytes": 11337600,
+      "digest": "sha256:994ebb239eff2a612649a6b771d3f6809b4aa499d13642a53a57b0f9d5666e9c",
+      "safe_files": {
+        "evaluation.json": "sha256:9050721a67ce4c22c1fe94fc759e7f05706bdae4a5d011f9743c686a5aa3ae04",
+        "predictions.jsonl": "sha256:4df6762d3d19c896562508daa354a90c2ddaf12952a34569844de67bcc9c146d",
+        "raw_outputs.jsonl": "sha256:7ce1da15c2752f8a535cc751ebd07ecdfb6a2a85f29c3ea5f4d92dd283930086",
+        "traces.jsonl": "sha256:c4970bef93d9ceb4e210410a92f61f4a26e2766a84e5b2048b965078c4216272",
+        "run_report.json": "sha256:0b85c87a3bf12ba113d82dcb1d2513a68b2dbb2e4c6a59413802469843e1a6f9"
+      }
+    },
+    {
+      "run_id": 35462465351,
+      "artifact_id": 10590668513,
+      "name": "phase6c-clean-prompt-claude-35462465351",
+      "size_in_bytes": 9486247,
+      "digest": "sha256:846e7a9d8d885cb74eeba01e1536b6fe431987ee1d7f859a2c080fb6815cb6c5",
+      "safe_files": {
+        "evaluation.json": "sha256:2fc0e3317aec7a1f8459f2e6a56c5ee4007f6a70a72eea8d30ef8f0368549e17",
+        "predictions.jsonl": "sha256:53ffa2965cbd5f362635c83615d10e8f7f817b4d12166e3f22cb4d781fe6ef99",
+        "raw_outputs.jsonl": "sha256:c995446a0215e0cf5207f007d4d50f14d203440e98539718d723080794bfc3fe",
+        "traces.jsonl": "sha256:b44f6574c066f05e9bc3679f1ab3f1e5f2e593618bebe874660d6728967435ad",
+        "run_report.json": "sha256:1f360eb709bc01aa184c3c8a70e64125732a0c169a0107f4ed2ae2ba27d854ad",
+        "failures.jsonl": "sha256:421de118b84d2e641ea0f1dd3cd6e512c51b07cc64a90d23956afa48dc9d9d8c"
+      }
+    },
+    {
+      "run_id": 35466369794,
+      "artifact_id": 10590924210,
+      "name": "phase6c-clean-prompt-audit-gpt-35466369794",
+      "size_in_bytes": 1212,
+      "digest": "sha256:93bdf7c7bf8a4c576a5c6f733508dcee9146d0f1cec28ab7f2b1061b37fbc40b",
+      "safe_files": {
+        "report.json": "sha256:d0bfc7b44d99b5b24336ed6e8f725581242089b58febd4ea5c4aa695ee6b9a4a"
+      }
+    },
+    {
+      "run_id": 35466369794,
+      "artifact_id": 10591237073,
+      "name": "phase6c-clean-prompt-audit-claude-35466369794",
+      "size_in_bytes": 1458,
+      "digest": "sha256:9af2c635d62f3f6368d0a8e0ae9f4de4e2f7ababd5430e5ca86a537a7ba7d1f0",
+      "safe_files": {
+        "report.json": "sha256:3e8d951ff7e8bbf0b05716c27acf5db91af214794619b34b713ce541350e1eae"
+      }
+    },
+    {
+      "run_id": 35467947692,
+      "artifact_id": 10591194460,
+      "name": "phase6-final-component-gpt-35467947692",
+      "size_in_bytes": 2554,
+      "digest": "sha256:3be2a147c5d23495aa4d80177033f330dc21606f32918f2baa6dd1eef1f251a2",
+      "safe_files": {
+        "report.json": "sha256:215025d2e21ca740acc4e160b7731b325bf4678edd73a9fba9d72facf648b7b4"
+      }
+    },
+    {
+      "run_id": 35467947692,
+      "artifact_id": 10591733494,
+      "name": "phase6-final-component-claude-35467947692",
+      "size_in_bytes": 2660,
+      "digest": "sha256:f3dbed629b2e044c05c74b52c10d6242a2dd6b2a2e4d803fe860573164608a79",
+      "safe_files": {
+        "report.json": "sha256:928e47d92d1ed7febc812095bd2eb71e69fcf40d03e54a602b0b9d6d759167d4"
+      }
+    },
+    {
+      "run_id": 35470004077,
+      "artifact_id": 10592257633,
+      "name": "phase6-topn-defect-sensitivity-35470004077",
+      "size_in_bytes": 2645,
+      "digest": "sha256:51d849a43312c693953b5280a1ee967b9b2b1a52ebf3c258744b3c6c0c0b1cb1",
+      "safe_files": {
+        "report.json": "sha256:c69792e406b5dbae2d8b99f7bdab3524c5277e5f4be9cda69186efa92d42be8d"
+      }
+    }
+  ]
+}
