@@ -89,6 +89,11 @@ def fast_paired_delta(
     right_ids, right_counts = _case_counts(right, metric)
     if left_ids != right_ids:
         raise ValueError("paired bootstrap requires identical case sets")
+
+    left_rows = sorted((row["case_id"], row.get("utterance_id")) for row in left)
+    right_rows = sorted((row["case_id"], row.get("utterance_id")) for row in right)
+    if left_rows != right_rows:
+        raise ValueError("paired bootstrap requires identical (case_id, utterance_id) rows")
     case_ids = left_ids
     estimate = _ratio_for_picks(left_counts, case_ids) - _ratio_for_picks(right_counts, case_ids)
     rng = random.Random(seed)
