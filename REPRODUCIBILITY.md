@@ -65,7 +65,7 @@ Before making this repository public and using it as the paper availability URL:
 5. scan for secrets, personal data, internal-review notes, and any `RESTRICTED` file;
 6. tag the frozen public artifact.
 
-The source artifacts have now been enumerated, downloaded, safety-inspected, and hash-bound. The remaining step is the physical transfer of the large normalized sealed payloads into this repository or immutable release assets. Until that transfer is completed, this repository should be described as a **curated pre-publication artifact**, not a fully standalone reproduction package.
+The source artifacts have now been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into `mia-public-sealed-evidence-v1.zip` (SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`). The remaining step is attaching that curated bundle as an immutable public release asset (or otherwise transferring it into the repository). Until that transfer is completed, this repository should be described as a **curated pre-publication artifact**, not a fully standalone reproduction package.
 
 ## 5. Immutability rule
 
