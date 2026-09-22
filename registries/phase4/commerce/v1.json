@@ -1,0 +1,2101 @@
+{
+  "calendars": [
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "gregorian",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "day": "metric_time__day",
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "week": "metric_time__week",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "calendar",
+      "name": "Gregorian calendar",
+      "supported_grains": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ]
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "fiscal",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "fiscal",
+      "name": "Corporate fiscal calendar",
+      "supported_grains": [
+        "month",
+        "quarter",
+        "year"
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "allowed_values": [
+        "North America",
+        "EMEA",
+        "Asia Pacific"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "region",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__region",
+          "group_by": "customer__region"
+        }
+      },
+      "entity": "customer",
+      "id": "region",
+      "name": "Region",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "United States",
+        "Germany",
+        "Japan"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "country",
+          "table": "product_dim"
+        },
+        "metricflow": {
+          "filter_name": "product__country",
+          "group_by": "product__country"
+        }
+      },
+      "entity": "product",
+      "id": "country",
+      "name": "Country",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "web",
+        "mobile app",
+        "marketplace"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "sales_channel",
+          "table": "shipment_dim"
+        },
+        "metricflow": {
+          "filter_name": "shipment__sales_channel",
+          "group_by": "shipment__sales_channel"
+        }
+      },
+      "entity": "shipment",
+      "id": "sales_channel",
+      "name": "Sales Channel",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "Seattle flagship",
+        "Berlin Mitte",
+        "Tokyo Shibuya"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "store",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__store",
+          "group_by": "customer__store"
+        }
+      },
+      "entity": "customer",
+      "id": "store",
+      "name": "Store",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "Northstar",
+        "Juniper",
+        "Atlas"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "brand",
+          "table": "product_dim"
+        },
+        "metricflow": {
+          "filter_name": "product__brand",
+          "group_by": "product__brand"
+        }
+      },
+      "entity": "product",
+      "id": "brand",
+      "name": "Brand",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "electronics",
+        "home",
+        "apparel"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "category",
+          "table": "shipment_dim"
+        },
+        "metricflow": {
+          "filter_name": "shipment__category",
+          "group_by": "shipment__category"
+        }
+      },
+      "entity": "shipment",
+      "id": "category",
+      "name": "Category",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "headphones",
+        "kitchenware",
+        "outerwear"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "subcategory",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__subcategory",
+          "group_by": "customer__subcategory"
+        }
+      },
+      "entity": "customer",
+      "id": "subcategory",
+      "name": "Subcategory",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "NS-HEAD-100",
+        "JN-KITCH-210",
+        "AT-OUTER-310"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "sku",
+          "table": "product_dim"
+        },
+        "metricflow": {
+          "filter_name": "product__sku",
+          "group_by": "product__sku"
+        }
+      },
+      "entity": "product",
+      "id": "sku",
+      "name": "Sku",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "new",
+        "returning",
+        "high value"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "customer_segment",
+          "table": "shipment_dim"
+        },
+        "metricflow": {
+          "filter_name": "shipment__customer_segment",
+          "group_by": "shipment__customer_segment"
+        }
+      },
+      "entity": "shipment",
+      "id": "customer_segment",
+      "name": "Customer Segment",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "silver",
+        "gold",
+        "platinum"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "loyalty_tier",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__loyalty_tier",
+          "group_by": "customer__loyalty_tier"
+        }
+      },
+      "entity": "customer",
+      "id": "loyalty_tier",
+      "name": "Loyalty Tier",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "acquisition_channel",
+          "table": "product_dim"
+        },
+        "metricflow": {
+          "filter_name": "product__acquisition_channel",
+          "group_by": "product__acquisition_channel"
+        }
+      },
+      "entity": "product",
+      "id": "acquisition_channel",
+      "name": "Acquisition Channel",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "campaign",
+          "table": "shipment_dim"
+        },
+        "metricflow": {
+          "filter_name": "shipment__campaign",
+          "group_by": "shipment__campaign"
+        }
+      },
+      "entity": "shipment",
+      "id": "campaign",
+      "name": "Campaign",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "device_type",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__device_type",
+          "group_by": "order__device_type"
+        }
+      },
+      "entity": "order",
+      "id": "device_type",
+      "name": "Device Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "payment_method",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__payment_method",
+          "group_by": "order__payment_method"
+        }
+      },
+      "entity": "order",
+      "id": "payment_method",
+      "name": "Payment Method",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "currency",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__currency",
+          "group_by": "order__currency"
+        }
+      },
+      "entity": "order",
+      "id": "currency",
+      "name": "Currency",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "promotion_type",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__promotion_type",
+          "group_by": "order__promotion_type"
+        }
+      },
+      "entity": "order",
+      "id": "promotion_type",
+      "name": "Promotion Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "coupon",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__coupon",
+          "group_by": "order__coupon"
+        }
+      },
+      "entity": "order",
+      "id": "coupon",
+      "name": "Coupon",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "order_status",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__order_status",
+          "group_by": "order__order_status"
+        }
+      },
+      "entity": "order",
+      "id": "order_status",
+      "name": "Order Status",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "return_reason",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__return_reason",
+          "group_by": "order__return_reason"
+        }
+      },
+      "entity": "order",
+      "id": "return_reason",
+      "name": "Return Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "refund_reason",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__refund_reason",
+          "group_by": "order__refund_reason"
+        }
+      },
+      "entity": "order",
+      "id": "refund_reason",
+      "name": "Refund Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "shipping_method",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__shipping_method",
+          "group_by": "order__shipping_method"
+        }
+      },
+      "entity": "order",
+      "id": "shipping_method",
+      "name": "Shipping Method",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "carrier",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__carrier",
+          "group_by": "order__carrier"
+        }
+      },
+      "entity": "order",
+      "id": "carrier",
+      "name": "Carrier",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "warehouse",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__warehouse",
+          "group_by": "order__warehouse"
+        }
+      },
+      "entity": "order",
+      "id": "warehouse",
+      "name": "Warehouse",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "fulfillment_type",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__fulfillment_type",
+          "group_by": "order__fulfillment_type"
+        }
+      },
+      "entity": "order",
+      "id": "fulfillment_type",
+      "name": "Fulfillment Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "seller_type",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__seller_type",
+          "group_by": "order__seller_type"
+        }
+      },
+      "entity": "order",
+      "id": "seller_type",
+      "name": "Seller Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "marketplace",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__marketplace",
+          "group_by": "order__marketplace"
+        }
+      },
+      "entity": "order",
+      "id": "marketplace",
+      "name": "Marketplace",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "price_band",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__price_band",
+          "group_by": "order__price_band"
+        }
+      },
+      "entity": "order",
+      "id": "price_band",
+      "name": "Price Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "customer_cohort",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__customer_cohort",
+          "group_by": "order__customer_cohort"
+        }
+      },
+      "entity": "order",
+      "id": "customer_cohort",
+      "name": "Customer Cohort",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "product_launch_cohort",
+          "table": "order_dim"
+        },
+        "metricflow": {
+          "filter_name": "order__product_launch_cohort",
+          "group_by": "order__product_launch_cohort"
+        }
+      },
+      "entity": "order",
+      "id": "product_launch_cohort",
+      "name": "Product Launch Cohort",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "tax_region",
+          "table": "unlinked_entity_dim"
+        },
+        "metricflow": {
+          "filter_name": "unlinked_entity__tax_region",
+          "group_by": "unlinked_entity__tax_region"
+        }
+      },
+      "entity": "unlinked_entity",
+      "id": "tax_region",
+      "name": "Tax Region",
+      "type": "string"
+    }
+  ],
+  "entity_paths": [
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "customer_id",
+          "from_table": "commerce_facts",
+          "to_key": "customer_id",
+          "to_table": "customer_dim"
+        }
+      },
+      "from": "order",
+      "id": "order_to_customer",
+      "to": "customer"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "product_id",
+          "from_table": "commerce_facts",
+          "to_key": "product_id",
+          "to_table": "product_dim"
+        }
+      },
+      "from": "order",
+      "id": "order_to_product",
+      "to": "product"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "shipment_id",
+          "from_table": "commerce_facts",
+          "to_key": "shipment_id",
+          "to_table": "shipment_dim"
+        }
+      },
+      "from": "order",
+      "id": "order_to_shipment",
+      "to": "shipment"
+    }
+  ],
+  "metrics": [
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "gross sales",
+        "sales"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "gross_sales",
+      "name": "Gross Sales",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "gross_sales",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "gross_sales"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "gross_sales.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "gross_sales_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "gross_sales_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "gross_sales.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "net sales",
+        "sales"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "net_sales",
+      "name": "Net Sales",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "net_sales",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "net_sales"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "net_sales.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "orders"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "orders",
+      "name": "Orders",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "orders",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "orders"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "orders.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "units sold"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "units_sold",
+      "name": "Units Sold",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "units_sold",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "units_sold"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "units_sold.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "average order value"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "average_order_value",
+      "name": "Average Order Value",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "average_order_value",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "average_order_value"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "average_order_value.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "average_order_value_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "average_order_value_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "average_order_value.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "gross margin"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "gross_margin",
+      "name": "Gross Margin",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "gross_margin",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "gross_margin"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "gross_margin.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "discount amount"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "discount_amount",
+      "name": "Discount Amount",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "discount_amount",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "discount_amount"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "discount_amount.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "refund amount"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "refund_amount",
+      "name": "Refund Amount",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "refund_amount",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "refund_amount"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "refund_amount.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "refund rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "refund_rate",
+      "name": "Refund Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "refund_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "refund_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "refund_rate.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "refund_rate_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "refund_rate_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "refund_rate.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "return rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "return_rate",
+      "name": "Return Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "return_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "return_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "return_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "conversion rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "conversion_rate",
+      "name": "Conversion Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "conversion_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "conversion_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "conversion_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "cart abandonment rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "cart_abandonment_rate",
+      "name": "Cart Abandonment Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "cart_abandonment_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "cart_abandonment_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "cart_abandonment_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "new customers"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "new_customers",
+      "name": "New Customers",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "new_customers",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "new_customers"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "new_customers.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "new_customers_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "new_customers_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "new_customers.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "repeat customers"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "repeat_customers",
+      "name": "Repeat Customers",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "repeat_customers",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "repeat_customers"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "repeat_customers.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "repeat purchase rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "repeat_purchase_rate",
+      "name": "Repeat Purchase Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "repeat_purchase_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "repeat_purchase_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "repeat_purchase_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "customer acquisition cost"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "customer_acquisition_cost",
+      "name": "Customer Acquisition Cost",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "customer_acquisition_cost",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "customer_acquisition_cost"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "customer_acquisition_cost.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "lifetime value"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "lifetime_value",
+      "name": "Lifetime Value",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "lifetime_value",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "lifetime_value"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "lifetime_value.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "lifetime_value_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "lifetime_value_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "lifetime_value.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "shipping revenue"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "shipping_revenue",
+      "name": "Shipping Revenue",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "shipping_revenue",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "shipping_revenue"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "shipping_revenue.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "shipping cost"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "shipping_cost",
+      "name": "Shipping Cost",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "shipping_cost",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "shipping_cost"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "shipping_cost.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "fulfillment time"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "fulfillment_time",
+      "name": "Fulfillment Time",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "fulfillment_time",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "fulfillment_time"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "fulfillment_time.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "stockout rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "stockout_rate",
+      "name": "Stockout Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "stockout_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "stockout_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "stockout_rate.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "stockout_rate_v2",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "stockout_rate_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "stockout_rate.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "semi_additive_time",
+      "aliases": [
+        "inventory turnover"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "inventory_turnover",
+      "name": "Inventory Turnover",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "inventory_turnover",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "inventory_turnover"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "inventory_turnover.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "tax collected"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "tax_collected",
+      "name": "Tax Collected",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "tax_collected",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "tax_collected"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "tax_collected.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "payment failure rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "sales_channel",
+        "store",
+        "brand",
+        "category",
+        "subcategory",
+        "sku",
+        "customer_segment",
+        "loyalty_tier",
+        "acquisition_channel",
+        "campaign",
+        "tax_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "order",
+      "id": "payment_failure_rate",
+      "name": "Payment Failure Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "payment_failure_rate",
+              "table": "commerce_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "payment_failure_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "payment_failure_rate.v1",
+          "restated": false
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "effect": "allow",
+      "id": "gross_sales_finance_only",
+      "object_id": "gross_sales",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "average_order_value_finance_only",
+      "object_id": "average_order_value",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "refund_rate_finance_only",
+      "object_id": "refund_rate",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "new_customers_finance_only",
+      "object_id": "new_customers",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "lifetime_value_finance_only",
+      "object_id": "lifetime_value",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "stockout_rate_finance_only",
+      "object_id": "stockout_rate",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "currency_sensitive",
+      "object_id": "currency",
+      "roles": [
+        "finance"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "marketplace_sensitive",
+      "object_id": "marketplace",
+      "roles": [
+        "finance"
+      ]
+    }
+  ],
+  "registry_id": "commerce-phase4-pilot",
+  "snapshot_hash": "sha256:57c93587db88899908bd235066facd3e8e9bc9355ba501646f2da365d789c86b",
+  "snapshot_version": "1.1.0"
+}
