@@ -55,14 +55,14 @@ python scripts/verify_sealed_artifacts.py --require-all
 Without `--require-all`, the verifier checks any sealed files already present and reports what is still missing.
 
 
-## 4. Download the public sealed bundle
+## 4. Download the sealed bundle
 
-From a clean checkout, download the release asset:
+While the repository remains private, authenticated reviewers/maintainers can download the release asset with:
 
 ```bash
-curl -L \
-  -o mia-public-sealed-evidence-v1.zip \
-  https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-sealed-evidence-v1.zip
+gh release download artifact-v1.0 \
+  --repo hollylessthan/metric-intent-assurance-artifact \
+  --pattern mia-public-sealed-evidence-v1.zip
 
 python - <<'PY'
 import hashlib
@@ -87,14 +87,14 @@ python scripts/verify_sealed_artifacts.py --require-all
 
 Before making this repository public and using it as the paper availability URL:
 
-1. public sealed bundle uploaded and SHA-256 verified — complete;
+1. sealed bundle uploaded and SHA-256 verified — complete;
 2. source run/artifact IDs and file-level hashes recorded in `SEALED_ARTIFACT_MANIFEST.json` — complete;
 3. reproduction commands use the public artifact repository and release asset — complete;
 4. run the clean-checkout test/analysis procedure from this repository plus the public release asset;
 5. final secrets/personal-data/restricted-material scan;
 6. finalize the frozen public artifact tag after PR merge if desired.
 
-The source artifacts have been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into the public release asset `mia-public-sealed-evidence-v1.zip` under tag `artifact-v1.0`. GitHub reports the expected size (1,317,896 bytes) and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`. The sealed publication bundle is now public. The remaining release-readiness task is a clean-checkout reproduction using only this repository plus the public release asset.
+The source artifacts have been enumerated, downloaded, safety-inspected, hash-bound, and repackaged into release asset `mia-public-sealed-evidence-v1.zip` under tag `artifact-v1.0`. GitHub reports the expected size (1,317,896 bytes) and SHA-256 `429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b`. The repository is currently private, so this asset is authenticated-access only until repository visibility is changed. The sealed publication bundle is attached and hash-bound. The remaining release-readiness tasks are: (1) clean-checkout reproduction from this repository plus the authenticated release asset while the repo is private, and (2) unauthenticated download verification after the repository is made public.
 
 ## 6. Immutability rule
 
