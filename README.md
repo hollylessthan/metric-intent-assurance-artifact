@@ -23,7 +23,7 @@ See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusio
 - the frozen Phase 4 v1.1 benchmark, 900 utterances, split metadata, adjudication summary, and human-validation record;
 - B0, B1, B2, B4, and MIA prompts plus the final-v2 matched/sensitivity prompts;
 - B3 logic in the local evaluation code (B3 is derived locally and therefore has no provider prompt);
-- frozen reader-facing result summaries and challenge summaries;
+- frozen reader-facing result summaries and challenge summaries;\n- a provenance map from public artifact paths to the original internal research paths;
 - selected deterministic reproduction scripts and tests.
 
 ## Quick start
@@ -41,7 +41,6 @@ python -m unittest \
   tests.test_mia_v2_preflight \
   tests.test_mia_v2_readiness_audit \
   tests.test_mia_v2_regression \
-  tests.test_phase5_systems \
   tests.test_v2_matched_baselines
 ```
 
@@ -55,9 +54,9 @@ python -m pip install -r requirements-metricflow.txt
 
 The frozen benchmark contains 300 canonical cases and 900 utterances across SaaS, commerce, and customer support. The development split contains 60 cases; the held-out test split contains 240 cases / 720 utterances. The canonical gold source is:
 
-`benchmarks/phase4/final/canonical_cases.v1.1.jsonl`
+`benchmark/canonical_cases.v1.1.jsonl`
 
-Frozen registry snapshots are under `registries/phase4/`.
+Frozen registry snapshots are under `registries/`.
 
 ## Evaluation systems
 
@@ -72,7 +71,7 @@ The confirmatory system family is:
 | B4 | Generic four-action router without deterministic metric-specific predicates |
 | MIA | Candidate generation + deterministic validation + calibrated four-action policy |
 
-Because B3 is derived locally, `src/mia/phase5.py` contains its evaluation logic rather than a provider prompt.
+Because B3 is derived locally, `src/mia/study_metrics.py` contains its evaluation logic rather than a provider prompt.
 
 ## Reproducibility status
 
