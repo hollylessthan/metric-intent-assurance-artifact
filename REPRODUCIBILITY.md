@@ -138,6 +138,8 @@ curl -L -O https://github.com/hollylessthan/metric-intent-assurance-artifact/rel
 curl -L -O https://github.com/hollylessthan/metric-intent-assurance-artifact/releases/download/artifact-v1.0/mia-public-reproducibility-supplement-v1.zip
 ```
 
+For offline or pre-downloaded use, place both ZIP files in `.reproduce-downloads/` at the repository root. `scripts/reproduce_paper.sh` preserves that directory between runs and skips downloading files already present there.
+
 Always verify SHA-256 values above before use.
 
 ## Deterministic unit checks
