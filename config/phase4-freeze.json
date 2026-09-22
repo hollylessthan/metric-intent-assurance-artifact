@@ -1,0 +1,36 @@
+{
+  "action_distribution": {
+    "clarify": 60,
+    "coverage_gap": 60,
+    "execute": 120,
+    "reject": 60
+  },
+  "annotation_status": "pending_three_model_review_and_sampled_human_audit",
+  "artifact_hashes": {
+    "annotation_crosswalk": "sha256:063256843b2f90a8e0403e82a761cfe9870712b0460ececf5503527506ec2683",
+    "annotation_template": "sha256:ddedcc4e0f77509e641786ca613d7c41ed49ebcdf1fdca3c54910ef378af7612",
+    "annotator_distribution_manifest": "sha256:2eea3b72a7a5281380490e2e864c495e22a5b7dc49384be942e31d2ebd589a7a",
+    "annotator_distribution_packet": "sha256:c3e12e329e57a93bf1a2006c4559668a4685940ebf3ffe1ff819e0376d6cb0da",
+    "annotator_distribution_readme": "sha256:32201923dcffe7c066ebbb297f22c4f0c504900b6debbb1908d06dfa1e3deded",
+    "annotator_distribution_registry_commerce": "sha256:776a6a3750d946f5169b60f2ee9f69409625a98fb30e8669a2502150e641e0a2",
+    "annotator_distribution_registry_saas": "sha256:70c77ff464d37bff8537e46ea780162ed269b6df100caf22517082268e0ad5d6",
+    "annotator_distribution_registry_support": "sha256:ec9651eab3f26fcf25979e3448fb39c9807f2a0c7503bdbd4eeecea76c6a1a8d",
+    "blind_annotation_template": "sha256:d11cf4808ebe2ecf8183662c4f83f7d3774919d06749c901f3c45a3723d95856",
+    "canonical_cases": "sha256:b6660d7b33680ce8f4af22f17aa09ab9a1bc757c96f473ae370f794bc0af0638",
+    "leave_one_domain_out_folds": "sha256:845a05f853205633bbbe2c030259e4d57df32b01285d9d903df8e11ab7d78611",
+    "registry_commerce": "sha256:776a6a3750d946f5169b60f2ee9f69409625a98fb30e8669a2502150e641e0a2",
+    "registry_saas": "sha256:70c77ff464d37bff8537e46ea780162ed269b6df100caf22517082268e0ad5d6",
+    "registry_support": "sha256:ec9651eab3f26fcf25979e3448fb39c9807f2a0c7503bdbd4eeecea76c6a1a8d",
+    "utterances": "sha256:cfb53ae6eb70b47cd57ad0de927bfcddbdb1d625ecbb6a623d65d4d4c9d350a7"
+  },
+  "build_script": "scripts/build_phase4_pilot.py",
+  "canonical_cases": 300,
+  "leave_one_domain_out_folds": 3,
+  "phase4_exit_gate_status": "pending_model_review_human_audit_and_execution",
+  "split_distribution": {
+    "development": 60,
+    "test": 240
+  },
+  "study_specification": "phase4-pilot-seed-v3-llm-assisted-validation",
+  "utterances": 900
+}
