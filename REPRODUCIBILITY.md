@@ -74,9 +74,10 @@ The script:
 - reruns fixed-generation mechanism replay;
 - reruns clean-prompt paired analysis;
 - reruns final component analysis;
-- reruns H2/top-N sensitivity;
+- checks the frozen original H2 confirmatory record and reruns the top-N-excluded H2 sensitivity;
 - regenerates challenge-v2 reader-facing metrics from its frozen scored evaluation;
-- verifies the regenerated values against frozen reader-facing evidence.
+- regenerates the reviewer-facing quantitative tables and Figures 2–3;
+- verifies the regenerated values against `paper_numbers.json` and the frozen reader-facing evidence.
 
 A successful run ends with:
 
@@ -97,6 +98,10 @@ python scripts/rerun_provider_requests.py \
 ```
 
 For Claude, set `ANTHROPIC_API_KEY` and use `--provider claude`.
+
+Clean-prompt provider reruns use the same `--system mia-v2` path with the exact clean request files from the supplement, for example `.reproduce/supplement/mia-public-reproducibility-supplement-v1/requests/clean-prompt/gpt/requests.jsonl`.
+
+Historical B0–B4 provider reruns are **not** supported by this curated artifact. Those systems are preserved as frozen historical evidence through their normalized held-out predictions and confirmatory records.
 
 B4-Matched requests can first be rebuilt deterministically from the exact final-MIA requests and sealed semantic generations:
 
