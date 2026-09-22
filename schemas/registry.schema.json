@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metric-intent-assurance.org/schemas/registry.schema.json",
+  "title": "Metric Registry Snapshot",
+  "type": "object",
+  "required": ["registry_id", "snapshot_version", "metrics", "dimensions", "calendars", "entity_paths", "policies"],
+  "properties": {
+    "registry_id": {"type": "string"},
+    "snapshot_version": {"type": "string"},
+    "snapshot_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "active", "entity", "additivity", "allowed_dimensions", "allowed_grains", "allowed_calendars", "versions"],
+        "properties": {
+          "id": {"type": "string"}, "name": {"type": "string"}, "aliases": {"type": "array", "items": {"type": "string"}},
+          "active": {"type": "boolean"}, "entity": {"type": "string"}, "additivity": {"enum": ["additive", "semi_additive", "semi_additive_time", "non_additive"]},
+          "allowed_dimensions": {"type": "array", "items": {"type": "string"}},
+          "allowed_grains": {"type": "array", "items": {"type": "string"}},
+          "allowed_calendars": {"type": "array", "items": {"type": "string"}},
+          "versions": {"type": "array", "minItems": 1, "items": {
+            "type": "object",
+            "required": ["id", "effective_from", "backends"],
+            "properties": {
+              "id": {"type": "string"}, "effective_from": {"type": "string", "format": "date"},
+              "effective_to": {"type": ["string", "null"], "format": "date"},
+              "published_at": {"type": ["string", "null"], "format": "date"},
+              "restated": {"type": "boolean"}, "default": {"type": "boolean"},
+              "backends": {"type": "object"}
+            },
+            "additionalProperties": false
+          }}
+        },
+        "additionalProperties": false
+      }
+    },
+    "dimensions": {"type": "array", "items": {
+      "type": "object", "required": ["id", "name", "type", "entity", "backends"],
+      "properties": {
+        "id": {"type": "string"}, "name": {"type": "string"},
+        "type": {"enum": ["string", "number", "integer", "boolean", "date"]},
+        "entity": {"type": "string"},
+        "allowed_values": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": ["string", "number", "integer", "boolean"]}},
+        "policy_tags": {"type": "array", "items": {"type": "string"}},
+        "backends": {"type": "object"}
+      },
+      "additionalProperties": false
+    }},
+    "calendars": {"type": "array", "items": {
+      "type": "object", "required": ["id", "name", "supported_grains", "completeness_rules", "backends"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "name": {"type": "string", "minLength": 1},
+        "supported_grains": {"type": "array", "uniqueItems": true, "items": {"enum": ["day", "week", "month", "quarter", "year"]}},
+        "completeness_rules": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "backends": {"type": "object"}
+      }, "additionalProperties": false
+    }},
+    "entity_paths": {"type": "array", "items": {
+      "type": "object", "required": ["id", "from", "to", "allowed"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "from": {"type": "string", "minLength": 1},
+        "to": {"type": "string", "minLength": 1}, "allowed": {"type": "boolean"},
+        "backends": {"type": "object"}
+      }, "additionalProperties": false
+    }},
+    "policies": {"type": "array", "items": {"type": "object", "required": ["id", "object_id", "effect"], "properties": {
+      "id": {"type": "string"}, "object_id": {"type": "string"}, "effect": {"enum": ["allow", "deny"]},
+      "roles": {"type": "array", "items": {"type": "string"}},
+      "org_scopes": {"type": "array", "items": {"type": "string"}}
+    }, "additionalProperties": false}}
+  },
+  "additionalProperties": false
+}
