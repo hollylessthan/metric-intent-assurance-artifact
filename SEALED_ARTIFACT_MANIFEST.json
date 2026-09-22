@@ -197,5 +197,14 @@
         "report.json": "sha256:c69792e406b5dbae2d8b99f7bdab3524c5277e5f4be9cda69186efa92d42be8d"
       }
     }
-  ]
+  ],
+  "curated_public_bundle": {
+    "file_name": "mia-public-sealed-evidence-v1.zip",
+    "size_in_bytes": 1317896,
+    "sha256": "sha256:429b0e1b5e427d1bc9840163e032b36a07c74a71913c13d0469d557fcb89b93b",
+    "file_count": 70,
+    "status": "built_and_verified_locally_pending_release_asset_upload",
+    "contents": "publication-safe normalized outputs, predictions, traces, matched-control evaluations, mechanism predictions/reports, clean-prompt outputs/audits, component reports, and top-N sensitivity",
+    "excluded": "provider transport evidence logs, duplicated requests.jsonl payloads, preflight-only payloads, and RESTRICTED files"
+  }
 }
