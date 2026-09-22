@@ -1,0 +1,16 @@
+{
+  "artifact": "metric-intent-assurance-artifact",
+  "source_repository": "hollylessthan/metric-intent-assurance",
+  "source_commit": "58d753aa16dbd8e2372475f9002950f4aff7a498",
+  "curated_on": "2026-09-21",
+  "reader_facing_system": "MIA-v2",
+  "benchmark": "benchmarks/phase4/final/canonical_cases.v1.1.jsonl",
+  "canonical_cases": 300,
+  "utterances": 900,
+  "development_cases": 60,
+  "heldout_cases": 240,
+  "heldout_utterances": 720,
+  "packaging_policy": "curated publication artifact; excludes internal/restricted material; frozen evidence is not rewritten",
+  "standalone_reproduction_ready": false,
+  "remaining_release_gate": "migrate sealed raw provider-output workflow artifacts into immutable public assets and hash-bind them"
+}
