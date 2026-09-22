@@ -64,8 +64,12 @@ def fast_cluster_interval(
         picks = [rng.choice(case_ids) for _ in case_ids]
         vals.append(_ratio_for_picks(counts, picks))
     vals.sort()
-    low_index = max(0, math.floor(0.025 * samples))
-    high_index = min(samples - 1, math.ceil(0.975 * samples) - 1)
+    if legacy_paired_indices:
+        low_index = int(0.025 * (samples - 1))
+        high_index = int(0.975 * (samples - 1))
+    else:
+        low_index = max(0, math.floor(0.025 * samples))
+        high_index = min(samples - 1, math.ceil(0.975 * samples) - 1)
     return {"estimate": estimate, "low": vals[low_index], "high": vals[high_index]}
 
 
@@ -76,6 +80,7 @@ def fast_paired_delta(
     *,
     samples: int = 10_000,
     seed: int = 20260919,
+    legacy_paired_indices: bool = False,
 ) -> dict[str, float]:
     left_ids, left_counts = _case_counts(left, metric)
     right_ids, right_counts = _case_counts(right, metric)
