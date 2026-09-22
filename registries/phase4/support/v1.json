@@ -1,0 +1,2101 @@
+{
+  "calendars": [
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "gregorian",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "day": "metric_time__day",
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "week": "metric_time__week",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "calendar",
+      "name": "Gregorian calendar",
+      "supported_grains": [
+        "day",
+        "week",
+        "month",
+        "quarter",
+        "year"
+      ]
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "calendar": "fiscal",
+          "executable": true
+        },
+        "metricflow": {
+          "executable": true,
+          "time_grains": {
+            "month": "metric_time__month",
+            "quarter": "metric_time__quarter",
+            "year": "metric_time__year"
+          }
+        }
+      },
+      "completeness_rules": [
+        "closed"
+      ],
+      "id": "fiscal",
+      "name": "Corporate fiscal calendar",
+      "supported_grains": [
+        "month",
+        "quarter",
+        "year"
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "allowed_values": [
+        "North America",
+        "EMEA",
+        "Asia Pacific"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "region",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__region",
+          "group_by": "customer__region"
+        }
+      },
+      "entity": "customer",
+      "id": "region",
+      "name": "Region",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "United States",
+        "Germany",
+        "Japan"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "country",
+          "table": "agent_dim"
+        },
+        "metricflow": {
+          "filter_name": "agent__country",
+          "group_by": "agent__country"
+        }
+      },
+      "entity": "agent",
+      "id": "country",
+      "name": "Country",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "standard",
+        "premium",
+        "enterprise"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "support_tier",
+          "table": "incident_dim"
+        },
+        "metricflow": {
+          "filter_name": "incident__support_tier",
+          "group_by": "incident__support_tier"
+        }
+      },
+      "entity": "incident",
+      "id": "support_tier",
+      "name": "Support Tier",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "email",
+        "chat",
+        "phone"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "channel",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__channel",
+          "group_by": "customer__channel"
+        }
+      },
+      "entity": "customer",
+      "id": "channel",
+      "name": "Channel",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "billing",
+        "technical",
+        "account access"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "queue",
+          "table": "agent_dim"
+        },
+        "metricflow": {
+          "filter_name": "agent__queue",
+          "group_by": "agent__queue"
+        }
+      },
+      "entity": "agent",
+      "id": "queue",
+      "name": "Queue",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "low",
+        "high",
+        "urgent"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "priority",
+          "table": "incident_dim"
+        },
+        "metricflow": {
+          "filter_name": "incident__priority",
+          "group_by": "incident__priority"
+        }
+      },
+      "entity": "incident",
+      "id": "priority",
+      "name": "Priority",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "SEV-1",
+        "SEV-2",
+        "SEV-3"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "severity",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__severity",
+          "group_by": "customer__severity"
+        }
+      },
+      "entity": "customer",
+      "id": "severity",
+      "name": "Severity",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "open",
+        "pending",
+        "resolved"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "status",
+          "table": "agent_dim"
+        },
+        "metricflow": {
+          "filter_name": "agent__status",
+          "group_by": "agent__status"
+        }
+      },
+      "entity": "agent",
+      "id": "status",
+      "name": "Status",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "incident",
+        "how-to",
+        "billing inquiry"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "issue_type",
+          "table": "incident_dim"
+        },
+        "metricflow": {
+          "filter_name": "incident__issue_type",
+          "group_by": "incident__issue_type"
+        }
+      },
+      "entity": "incident",
+      "id": "issue_type",
+      "name": "Issue Type",
+      "type": "string"
+    },
+    {
+      "allowed_values": [
+        "authentication",
+        "reporting",
+        "integrations"
+      ],
+      "backends": {
+        "duckdb": {
+          "column": "product_area",
+          "table": "customer_dim"
+        },
+        "metricflow": {
+          "filter_name": "customer__product_area",
+          "group_by": "customer__product_area"
+        }
+      },
+      "entity": "customer",
+      "id": "product_area",
+      "name": "Product Area",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "feature",
+          "table": "agent_dim"
+        },
+        "metricflow": {
+          "filter_name": "agent__feature",
+          "group_by": "agent__feature"
+        }
+      },
+      "entity": "agent",
+      "id": "feature",
+      "name": "Feature",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "customer_segment",
+          "table": "incident_dim"
+        },
+        "metricflow": {
+          "filter_name": "incident__customer_segment",
+          "group_by": "incident__customer_segment"
+        }
+      },
+      "entity": "incident",
+      "id": "customer_segment",
+      "name": "Customer Segment",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "account_tier",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__account_tier",
+          "group_by": "ticket__account_tier"
+        }
+      },
+      "entity": "ticket",
+      "id": "account_tier",
+      "name": "Account Tier",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "language",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__language",
+          "group_by": "ticket__language"
+        }
+      },
+      "entity": "ticket",
+      "id": "language",
+      "name": "Language",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "agent_team",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__agent_team",
+          "group_by": "ticket__agent_team"
+        }
+      },
+      "entity": "ticket",
+      "id": "agent_team",
+      "name": "Agent Team",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "agent_tenure_band",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__agent_tenure_band",
+          "group_by": "ticket__agent_tenure_band"
+        }
+      },
+      "entity": "ticket",
+      "id": "agent_tenure_band",
+      "name": "Agent Tenure Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "shift",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__shift",
+          "group_by": "ticket__shift"
+        }
+      },
+      "entity": "ticket",
+      "id": "shift",
+      "name": "Shift",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "resolution_code",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__resolution_code",
+          "group_by": "ticket__resolution_code"
+        }
+      },
+      "entity": "ticket",
+      "id": "resolution_code",
+      "name": "Resolution Code",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "escalation_reason",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__escalation_reason",
+          "group_by": "ticket__escalation_reason"
+        }
+      },
+      "entity": "ticket",
+      "id": "escalation_reason",
+      "name": "Escalation Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "contact_reason",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__contact_reason",
+          "group_by": "ticket__contact_reason"
+        }
+      },
+      "entity": "ticket",
+      "id": "contact_reason",
+      "name": "Contact Reason",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "sla_policy",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__sla_policy",
+          "group_by": "ticket__sla_policy"
+        }
+      },
+      "entity": "ticket",
+      "id": "sla_policy",
+      "name": "Sla Policy",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "entitlement",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__entitlement",
+          "group_by": "ticket__entitlement"
+        }
+      },
+      "entity": "ticket",
+      "id": "entitlement",
+      "name": "Entitlement",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "incident_type",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__incident_type",
+          "group_by": "ticket__incident_type"
+        }
+      },
+      "entity": "ticket",
+      "id": "incident_type",
+      "name": "Incident Type",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "root_cause",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__root_cause",
+          "group_by": "ticket__root_cause"
+        }
+      },
+      "entity": "ticket",
+      "id": "root_cause",
+      "name": "Root Cause",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "bug_severity",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__bug_severity",
+          "group_by": "ticket__bug_severity"
+        }
+      },
+      "entity": "ticket",
+      "id": "bug_severity",
+      "name": "Bug Severity",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "knowledge_category",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__knowledge_category",
+          "group_by": "ticket__knowledge_category"
+        }
+      },
+      "entity": "ticket",
+      "id": "knowledge_category",
+      "name": "Knowledge Category",
+      "policy_tags": [
+        "sensitive"
+      ],
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "deflection_path",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__deflection_path",
+          "group_by": "ticket__deflection_path"
+        }
+      },
+      "entity": "ticket",
+      "id": "deflection_path",
+      "name": "Deflection Path",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "sentiment_band",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__sentiment_band",
+          "group_by": "ticket__sentiment_band"
+        }
+      },
+      "entity": "ticket",
+      "id": "sentiment_band",
+      "name": "Sentiment Band",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "customer_cohort",
+          "table": "ticket_dim"
+        },
+        "metricflow": {
+          "filter_name": "ticket__customer_cohort",
+          "group_by": "ticket__customer_cohort"
+        }
+      },
+      "entity": "ticket",
+      "id": "customer_cohort",
+      "name": "Customer Cohort",
+      "type": "string"
+    },
+    {
+      "backends": {
+        "duckdb": {
+          "column": "contract_region",
+          "table": "unlinked_entity_dim"
+        },
+        "metricflow": {
+          "filter_name": "unlinked_entity__contract_region",
+          "group_by": "unlinked_entity__contract_region"
+        }
+      },
+      "entity": "unlinked_entity",
+      "id": "contract_region",
+      "name": "Contract Region",
+      "type": "string"
+    }
+  ],
+  "entity_paths": [
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "customer_id",
+          "from_table": "support_facts",
+          "to_key": "customer_id",
+          "to_table": "customer_dim"
+        }
+      },
+      "from": "ticket",
+      "id": "ticket_to_customer",
+      "to": "customer"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "agent_id",
+          "from_table": "support_facts",
+          "to_key": "agent_id",
+          "to_table": "agent_dim"
+        }
+      },
+      "from": "ticket",
+      "id": "ticket_to_agent",
+      "to": "agent"
+    },
+    {
+      "allowed": true,
+      "backends": {
+        "duckdb": {
+          "from_key": "incident_id",
+          "from_table": "support_facts",
+          "to_key": "incident_id",
+          "to_table": "incident_dim"
+        }
+      },
+      "from": "ticket",
+      "id": "ticket_to_incident",
+      "to": "incident"
+    }
+  ],
+  "metrics": [
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "tickets created",
+        "service level"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "tickets_created",
+      "name": "Tickets Created",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "tickets_created",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "tickets_created"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "tickets_created.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "tickets_created_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "tickets_created_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "tickets_created.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "tickets resolved",
+        "service level"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "tickets_resolved",
+      "name": "Tickets Resolved",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "tickets_resolved",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "tickets_resolved"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "tickets_resolved.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "semi_additive_time",
+      "aliases": [
+        "open backlog"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "open_backlog",
+      "name": "Open Backlog",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "open_backlog",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "open_backlog"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "open_backlog.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "first response time"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "first_response_time",
+      "name": "First Response Time",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "first_response_time",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "first_response_time"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "first_response_time.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "resolution time"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "resolution_time",
+      "name": "Resolution Time",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "resolution_time",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "resolution_time"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "resolution_time.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "resolution_time_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "resolution_time_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "resolution_time.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "sla attainment"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "sla_attainment",
+      "name": "Sla Attainment",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "sla_attainment",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "sla_attainment"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "sla_attainment.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "reopen rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "reopen_rate",
+      "name": "Reopen Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "reopen_rate",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "reopen_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "reopen_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "escalation rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "escalation_rate",
+      "name": "Escalation Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "escalation_rate",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "escalation_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "escalation_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "deflection rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "deflection_rate",
+      "name": "Deflection Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "deflection_rate",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "deflection_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "deflection_rate.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "deflection_rate_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "deflection_rate_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "deflection_rate.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "customer satisfaction"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "customer_satisfaction",
+      "name": "Customer Satisfaction",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "customer_satisfaction",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "customer_satisfaction"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "customer_satisfaction.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "net promoter score"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "net_promoter_score",
+      "name": "Net Promoter Score",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "net_promoter_score",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "net_promoter_score"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "net_promoter_score.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "agent utilization"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "agent_utilization",
+      "name": "Agent Utilization",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "agent_utilization",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "agent_utilization"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "agent_utilization.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "handle time"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "handle_time",
+      "name": "Handle Time",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "handle_time",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "handle_time"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "handle_time.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "handle_time_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "handle_time_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "handle_time.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "transfers per ticket"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "transfers_per_ticket",
+      "name": "Transfers Per Ticket",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "transfers_per_ticket",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "transfers_per_ticket"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "transfers_per_ticket.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "self service sessions"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "self_service_sessions",
+      "name": "Self Service Sessions",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "self_service_sessions",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "self_service_sessions"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "self_service_sessions.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "knowledge article views"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "knowledge_article_views",
+      "name": "Knowledge Article Views",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "knowledge_article_views",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "knowledge_article_views"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "knowledge_article_views.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "incident count"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "incident_count",
+      "name": "Incident Count",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "incident_count",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "incident_count"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "incident_count.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "incident_count_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "incident_count_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "incident_count.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "major incident count"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "major_incident_count",
+      "name": "Major Incident Count",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "major_incident_count",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "major_incident_count"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "major_incident_count.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "mean time to recovery"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "mean_time_to_recovery",
+      "name": "Mean Time To Recovery",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "mean_time_to_recovery",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "mean_time_to_recovery"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "mean_time_to_recovery.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "bug link rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "bug_link_rate",
+      "name": "Bug Link Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "bug_link_rate",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "bug_link_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "bug_link_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "customer wait time"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "customer_wait_time",
+      "name": "Customer Wait Time",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "customer_wait_time",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "customer_wait_time"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "customer_wait_time.v1",
+          "restated": false
+        },
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "customer_wait_time_v2",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "customer_wait_time_v2"
+            }
+          },
+          "default": false,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "customer_wait_time.v2",
+          "published_at": "2025-01-01",
+          "restated": true
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "reply count"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "reply_count",
+      "name": "Reply Count",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "reply_count",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "reply_count"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "reply_count.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "non_additive",
+      "aliases": [
+        "containment rate"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "containment_rate",
+      "name": "Containment Rate",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "AVG",
+              "column": "containment_rate",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "containment_rate"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "containment_rate.v1",
+          "restated": false
+        }
+      ]
+    },
+    {
+      "active": true,
+      "additivity": "additive",
+      "aliases": [
+        "support cost"
+      ],
+      "allowed_calendars": [
+        "calendar",
+        "fiscal"
+      ],
+      "allowed_dimensions": [
+        "region",
+        "country",
+        "support_tier",
+        "channel",
+        "queue",
+        "priority",
+        "severity",
+        "status",
+        "issue_type",
+        "product_area",
+        "feature",
+        "customer_segment",
+        "contract_region"
+      ],
+      "allowed_grains": [
+        "month",
+        "quarter"
+      ],
+      "entity": "ticket",
+      "id": "support_cost",
+      "name": "Support Cost",
+      "versions": [
+        {
+          "backends": {
+            "duckdb": {
+              "aggregation": "SUM",
+              "column": "support_cost",
+              "table": "support_facts",
+              "time_column": "event_date"
+            },
+            "metricflow": {
+              "metric_name": "support_cost"
+            }
+          },
+          "default": true,
+          "effective_from": "2024-01-01",
+          "effective_to": null,
+          "id": "support_cost.v1",
+          "restated": false
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "effect": "allow",
+      "id": "tickets_created_support_manager_only",
+      "object_id": "tickets_created",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "resolution_time_support_manager_only",
+      "object_id": "resolution_time",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "deflection_rate_support_manager_only",
+      "object_id": "deflection_rate",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "handle_time_support_manager_only",
+      "object_id": "handle_time",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "incident_count_support_manager_only",
+      "object_id": "incident_count",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "customer_wait_time_support_manager_only",
+      "object_id": "customer_wait_time",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "agent_team_sensitive",
+      "object_id": "agent_team",
+      "roles": [
+        "support_manager"
+      ]
+    },
+    {
+      "effect": "allow",
+      "id": "knowledge_category_sensitive",
+      "object_id": "knowledge_category",
+      "roles": [
+        "support_manager"
+      ]
+    }
+  ],
+  "registry_id": "support-phase4-pilot",
+  "snapshot_hash": "sha256:c0703e6fff27e1ee7a4165c00ee2c16deb34e8df2caf96b30f1076051b58df55",
+  "snapshot_version": "1.1.0"
+}
