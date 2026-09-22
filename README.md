@@ -12,7 +12,7 @@ This artifact was curated from:
 - frozen source commit: `58d753aa16dbd8e2372475f9002950f4aff7a498`
 - artifact packaging branch: `artifact/publication-package-v1`
 
-See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusion policy.
+See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusion policy. See `EVIDENCE_INDEX.md` for the reviewer-facing evidence map, `PRESERVATION_AUDIT.json` for the frozen-file integrity check, and `SKEPTICAL_ARTIFACT_REVIEW.md` for the current artifact-readiness assessment.
 
 ## What is included
 
