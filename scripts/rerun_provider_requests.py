@@ -43,6 +43,10 @@ def main():
         evidence_env="MIA_V2_ANTHROPIC_EVIDENCE_LOG" if args.system=="mia-v2" else "MIA_PROVIDER_EVIDENCE_LOG"
         if not os.environ.get("ANTHROPIC_API_KEY"): raise RuntimeError("ANTHROPIC_API_KEY is not set")
     env=dict(os.environ); env[evidence_env]=str(out/f"{args.provider}_provider_evidence.jsonl")
+    if args.provider=="gpt":
+        env.setdefault("MIA_OPENAI_PRICING_CONFIG",str(root/"evaluation/openai-pricing.json"))
+    else:
+        env.setdefault("MIA_PROVIDER_PRICING_CONFIG",str(root/"evaluation/anthropic-pricing.json"))
     mia_raw={}
     if args.system=="b4-matched":
         if args.sealed_mia_raw is None: raise RuntimeError("--sealed-mia-raw is required for B4-Matched")
