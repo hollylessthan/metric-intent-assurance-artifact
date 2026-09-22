@@ -12,7 +12,7 @@ This artifact was curated from:
 - frozen source commit: `58d753aa16dbd8e2372475f9002950f4aff7a498`
 - artifact packaging branch: `artifact/publication-package-v1`
 
-See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusion policy. See `EVIDENCE_INDEX.md` for the reviewer-facing evidence map, `PRESERVATION_AUDIT.json` for the frozen-file integrity check, and `SKEPTICAL_ARTIFACT_REVIEW.md` for the current artifact-readiness assessment.
+See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusion policy. See `EVIDENCE_INDEX.md` for the reviewer-facing evidence map and `PRESERVATION_AUDIT.json` for the frozen-file integrity check.
 
 ## What is included
 
@@ -24,7 +24,7 @@ See `SOURCE_SNAPSHOT.json` and `ARTIFACT_MANIFEST.md` for the inclusion/exclusio
 - B0, B1, B2, B4, and MIA prompts plus the final-v2 matched/sensitivity prompts;
 - B3 logic in the local evaluation code (B3 is derived locally and therefore has no provider prompt);
 - frozen reader-facing result summaries and challenge summaries;\n- a provenance map from public artifact paths to the original internal research paths;
-- selected deterministic reproduction scripts and tests.
+- deterministic paper-evidence reproduction scripts, a one-command entry point, and tests.
 
 ## Quick start
 
@@ -69,7 +69,7 @@ The confirmatory system family is:
 | B2 | Structured Text-to-Metrics |
 | B3 | Binary selective baseline, derived locally from confidence/self-consistency |
 | B4 | Generic four-action router without deterministic metric-specific predicates |
-| MIA | Candidate generation + deterministic validation + calibrated four-action policy |
+| MIA | Interpretation → fail-closed parsing → canonicalization → deterministic Assurer → four-action decision |
 
 Because B3 is derived locally, `src/mia/study_metrics.py` contains its evaluation logic rather than a provider prompt.
 
