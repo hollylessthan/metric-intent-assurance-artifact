@@ -1,0 +1,47 @@
+{
+  "study": "phase6b_external_validity_challenge",
+  "workflow_run_id": 35403416152,
+  "workflow_head_sha": "b134acea870b8d0726383fa4634f07e129a5af90",
+  "workflow_conclusion": "success",
+  "challenge_freeze_sha256": "sha256:931b2b363d8332ec8ccee245f2135f0647569b86b665d8c9100df45516f6aedb",
+  "model_input_sha256": "sha256:e75a62c6df32999b70801921c968346cfe9cd1692efc9ed8cd5a6e817196e1d3",
+  "artifacts": {
+    "preflight": {
+      "artifact_id": 10571079672,
+      "artifact_name": "phase6b-challenge-preflight-35403416152",
+      "artifact_digest": "sha256:3e8ba6a758463694591fa1d09bb5cda640fa79c2e6b24121fae4fa1be53dfeb6",
+      "challenge_preflight_json_sha256": "sha256:462a7169d757994e1a236e7d423b15467bf24a2e65b00e664329ce3b10e95bf2"
+    },
+    "gpt": {
+      "artifact_id": 10571940113,
+      "artifact_name": "phase6b-challenge-gpt-35403416152",
+      "artifact_digest": "sha256:9a00dc955135bc416a6399af16c4a2752ae553405483b975185d57a1d5127373",
+      "run_report_sha256": "sha256:17f8256fba15be590b8467059689bc83fcd4aff4fc668eda44edb2094cb30ef0",
+      "status": "pass",
+      "predictions": 48,
+      "provider_failures": 0,
+      "observed_cost_usd": 0.149217
+    },
+    "claude": {
+      "artifact_id": 10572180573,
+      "artifact_name": "phase6b-challenge-claude-35403416152",
+      "artifact_digest": "sha256:439b9567bd391580987209b402fed100018b753182c763aad7b9465119e5605f",
+      "run_report_sha256": "sha256:981e0ef277cabaf0cc2bae592ba64f8a34250b44dc5895f26bff459959431aee",
+      "status": "completed_with_failures",
+      "predictions": 48,
+      "provider_failures": 7,
+      "observed_cost_usd": 0.753759,
+      "failure_note": "All seven terminal failures occurred in the MIA arm and were Anthropic max_tokens terminations. The frozen fail-closed policy mapped each terminal failure to Clarify."
+    },
+    "evaluation": {
+      "artifact_id": 10570798789,
+      "artifact_name": "phase6b-challenge-evaluation-35403416152",
+      "artifact_digest": "sha256:c625234cacaf0418b0aabb41f4cb775f934b9cb8dbdaeb60b9dfa89ebb570c68",
+      "challenge_evaluation_json_sha256": "sha256:a53b57772d45f572c3c9e292d8f9223f4e53ba549425408e277283d05dade61a"
+    }
+  },
+  "resolved_cases": 20,
+  "genuinely_unresolved_cases": 4,
+  "primary_result_source": "reports/phase6b/challenge_evaluation.run35403416152.json",
+  "interpretation_guardrail": "This is a separate external-validity stress test, not a rerun or replacement of Phase 5 confirmatory results. Cases and expectations must not be changed after seeing these outcomes."
+}
