@@ -25,7 +25,8 @@ jobs:
             tests.test_evaluation \
             tests.test_mia_v2_preflight \
             tests.test_mia_v2_readiness_audit \
-            tests.test_v2_matched_baselines
+            tests.test_v2_matched_baselines \
+            tests.test_repro_stats
 
   paper-evidence-reproduction:
     runs-on: ubuntu-latest
