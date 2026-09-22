@@ -1,0 +1,5 @@
+# Frozen integration environment. Keep separate from the zero-dependency core.
+dbt-metricflow[dbt-duckdb]==0.13.0
+dbt-core==1.11.12
+dbt-duckdb==1.10.1
+metricflow==0.211.0
