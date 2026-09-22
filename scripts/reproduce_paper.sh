@@ -28,14 +28,16 @@ download_asset() {
     echo "Using pre-downloaded ${dest}"
     return
   fi
-  if command -v gh >/dev/null 2>&1 && [[ -n "${GH_TOKEN:-}" ]]; then
-    gh release download artifact-v1.0 \
+  if command -v gh >/dev/null 2>&1; then
+    if gh release download artifact-v1.0 \
       --repo hollylessthan/metric-intent-assurance-artifact \
-      --pattern "${asset}" --dir "${DOWNLOADS}"
-  else
-    command -v curl >/dev/null 2>&1 || { echo "curl is required when gh/GH_TOKEN is unavailable" >&2; exit 2; }
-    curl -L --fail --retry 3 -o "${dest}" "${url}"
+      --pattern "${asset}" --dir "${DOWNLOADS}"; then
+      return
+    fi
+    echo "gh release download failed; falling back to curl" >&2
   fi
+  command -v curl >/dev/null 2>&1 || { echo "curl is required when gh download is unavailable" >&2; exit 2; }
+  curl -L --fail --retry 3 -o "${dest}" "${url}"
 }
 
 verify_sha256() {
