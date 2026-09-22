@@ -16,7 +16,7 @@ from typing import Any
 
 from mia.benchmark import load_jsonl
 from mia.models import Action
-from mia.phase5 import Prediction, benchmark_index, intent_scores, scored_rows, summarize
+from mia.study_metrics import Prediction, benchmark_index, intent_scores, scored_rows, summarize
 from mia.registry import Registry
 from mia.v2_matched_baselines import normalize_b2_matched
 
@@ -63,7 +63,7 @@ def cluster_bootstrap_diff(rows: list[dict[str, Any]], samples=10000, seed=20260
 
 
 def identify_topn(root: Path, benchmark: list[dict[str, Any]]):
-    utterances=read_jsonl(root/"benchmarks/phase4/utterances.jsonl")
+    utterances=read_jsonl(root/"benchmark/utterances.jsonl")
     affected=[u for u in utterances if u.get("split")=="test" and str(u.get("template_family","")).endswith("/top_n")]
     case_ids=sorted({u["canonical_case_id"] for u in affected})
     surface_utterance_ids=sorted({u["utterance_id"] for u in affected})
@@ -179,7 +179,7 @@ def regenerate_b2(root: Path, mia_dir: Path, provider: str) -> list[Prediction]:
     out=[]
     for adapter in requests:
         case=adapter["case"]
-        registry=Registry.load(root/f"registries/phase4/{case['domain']}/v1.json")
+        registry=Registry.load(root/f"registries/{case['domain']}.json")
         pred,_=normalize_b2_matched(
             raw[case["request_id"]],case,registry,
             run_id=f"topn-sensitivity-b2-{provider}",
@@ -237,7 +237,7 @@ def main():
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
     root=args.repo_root.resolve()
-    benchmark=load_jsonl(root/"benchmarks/phase4/final/canonical_cases.v1.1.jsonl")
+    benchmark=load_jsonl(root/"benchmark/canonical_cases.v1.1.jsonl")
     defect=identify_topn(root,benchmark)
     excluded_groups=set(defect["contrastive_groups"])
     excluded_utts=set(defect["prediction_utterance_ids"])
@@ -255,7 +255,7 @@ def main():
         }
     report={
         "schema_version":"1.0.0",
-        "study_id":"phase6-topn-template-defect-sensitivity",
+        "study_id":"topn-template-defect-sensitivity",
         "evidence_class":"posthoc_zero_cost_benchmark_defect_sensitivity",
         "provider_calls":0,
         "frozen_gold_modified":False,
